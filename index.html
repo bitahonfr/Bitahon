@@ -1,2 +1,120 @@
-<h1>Bitahon</h1>
-<p>Site en préparation : Tikoun Haklali complet.</p>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitahon — Tikoun Haklali</title>
+<style>
+:root{--bg:#f7efe2;--card:#fffaf2;--text:#2d2118;--gold:#b8893b;--soft:#ead8bd;--muted:#7b6652}
+body.dark{--bg:#120f0b;--card:#211a14;--text:#f6e8cf;--gold:#d8aa5d;--soft:#3a2b1f;--muted:#cbb99d}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at top,#fff6e6,var(--bg));font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--text)}
+header{padding:34px 18px;text-align:center;border-bottom:1px solid var(--soft)}
+.logo{font-size:42px;font-weight:800;color:var(--gold);letter-spacing:.5px}
+.sub{font-size:16px;color:var(--muted);margin-top:8px}
+.controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 12px}
+button{border:1px solid var(--soft);background:var(--card);color:var(--text);border-radius:999px;padding:11px 15px;font-weight:650}
+button.active{background:var(--gold);color:#fff}
+main{max-width:900px;margin:auto;padding:16px}
+.card{background:rgba(255,250,242,.88);background:var(--card);border:1px solid var(--soft);border-radius:24px;padding:22px;margin:18px 0;box-shadow:0 12px 35px rgba(80,45,10,.12)}
+h2{margin:0 0 16px;color:var(--gold);font-size:25px}
+.hebrew{font-family:"Times New Roman","Noto Serif Hebrew",serif;font-size:32px;line-height:2.05;text-align:right}
+.verse{display:block;margin-bottom:14px}
+small{color:var(--muted);font-size:13px}
+footer{text-align:center;padding:28px;color:var(--muted);font-size:13px}
+.loading{text-align:center;padding:40px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Bitahon</div>
+  <div class="sub">תיקון הכללי — Tikoun Haklali</div>
+</header>
+
+<div class="controls">
+  <button onclick="toggleDark()">🌙 Mode nuit</button>
+  <button onclick="showAll()" class="active">Tout lire</button>
+  <button onclick="scrollTopSmooth()">Haut</button>
+</div>
+
+<main id="app">
+  <div class="loading">Chargement du Tikoun Haklali...</div>
+</main>
+
+<footer>
+  Texte hébreu chargé depuis Sefaria. Aucune redirection externe.
+</footer>
+
+<script>
+const psalms = [
+  {n:1, title:"Psaume 16"},
+  {n:2, title:"Psaume 32"},
+  {n:3, title:"Psaume 41"},
+  {n:4, title:"Psaume 42"},
+  {n:5, title:"Psaume 59"},
+  {n:6, title:"Psaume 77"},
+  {n:7, title:"Psaume 90"},
+  {n:8, title:"Psaume 105"},
+  {n:9, title:"Psaume 137"},
+  {n:10, title:"Psaume 150"}
+];
+
+function clean(txt){
+  return String(txt || "")
+    .replace(/<[^>]+>/g,"")
+    .replace(/&nbsp;/g," ")
+    .trim();
+}
+
+async function loadPsalm(item){
+  const url = `https://www.sefaria.org/api/texts/Tikkun_HaKlali.${item.n}?context=0&commentary=0`;
+  const res = await fetch(url);
+  const data = await res.json();
+  const verses = Array.isArray(data.he) ? data.he : [data.he];
+  return `
+    <section class="card" id="psalm-${item.n}">
+      <h2>${item.title}</h2>
+      <div class="hebrew">
+        ${verses.map((v,i)=>`<span class="verse">${clean(v)}</span>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
+async function init(){
+  const app = document.getElementById("app");
+  try{
+    const html = await Promise.all(psalms.map(loadPsalm));
+    app.innerHTML = html.join("");
+  }catch(e){
+    app.innerHTML = `
+      <section class="card">
+        <h2>Erreur de chargement</h2>
+        <p>Le texte n’a pas pu se charger. Vérifie ta connexion Internet puis recharge la page.</p>
+        <small>Le site ne redirige pas l’utilisateur ; il récupère seulement le texte hébreu depuis Sefaria.</small>
+      </section>
+    `;
+  }
+}
+
+function toggleDark(){
+  document.body.classList.toggle("dark");
+  localStorage.setItem("bitahonDark", document.body.classList.contains("dark"));
+}
+
+function showAll(){
+  document.querySelectorAll(".card").forEach(c=>c.style.display="block");
+}
+
+function scrollTopSmooth(){
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+if(localStorage.getItem("bitahonDark")==="true"){
+  document.body.classList.add("dark");
+}
+
+init();
+</script>
+</body>
+</html>
