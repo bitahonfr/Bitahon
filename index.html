@@ -67,7 +67,7 @@ function clean(txt){
 }
 
 async function loadPsalm(item){
-  const url = `https://www.sefaria.org/api/texts/Tikkun_HaKlali.${item.n}?context=0&commentary=0`;
+  const url = `https://www.sefaria.org/api/texts/Tikkun_HaKlali.${item.n + 1}?context=0&commentary=0`;
   const res = await fetch(url);
   const data = await res.json();
   const verses = Array.isArray(data.he) ? data.he : [data.he];
