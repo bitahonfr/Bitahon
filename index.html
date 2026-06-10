@@ -1,120 +1,190 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bitahon — Tikoun Haklali</title>
+<title>Bitahon</title>
 <style>
-:root{--bg:#f7efe2;--card:#fffaf2;--text:#2d2118;--gold:#b8893b;--soft:#ead8bd;--muted:#7b6652}
-body.dark{--bg:#120f0b;--card:#211a14;--text:#f6e8cf;--gold:#d8aa5d;--soft:#3a2b1f;--muted:#cbb99d}
+:root{
+  --bg:#f7efe3;--card:#fffaf2;--text:#2b2118;--muted:#7b6754;
+  --gold:#b8893b;--border:#ead8bd;
+}
+body.dark{--bg:#12100c;--card:#211a14;--text:#f8ead2;--muted:#cbb99d;--gold:#d8aa5d;--border:#3b2d21}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at top,#fff6e6,var(--bg));font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--text)}
-header{padding:34px 18px;text-align:center;border-bottom:1px solid var(--soft)}
-.logo{font-size:42px;font-weight:800;color:var(--gold);letter-spacing:.5px}
-.sub{font-size:16px;color:var(--muted);margin-top:8px}
-.controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 12px}
-button{border:1px solid var(--soft);background:var(--card);color:var(--text);border-radius:999px;padding:11px 15px;font-weight:650}
-button.active{background:var(--gold);color:#fff}
-main{max-width:900px;margin:auto;padding:16px}
-.card{background:rgba(255,250,242,.88);background:var(--card);border:1px solid var(--soft);border-radius:24px;padding:22px;margin:18px 0;box-shadow:0 12px 35px rgba(80,45,10,.12)}
-h2{margin:0 0 16px;color:var(--gold);font-size:25px}
-.hebrew{font-family:"Times New Roman","Noto Serif Hebrew",serif;font-size:32px;line-height:2.05;text-align:right}
+body{margin:0;background:radial-gradient(circle at top,#fff4dc,var(--bg));color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+header{position:sticky;top:0;z-index:99;background:var(--card);border-bottom:1px solid var(--border);padding:14px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:34px;font-weight:900;color:var(--gold)}
+#menuBtn{font-size:30px;border:0;background:transparent;color:var(--text)}
+#menu{display:none;background:var(--card);border:1px solid var(--border);border-radius:18px;margin-top:12px;overflow:hidden}
+#menu.open{display:block}
+#menu button{display:block;width:100%;padding:16px;border:0;background:transparent;text-align:left;color:var(--text);font-weight:800;font-size:16px;border-bottom:1px solid var(--border)}
+#menu button:last-child{border-bottom:0}
+.page{display:none;max-width:1000px;margin:auto;padding:24px 16px}
+.page.active{display:block}
+.hero{min-height:75vh;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-box{background:var(--card);border:1px solid var(--border);border-radius:30px;padding:36px 20px;box-shadow:0 15px 40px rgba(80,45,10,.12)}
+.hero h1{font-size:64px;margin:0;color:var(--gold)}
+.hero p{color:var(--muted);font-size:18px;line-height:1.7}
+.card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:20px;margin:16px 0;box-shadow:0 10px 28px rgba(80,45,10,.1)}
+h2,h3{color:var(--gold)}
+.hebrew{direction:rtl;text-align:right;font-family:"Times New Roman",serif;font-size:32px;line-height:2.1}
 .verse{display:block;margin-bottom:14px}
-small{color:var(--muted);font-size:13px}
-footer{text-align:center;padding:28px;color:var(--muted);font-size:13px}
-.loading{text-align:center;padding:40px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.product-img{aspect-ratio:10/15;border-radius:18px;background:linear-gradient(135deg,#2b2118,#d8aa5d);display:flex;align-items:center;justify-content:center;color:white;font-size:24px;font-weight:900;margin-bottom:12px}
+.price{font-size:24px;color:var(--gold);font-weight:900}
+.btn{display:inline-block;background:var(--gold);color:white;padding:12px 16px;border-radius:999px;text-decoration:none;font-weight:900}
+.dvar-text{line-height:1.7}
+footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
+
 <body>
 <header>
-  <div class="logo">Bitahon</div>
-  <div class="sub">תיקון הכללי — Tikoun Haklali</div>
+  <div class="top">
+    <div class="logo">Bitahon</div>
+    <button id="menuBtn" type="button">⋮</button>
+  </div>
+
+  <nav id="menu">
+    <button onclick="showPage('home')">🏠 Accueil</button>
+    <button onclick="showPage('tikoun')">📖 Tikoun Haklali</button>
+    <button onclick="showPage('dvar')">📚 Divré Torah</button>
+    <button onclick="showPage('cadres')">🖼️ Cadres Bitahon</button>
+    <button onclick="showPage('contact')">📞 Contact</button>
+    <button onclick="toggleDark()">🌙 Mode nuit</button>
+  </nav>
 </header>
 
-<div class="controls">
-  <button onclick="toggleDark()">🌙 Mode nuit</button>
-  <button onclick="showAll()" class="active">Tout lire</button>
-  <button onclick="scrollTopSmooth()">Haut</button>
-</div>
+<main>
+<section id="home" class="page active hero">
+  <div class="hero-box">
+    <h1>Bitahon</h1>
+    <p>Un espace dédié au Tikoun Haklali, aux enseignements de Torah et aux créations inspirantes.</p>
+    <p><strong>Foi • Prière • Torah • Simha</strong></p>
+  </div>
+</section>
 
-<main id="app">
-  <div class="loading">Chargement du Tikoun Haklali...</div>
+<section id="tikoun" class="page">
+  <h2>📖 Tikoun Haklali</h2>
+  <div class="card">
+    <h3>Prière avant</h3>
+    <p>Emplacement réservé pour la prière avant le Tikoun Haklali.</p>
+  </div>
+  <div id="psalms" class="card">Chargement des psaumes...</div>
+  <div class="card">
+    <h3>Prière après</h3>
+    <p>Emplacement réservé pour la prière après le Tikoun Haklali.</p>
+  </div>
+</section>
+
+<section id="dvar" class="page">
+  <h2>📚 Divré Torah</h2>
+
+  <div class="card"><h3>Aharei Mot – Kedochim</h3><p class="dvar-text">Le Cohen Gadol retirait ses habits en or avant d’entrer dans le Kodesh Hakodashim. Cela nous enseigne qu’il faut retirer la honte, les fautes et les pensées négatives pour se rapprocher d’Hachem.</p></div>
+
+  <div class="card"><h3>Emor</h3><p class="dvar-text">La paracha Emor rappelle l’importance du Kiddouch Hachem : chaque parole et chaque comportement peuvent embellir ou abîmer l’image de la Torah.</p></div>
+
+  <div class="card"><h3>Behar – Behouqotaï</h3><p class="dvar-text">La Chmita enseigne la emouna : tout vient d’Hachem, même les moments difficiles. Il faut avancer avec confiance dans le cadre de la Torah.</p></div>
+
+  <div class="card"><h3>Bamidbar</h3><p class="dvar-text">Hachem compte les Bné Israël parce qu’ils sont aimés. Chaque juif reste précieux aux yeux d’Hachem et peut toujours avancer.</p></div>
+
+  <div class="card"><h3>Chavouot</h3><p class="dvar-text">Chavouot rappelle le don de la Torah et l’importance de ne pas oublier Hachem dans les jours ordinaires. Il faut Lui parler chaque jour.</p></div>
+
+  <div class="card"><h3>Behaâlotekha</h3><p class="dvar-text">La prière doit être faite avec concentration, respect et conscience que l’on se tient devant le Maître du monde.</p></div>
+
+  <div class="card"><h3>Nasso</h3><p class="dvar-text">Même lorsqu’une personne faute, elle ne doit pas tomber dans le désespoir. L’essentiel est de chercher la vérité et de continuer à avancer.</p></div>
+</section>
+
+<section id="cadres" class="page">
+  <h2>🖼️ Cadres Bitahon</h2>
+  <p>Cadres au format <strong>10 × 15 cm</strong>. Prix unique : <strong>7,70 €</strong>.</p>
+  <div class="grid" id="products"></div>
+</section>
+
+<section id="contact" class="page">
+  <h2>📞 Contact</h2>
+  <div class="card">
+    <p>Pour une question ou une commande :</p>
+    <p><strong>06 51 97 76 74</strong></p>
+    <a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20un%20cadre%20Bitahon.">Écrire sur WhatsApp</a>
+  </div>
+</section>
 </main>
 
-<footer>
-  Texte hébreu chargé depuis Sefaria. Aucune redirection externe.
-</footer>
+<footer>Bitahon © — Aucun nom personnel affiché</footer>
 
 <script>
-const psalms = [
-  {n:1, title:"Psaume 16"},
-  {n:2, title:"Psaume 32"},
-  {n:3, title:"Psaume 41"},
-  {n:4, title:"Psaume 42"},
-  {n:5, title:"Psaume 59"},
-  {n:6, title:"Psaume 77"},
-  {n:7, title:"Psaume 90"},
-  {n:8, title:"Psaume 105"},
-  {n:9, title:"Psaume 137"},
-  {n:10, title:"Psaume 150"}
-];
+document.getElementById("menuBtn").addEventListener("click",function(){
+  document.getElementById("menu").classList.toggle("open");
+});
 
-function clean(txt){
-  return String(txt || "")
-    .replace(/<[^>]+>/g,"")
-    .replace(/&nbsp;/g," ")
-    .trim();
-}
-
-async function loadPsalm(item){
-  const url = `https://www.sefaria.org/api/texts/Tikkun_HaKlali.${item.n + 1}?context=0&commentary=0`;
-  const res = await fetch(url);
-  const data = await res.json();
-  const verses = Array.isArray(data.he) ? data.he : [data.he];
-  return `
-    <section class="card" id="psalm-${item.n}">
-      <h2>${item.title}</h2>
-      <div class="hebrew">
-        ${verses.map((v,i)=>`<span class="verse">${clean(v).replace(/^([א-ת]{1,3})(\s*)([א-ת])/u, '$1 $3')}</span>`).join("")}
-      </div>
-    </section>
-  `;
-}
-
-async function init(){
-  const app = document.getElementById("app");
-  try{
-    const html = await Promise.all(psalms.map(loadPsalm));
-    app.innerHTML = html.join("");
-  }catch(e){
-    app.innerHTML = `
-      <section class="card">
-        <h2>Erreur de chargement</h2>
-        <p>Le texte n’a pas pu se charger. Vérifie ta connexion Internet puis recharge la page.</p>
-        <small>Le site ne redirige pas l’utilisateur ; il récupère seulement le texte hébreu depuis Sefaria.</small>
-      </section>
-    `;
-  }
+function showPage(id){
+  document.querySelectorAll(".page").forEach(function(p){p.classList.remove("active")});
+  document.getElementById(id).classList.add("active");
+  document.getElementById("menu").classList.remove("open");
+  window.scrollTo(0,0);
 }
 
 function toggleDark(){
   document.body.classList.toggle("dark");
-  localStorage.setItem("bitahonDark", document.body.classList.contains("dark"));
-}
-
-function showAll(){
-  document.querySelectorAll(".card").forEach(c=>c.style.display="block");
-}
-
-function scrollTopSmooth(){
-  window.scrollTo({top:0,behavior:"smooth"});
+  localStorage.setItem("bitahonDark",document.body.classList.contains("dark"));
 }
 
 if(localStorage.getItem("bitahonDark")==="true"){
   document.body.classList.add("dark");
 }
 
-init();
+const psalms=[
+  {n:2,t:"Psaume 16"},
+  {n:3,t:"Psaume 32"},
+  {n:4,t:"Psaume 41"},
+  {n:5,t:"Psaume 42"},
+  {n:6,t:"Psaume 59"},
+  {n:7,t:"Psaume 77"},
+  {n:8,t:"Psaume 90"},
+  {n:9,t:"Psaume 105"},
+  {n:10,t:"Psaume 137"},
+  {n:11,t:"Psaume 150"}
+];
+
+function clean(txt){
+  return String(txt||"")
+    .replace(/<[^>]+>/g,"")
+    .replace(/&nbsp;/g," ")
+    .trim()
+    .replace(/^([א-ת]{1,3})(\s*)([א-ת])/u,'$1 $3');
+}
+
+async function loadPsalms(){
+  const box=document.getElementById("psalms");
+  try{
+    const html=await Promise.all(psalms.map(async function(p){
+      const res=await fetch("https://www.sefaria.org/api/texts/Tikkun_HaKlali."+p.n+"?context=0&commentary=0");
+      const data=await res.json();
+      const verses=Array.isArray(data.he)?data.he:[data.he];
+      return '<div class="card"><h3>'+p.t+'</h3><div class="hebrew">'+verses.map(function(v){return '<span class="verse">'+clean(v)+'</span>'}).join("")+'</div></div>';
+    }));
+    box.innerHTML=html.join("");
+  }catch(e){
+    box.innerHTML="<div class='card'>Erreur de chargement des psaumes. Vérifie la connexion Internet.</div>";
+  }
+}
+
+loadPsalms();
+
+const products=document.getElementById("products");
+for(let i=1;i<=9;i++){
+  products.innerHTML += `
+  <div class="card">
+    <div class="product-img">Cadre ${i}</div>
+    <h3>Cadre ${i}</h3>
+    <p>Format : 10 × 15 cm</p>
+    <p class="price">7,70 €</p>
+    <a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%20${i}%20Bitahon.">Commander</a>
+  </div>`;
+}
 </script>
 </body>
 </html>
