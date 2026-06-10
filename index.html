@@ -146,47 +146,39 @@ footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
 <section id="dvar" class="page">
   <h2>📚 Divré Torah</h2>
 
-  <div id="pdfViewer" class="card" style="display:none;">
-    <button class="btn" onclick="closePdf()">⬅ Retour aux Divré Torah</button>
-    <br><br>
-    <iframe id="pdfFrame" src="" style="width:100%;height:80vh;border:0;border-radius:18px;background:white;"></iframe>
+  <div class="card">
+    <h3>📖 Divré Torah – Beha'alotekha</h3>
+    <a class="btn" href="dvar torah 7.pdf" target="_blank">📄 Lire le PDF</a>
   </div>
 
-  <div id="dvarList">
-    <div class="card">
-      <h3>📖 Divré Torah – Beha'alotekha</h3>
-      <button class="btn" onclick="openPdf('dvar torah 7.pdf')">Lire sur le site</button>
-    </div>
+  <div class="card">
+    <h3>📖 Divré Torah – Nasso</h3>
+    <a class="btn" href="dvar torah 6.pdf" target="_blank">📄 Lire le PDF</a>
+  </div>
 
-    <div class="card">
-      <h3>📖 Divré Torah – Nasso</h3>
-      <button class="btn" onclick="openPdf('dvar torah 6.pdf')">Lire sur le site</button>
-    </div>
+  <div class="card">
+    <h3>📖 Divré Torah – Chavouot</h3>
+    <a class="btn" href="dvar torah 5.pdf" target="_blank">📄 Lire le PDF</a>
+  </div>
 
-    <div class="card">
-      <h3>📖 Divré Torah – Chavouot</h3>
-      <button class="btn" onclick="openPdf('dvar torah 5.pdf')">Lire sur le site</button>
-    </div>
+  <div class="card">
+    <h3>📖 Divré Torah – Bamidbar</h3>
+    <a class="btn" href="dvar torah 4.pdf" target="_blank">📄 Lire le PDF</a>
+  </div>
 
-    <div class="card">
-      <h3>📖 Divré Torah – Bamidbar</h3>
-      <button class="btn" onclick="openPdf('dvar torah 4.pdf')">Lire sur le site</button>
-    </div>
+  <div class="card">
+    <h3>📖 Divré Torah – Behar – Be'houkotaï</h3>
+    <a class="btn" href="dvar torah 3.pdf" target="_blank">📄 Lire le PDF</a>
+  </div>
 
-    <div class="card">
-      <h3>📖 Divré Torah – Behar – Be'houkotaï</h3>
-      <button class="btn" onclick="openPdf('dvar torah 3.pdf')">Lire sur le site</button>
-    </div>
+  <div class="card">
+    <h3>📖 Divré Torah – Emor</h3>
+    <a class="btn" href="dvar torah 2.pdf" target="_blank">📄 Lire le PDF</a>
+  </div>
 
-    <div class="card">
-      <h3>📖 Divré Torah – Emor</h3>
-      <button class="btn" onclick="openPdf('dvar torah 2.pdf')">Lire sur le site</button>
-    </div>
-
-    <div class="card">
-      <h3>📖 Divré Torah – A'harei Mot – Kedochim</h3>
-      <button class="btn" onclick="openPdf('(anonymous).pdf')">Lire sur le site</button>
-    </div>
+  <div class="card">
+    <h3>📖 Divré Torah – A'harei Mot – Kedochim</h3>
+    <a class="btn" href="(anonymous).pdf" target="_blank">📄 Lire le PDF</a>
   </div>
 </section>
 <section id="cadres" class="page">
@@ -379,19 +371,7 @@ for(let i=1;i<=9;i++){
     <a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%20${i}%20Bitahon.">Commander</a>
   </div>`;
 }
-function openPdf(file){
-  document.getElementById("dvarList").style.display = "none";
-  document.getElementById("pdfViewer").style.display = "block";
-  document.getElementById("pdfFrame").src = file;
-  window.scrollTo(0,0);
-}
 
-function closePdf(){
-  document.getElementById("pdfFrame").src = "";
-  document.getElementById("pdfViewer").style.display = "none";
-  document.getElementById("dvarList").style.display = "block";
-  window.scrollTo(0,0);
-}
 </script>
 </body>
 </html>
