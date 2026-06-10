@@ -307,12 +307,16 @@ document.getElementById("menuBtn").addEventListener("click",function(){
 });
 
 function showPage(id){
-  document.querySelectorAll(".page").forEach(function(p){p.classList.remove("active")});
+  document.querySelectorAll(".page").forEach(function(p){
+    p.classList.remove("active");
+  });
+
   document.getElementById(id).classList.add("active");
   document.getElementById("menu").classList.remove("open");
+
+  window.location.hash = id;
   window.scrollTo(0,0);
 }
-
 function toggleDark(){
   document.body.classList.toggle("dark");
   localStorage.setItem("bitahonDark",document.body.classList.contains("dark"));
