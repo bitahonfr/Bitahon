@@ -371,7 +371,14 @@ for(let i=1;i<=9;i++){
     <a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%20${i}%20Bitahon.">Commander</a>
   </div>`;
 }
+// Ouvre automatiquement la bonne section si le lien contient un #
+window.addEventListener("load", function () {
+  const page = window.location.hash.replace("#", "");
 
+  if (page && document.getElementById(page)) {
+    showPage(page);
+  }
+});
 </script>
 </body>
 </html>
