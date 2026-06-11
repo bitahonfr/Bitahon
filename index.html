@@ -147,9 +147,16 @@ footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
   <h2>📚 Divré Torah</h2>
 
   <div class="card">
-    <h3>📖 Divré Torah – Beha'alotekha</h3>
-    <a class="btn" href="dvar torah 7.pdf" target="_blank">📄 Lire le PDF</a>
-  </div>
+  <h3>📖 Divré Torah – Beha'alotekha</h3>
+
+  <button class="btn" onclick="showPage('behaalotekha')">
+    📖 Lire sur le site
+  </button>
+
+  <a class="btn" href="dvar torah 7.pdf" target="_blank" style="margin-top:10px;">
+    🖨️ Imprimer / PDF
+  </a>
+</div>
 
   <div class="card">
     <h3>📖 Divré Torah – Nasso</h3>
@@ -181,7 +188,26 @@ footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
     <a class="btn" href="(anonymous).pdf" target="_blank">📄 Lire le PDF</a>
   </div>
 </section>
-<section id="cadres" class="page">
+<section id="behaalotekha" class="page">
+  <h2>📖 Divré Torah – Beha'alotekha</h2>
+
+  <div class="card">
+    <button class="btn" onclick="showPage('dvar')">
+      ← Retour aux Divré Torah
+    </button>
+
+    <a class="btn" href="dvar torah 7.pdf" target="_blank" style="margin-top:10px;">
+      🖨️ Imprimer / PDF
+    </a>
+  </div>
+
+  <div class="card">
+    <img src="IMG_2082.jpeg" alt="Beha'alotekha page 1" style="width:100%;border-radius:18px;margin-bottom:16px;">
+    <img src="IMG_2083.jpeg" alt="Beha'alotekha page 2" style="width:100%;border-radius:18px;margin-bottom:16px;">
+    <img src="IMG_2084.jpeg" alt="Beha'alotekha page 3" style="width:100%;border-radius:18px;">
+  </div>
+</section>
+  <section id="cadres" class="page">
   <h2>🖼️ Cadres Bitahon</h2>
   <p>Cadres au format <strong>10 × 15 cm</strong>. Prix unique : <strong>7,70 €</strong>.</p>
 
