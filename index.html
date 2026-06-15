@@ -570,7 +570,7 @@ async function loadPsalms(){
       const data=await res.json();
       let verses=Array.isArray(data.he)?data.he:[data.he];
 
-if(p.n===11){
+if(p.t==="Psaume 150"){
   verses=verses.slice(0,6);
 }
       return '<div class="card"><h3>'+p.t+'</h3><div class="hebrew">'+verses.map(function(v){return '<span class="verse">'+clean(v)+'</span>'}).join("")+'</div></div>';
