@@ -568,7 +568,11 @@ async function loadPsalms(){
     const html=await Promise.all(psalms.map(async function(p){
       const res=await fetch("https://www.sefaria.org/api/texts/Tikkun_HaKlali."+p.n+"?context=0&commentary=0");
       const data=await res.json();
-      const verses=Array.isArray(data.he)?data.he:[data.he];
+      let verses=Array.isArray(data.he)?data.he:[data.he];
+
+if(p.n===11){
+  verses=verses.slice(0,6);
+}
       return '<div class="card"><h3>'+p.t+'</h3><div class="hebrew">'+verses.map(function(v){return '<span class="verse">'+clean(v)+'</span>'}).join("")+'</div></div>';
     }));
     box.innerHTML=html.join("");
