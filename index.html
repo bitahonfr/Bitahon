@@ -153,8 +153,8 @@ footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
   <div class="card">
     <h2>✨ Nouveau cette semaine</h2>
 
-    <button class="btn" onclick="showPage('chelah')">
-      📚 Dvar Torah – Chelah
+    <button class="btn" onclick="showPage('korah')">
+      📚 Dvar Torah – Korah
     </button>
 
     <br><br>
@@ -346,6 +346,17 @@ De même que Tu as remis Ta sainte Torah à Moché Ton serviteur – durant le j
   <section id="dvar" class="page">
   <h2>📚 Divré Torah</h2>
 <div class="card">
+  <h3>📖 Divré Torah – Korah</h3>
+
+  <button class="btn" onclick="showPage('korah')">
+    📖 Lire sur le site
+  </button>
+
+  <a class="btn" href="dvar torah 9.pdf" target="_blank">
+    🖨️ Imprimer / PDF
+  </a>
+</div>
+    <div class="card">
     <h3>📖 Divré Torah – Chelah</h3>
 
     <button class="btn" onclick="showPage('chelah')">
@@ -435,6 +446,28 @@ De même que Tu as remis Ta sainte Torah à Moché Ton serviteur – durant le j
         <img src="IMG_2149.jpeg" alt="Chelah" style="width:100%;border-radius:15px;margin-top:15px;">
         <img src="IMG_2150.jpeg" alt="Chelah" style="width:100%;border-radius:15px;margin-top:15px;">
     </div>
+</section>
+<section id="korah" class="page">
+  <h2>📖 Divré Torah – Korah</h2>
+
+  <div class="card">
+    <button class="btn" onclick="showPage('dvar')">
+      ← Retour aux Divré Torah
+    </button>
+
+    <a class="btn" href="dvar torah 9.pdf" target="_blank">
+      🖨️ Imprimer / PDF
+    </a>
+  </div>
+
+  <div class="card">
+    <iframe
+      src="dvar torah 9.pdf"
+      width="100%"
+      height="900"
+      style="border:none;border-radius:20px;">
+    </iframe>
+  </div>
 </section>
   <section id="cadres" class="page">
   <h2>🖼️ Cadres Bitahon</h2>
