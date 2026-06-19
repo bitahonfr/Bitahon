@@ -40,7 +40,14 @@ h2,h3{color:var(--gold)}
 .hebrew{direction:rtl;text-align:right;font-family:"Times New Roman",serif;font-size:32px;line-height:2.1}
 .verse{display:block;margin-bottom:14px}
 .grid{display:grid;grid-template-columns:1fr;gap:16px}
-.product-img{aspect-ratio:10/15;border-radius:18px;background:linear-gradient(135deg,#2b2118,#d8aa5d);display:flex;align-items:center;justify-content:center;color:white;font-size:24px;font-weight:900;margin-bottom:12px}
+.product-img{
+  width:100%;
+  max-width:400px;
+  display:block;
+  margin:15px auto;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
 .price{font-size:24px;color:var(--gold);font-weight:900}
 .btn{
   display:inline-block;
