@@ -73,6 +73,22 @@ h2,h3{color:var(--gold)}
 .btn:active{
   transform:scale(.97);
 }
+.polo-title{
+text-align:center;
+font-size:48px;
+font-weight:900;
+color:var(--gold);
+margin-bottom:25px;
+text-shadow:0 0 20px rgba(184,137,59,.4);
+}
+
+.product-img{
+width:100%;
+max-width:900px;
+display:block;
+margin:auto;
+border-radius:20px;
+}
 .dvar-text{line-height:1.7}
 footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
 @media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}}
@@ -202,7 +218,11 @@ footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
     <button class="btn" onclick="showPage('dvar')">
       📚 Divré Torah
     </button>
+<br><br>
 
+<button class="btn" onclick="showPage('poloBitahon')">
+👕 Polo Bitahon
+</button>
     <br><br>
 
     <button class="btn" onclick="showPage('cadres')">
@@ -837,6 +857,36 @@ Instaure rapidement le trône de David, amène-nous vite, sans plus tarder, le M
     <img src="IMG_2277.jpeg" alt="Korah 2" class="dvar-img">
     <img src="IMG_2278.jpeg" alt="Korah 3" class="dvar-img">
   </div>
+</section>
+  <section id="poloBitahon" class="page">
+
+<h1 class="polo-title">👕 Polo Bitahon</h1>
+
+<p style="text-align:center;font-size:18px;max-width:700px;margin:auto;margin-bottom:30px;">
+Premier vêtement officiel de la collection Bitahon.
+Polo noir avec logo Bitahon poitrine, grand logo au dos et extrait du Likouté Tefilot sur la manche.
+</p>
+
+<div class="card">
+<img src="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866..." class="product-img">
+</div>
+
+<div class="card">
+<img src="8BF6E96F-4DDB-4FCE-A710-E765426297D..." class="product-img">
+</div>
+
+<div class="card">
+<img src="72070F87-85E0-4444-995C-C8498F8240E..." class="product-img">
+</div>
+
+<div class="card">
+<img src="335E0114-A617-4E3C-BA3C-9ACB6449BFC..." class="product-img">
+</div>
+
+<button class="btn" onclick="showPage('home')">
+← Retour à l'accueil
+</button>
+
 </section>
   <section id="cadres" class="page">
   <h2>🖼️ Cadres Bitahon</h2>
