@@ -121,6 +121,20 @@
     .quote-card{text-align:center;padding:28px}.quote-card blockquote{margin:0;color:var(--text);font:italic clamp(20px,4vw,29px)/1.55 Georgia,serif}.quote-card cite{display:block;margin-top:12px;color:var(--gold);font:800 11px Inter,sans-serif;letter-spacing:1.8px;text-transform:uppercase}
     .featured-card{display:grid;align-items:center;gap:20px;background:linear-gradient(135deg,rgba(183,127,45,.19),transparent 58%),var(--surface)}
     .featured-card p{color:var(--muted);line-height:1.65}
+    .home-focus-grid{display:grid;grid-template-columns:1fr;gap:18px;margin:18px 0}
+    .home-focus{
+      min-height:100%;display:flex;flex-direction:column;justify-content:space-between;
+      background:radial-gradient(circle at 85% 12%,rgba(244,212,141,.16),transparent 12rem),linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.012)),var(--surface);
+    }
+    .home-focus .preview{
+      width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:20px;border:1px solid var(--border);
+      box-shadow:0 18px 45px rgba(0,0,0,.28);margin:14px 0 18px;
+    }
+    .home-focus-meta{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 0}
+    .soft-pill{
+      display:inline-flex;align-items:center;gap:6px;padding:8px 11px;border:1px solid var(--border);border-radius:999px;
+      background:rgba(217,173,91,.08);color:var(--muted);font-size:12px;font-weight:800;
+    }
     .explore-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
     .explore-tile{
       position:relative;z-index:2;min-height:132px;padding:18px;border:1px solid var(--border);border-radius:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;
@@ -139,13 +153,30 @@
     .product-layout{display:grid;gap:22px}
     .product-main{width:100%;border-radius:22px;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.35)}
     .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:9px}.thumbs img{width:100%;aspect-ratio:1/1;object-fit:cover;border:1px solid var(--border);border-radius:13px}
-    .size-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.size-list span{min-width:42px;padding:10px;border:1px solid var(--border);border-radius:12px;text-align:center;font-weight:800}
+    .shirt-carousel{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:26px;background:#0b0906;box-shadow:0 25px 65px rgba(0,0,0,.38)}
+    .shirt-carousel-img{width:100%;height:min(62vh,560px);min-height:360px;display:block;object-fit:cover}
+    .carousel-arrow{
+      position:absolute;top:50%;z-index:3;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;
+      border:1px solid rgba(244,212,141,.45);background:rgba(9,8,6,.72);color:var(--gold-bright);
+      font-size:38px;line-height:1;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 28px rgba(0,0,0,.35);
+    }
+    .carousel-arrow.prev{left:12px}.carousel-arrow.next{right:12px}
+    .carousel-dots{position:absolute;left:0;right:0;bottom:14px;z-index:4;display:flex;justify-content:center;gap:8px}
+    .carousel-dots button{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.42);cursor:pointer}
+    .carousel-dots button.active{width:25px;border-radius:999px;background:var(--gold-bright)}
+    .shirt-video-wrap{margin-top:16px}
+    .shirt-video{width:100%;display:block;border-radius:22px;border:1px solid var(--border);box-shadow:0 18px 45px rgba(0,0,0,.28);background:#000}
+    .product-note{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.6}
+    .size-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.size-list span,.size-list button{min-width:48px;padding:11px 13px;border:1px solid var(--border);border-radius:12px;text-align:center;font-weight:900;background:rgba(255,255,255,.03);color:var(--text);cursor:pointer}
+    .size-list button.selected{border-color:#e7c172;background:linear-gradient(135deg,#a16e29 0%,#efd18d 52%,#b57c2f 100%);color:#160f07;box-shadow:0 10px 24px rgba(217,173,91,.22)}
+    .product-buy-panel{position:relative;z-index:2;margin-top:18px;padding:22px;border:1px solid var(--border);border-radius:22px;background:linear-gradient(135deg,rgba(217,173,91,.12),rgba(255,255,255,.025))}
+    .product-buy-panel h3{font-size:30px;margin-bottom:8px}
     .product-badges{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0}.product-badges div{padding:12px;border-radius:13px;background:rgba(217,173,91,.08);color:var(--muted);font-size:12px}
     footer{padding:38px 16px calc(38px + env(safe-area-inset-bottom));border-top:1px solid var(--border);color:var(--muted);text-align:center;font-size:12px;letter-spacing:.5px}
     :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
     @media(min-width:700px){
       .page{padding-top:50px}.premium-hero{border-radius:40px}.explore-grid{grid-template-columns:repeat(4,1fr)}
-      .grid{grid-template-columns:repeat(3,1fr)}.featured-card{grid-template-columns:1fr auto}.dvar-gallery{grid-template-columns:repeat(3,1fr)}
+      .grid{grid-template-columns:repeat(3,1fr)}.featured-card{grid-template-columns:1fr auto}.home-focus-grid{grid-template-columns:1fr 1fr}.dvar-gallery{grid-template-columns:repeat(3,1fr)}
       .product-layout{grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);align-items:start}.product-info{position:sticky;top:100px}
     }
     @media(max-width:520px){
@@ -176,7 +207,7 @@
     <button type="button" data-page="tikoun">📖 Tikoun Haklali</button>
     <button type="button" data-page="likoute">🎼 Likouté Tefilot</button>
     <button type="button" data-page="dvar">📚 Divré Torah</button>
-    <button type="button" data-page="polo">👕 Polo Bitahon</button>
+    <button type="button" data-page="polo">👕 T-shirt Bitahon</button>
     <button type="button" data-page="cadres">🖼️ Cadres Bitahon</button>
     <button type="button" data-page="contact">📞 Contact</button>
     <button type="button" class="wide" id="themeBtn">☀️ Mode clair</button>
@@ -203,13 +234,40 @@
         <cite>Likouté Tefilot 24</cite>
       </div>
 
-      <div class="card featured-card">
-        <div>
-          <div class="eyebrow">À la une</div>
-          <h2>✨ Nouveau Dvar Torah</h2>
-          <p>Retrouvez le Dvar Torah consacré à Houkat, à lire directement sur le site ou à imprimer.</p>
-        </div>
-        <button class="btn" type="button" onclick="showPage('houkatHome')">📚 Dvar Torah — Houkat</button>
+      <div class="home-focus-grid">
+        <article class="card home-focus">
+          <div>
+            <div class="eyebrow">À lire cette semaine</div>
+            <h2>📚 Divré Torah</h2>
+            <p class="dvar-text">Des enseignements courts et profonds pour entrer dans la Paracha avec plus de clarté, de émouna et de sens.</p>
+            <img src="IMG_2276.jpeg" alt="Dvar Torah Korah" class="preview" loading="lazy">
+            <div class="home-focus-meta">
+              <span class="soft-pill">📖 Lecture en ligne</span>
+              <span class="soft-pill">🖨️ PDF imprimable</span>
+            </div>
+          </div>
+          <div class="button-row" style="margin-top:18px">
+            <button class="btn" type="button" onclick="showPage('korahHome')">Lire le dernier Dvar Torah</button>
+            <button class="btn secondary" type="button" onclick="showPage('dvar')">Voir tous les Divré Torah</button>
+          </div>
+        </article>
+
+        <article class="card home-focus">
+          <div>
+            <div class="eyebrow">Création Bitahon</div>
+            <h2>👕 T-shirt Bitahon</h2>
+            <p class="dvar-text">Une pièce sobre, lumineuse et facile à porter, pensée pour porter le message de confiance au quotidien.</p>
+            <img src="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png" alt="T-shirt Bitahon" class="preview" loading="lazy">
+            <div class="home-focus-meta">
+              <span class="soft-pill">✦ Design Bitahon</span>
+              <span class="soft-pill">📱 Commande WhatsApp</span>
+            </div>
+          </div>
+          <div class="button-row" style="margin-top:18px">
+            <button class="btn" type="button" onclick="showPage('polo')">Voir le T-shirt</button>
+            <a class="btn secondary" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20avoir%20des%20informations%20sur%20le%20T-shirt%20Bitahon" target="_blank" rel="noopener">Demander une info</a>
+                      </div>
+        </article>
       </div>
 
       <div class="card">
@@ -221,7 +279,7 @@
           <button class="explore-tile" type="button" onclick="showPage('tikoun')"><span class="icon">📖</span><span>Tikoun Haklali</span><small>Les dix Téhilim</small></button>
           <button class="explore-tile" type="button" onclick="showPage('likoute')"><span class="icon">🎼</span><span>Likouté Tefilot</span><small>Prières de Rabbi Nathan</small></button>
           <button class="explore-tile" type="button" onclick="showPage('dvar')"><span class="icon">📚</span><span>Divré Torah</span><small>Lire et approfondir</small></button>
-          <button class="explore-tile" type="button" onclick="showPage('polo')"><span class="icon">👕</span><span>Polo Bitahon</span><small>Porter le message</small></button>
+          <button class="explore-tile" type="button" onclick="showPage('polo')"><span class="icon">👕</span><span>T-shirt Bitahon</span><small>Porter le message</small></button>
           <button class="explore-tile" type="button" onclick="showPage('cadres')"><span class="icon">🖼️</span><span>Cadres Bitahon</span><small>Une lumière chez soi</small></button>
           <button class="explore-tile" type="button" onclick="showPage('contact')"><span class="icon">✉️</span><span>Contact</span><small>Question ou commande</small></button>
         </div>
@@ -393,11 +451,11 @@
       <div class="card">
         <h3>לפני אמירת תיקון הכללי</h3>
         <div class="hebrew">
-          לְכוּ נְרַנְּנָה לַיהֹוָה, נָרִיעָה לְצוּר יִשְׁעֵנוּ: נְקַדְּמָה פָּנָיו בְּתוֹדָה, בִּזְמִרוֹת נָרִיעַ לוֹ: כִּי אֵל גָּדוֹל יְהֹוָה, וּמֶלֶךְ גָּדוֹל עַל כָּל אֱלֹהִים:
+          לְכוּ נְרַנְּנָה לַיהֹוָה, נָרִיעָה לְצוּר יִשְׁעֵנוּ: נְקַדְּמָה פָּנָיו בְּתוֹדָה, בִּזְמִרוֹת נָרִיעַ לוֹ: כִּי אֵל גָּדוֹל יְהֹוָה, וּמֶלֶךְ גָּדוֹל עַל כָּל אֱלֹהִים:
           <br><br>
-          הֲרֵינִי מְזַמֵּן אֶת פִּי לְהוֹדוֹת וּלְהַלֵּל וּלְשַׁבֵּחַ אֶת בּוֹרְאִי לְשֵׁם יִחוּד קֻדְשָׁא בְּרִיךְ הוּא וּשְׁכִינְתֵּה בִּדְחִילוּ וּרְחִימוּ עַל יְדֵי הַהוּא טָמִיר וְנֶעְלָם בְּשֵׁם כָּל יִשְׂרָאֵל:
+          הֲרֵינִי מְזַמֵּן אֶת פִּי לְהוֹדוֹת וּלְהַלֵּל וּלְשַׁבֵּחַ אֶת בּוֹרְאִי לְשֵׁם יִחוּד קֻדְשָׁא בְּרִיךְ הוּא וּשְׁכִינְתֵּה בִּדְחִילוּ וּרְחִימוּ עַל יְדֵי הַהוּא טָמִיר וְנֶעְלָם בְּשֵׁם כָּל יִשְׂרָאֵל:
           <br><br>
-          הֲרֵינִי מְקַשֵׁר עַצְמִי בַּאֲמִירַת הָעֲשָׂרָה מִזְמוֹרִים אֵלּוּ לְכׇל הַצַּדִּיקִים הָאֲמִתִּיִּים שֶׁבְּדוֹרֵנוּ. וּלְכׇל הַצַּדִּיקִים הָאֲמִתִּים שׁוֹכְנֵי עָפָר. קְדוֹשִׁים אָשֵׁר בָּאָרֶץ הֵמָּה. וּבִפְרָט לְרַבֵּנוּ הַקָּדוֹשׁ צַדִּיק יְסוֹד עוֹלָם נַחַל נוֹבֵעַ מְקוֹר חׇכְמָה רַבֵּנוּ נַחְמָן בֶּן פֵיגֶא. זְכוּתָם יָגֵן עָלֵינוּ וְעַל כָּל יִשְׂרָאֵל אָמֵן.
+          הֲרֵינִי מְקַשֵׁר עַצְמִי בַּאֲמִירַת הָעֲשָׂרָה מִזְמוֹרִים אֵלּוּ לְכׇל הַצַּדִּיקִים הָאֲמִתִּיִּים שֶׁבְּדוֹרֵנוּ. וּלְכׇל הַצַּדִּיקִים הָאֲמִתִּים שׁוֹכְנֵי עָפָר. קְדוֹשִׁים אָשֵׁר בָּאָרֶץ הֵמָּה. וּבִפְרָט לְרַבֵּנוּ הַקָּדוֹשׁ צַדִּיק יְסוֹד עוֹלָם נַחַל נוֹבֵעַ מְקוֹר חׇכְמָה רַבֵּנוּ נַחְמָן בֶּן פֵיגֶא. זְכוּתָם יָגֵן עָלֵינוּ וְעַל כָּל יִשְׂרָאֵל אָמֵן.
         </div>
       </div>
       <div id="psalms"><div class="card">Chargement des psaumes…</div></div>
@@ -415,9 +473,9 @@
       <div class="card">
         <h3>לאחר אמירת תיקון הכללי</h3>
         <div class="hebrew">
-          מִי יִתֵּן מִצִּיּוֹן יְשׁוּעַת יִשְׂרָאֵל בְּשׁוּב יְיָ שְׁבוּת עַמּוֹ, יָגֵל יַעֲקֹב יִשְׂמַח יִשְׂרָאֵל:
-          <br><br>וּתְשׁוּעַת צַדִּיקִים מֵיְיָ, מָעוּזָּם בְּעֵת צָרָה:
-          <br><br>וַיַּעְזְרֵם יְיָ וַיְפַלְּטֵם, יְפַלְּטֵם מֵרְשָׁעִים וְיוֹשִׁיעֵם כִּי חָסוּ בוֹ:
+          מִי יִתֵּן מִצִּיּוֹן יְשׁוּעַת יִשְׂרָאֵל בְּשׁוּב יְיָ שְׁבוּת עַמּוֹ, יָגֵל יַעֲקֹב יִשְׂמַח יִשְׂרָאֵל:
+          <br><br>וּתְשׁוּעַת צַדִּיקִים מֵיְיָ, מָעוּזָּם בְּעֵת צָרָה:
+          <br><br>וַיַּעְזְרֵם יְיָ וַיְפַלְּטֵם, יְפַלְּטֵם מֵרְשָׁעִים וְיוֹשִׁיעֵם כִּי חָסוּ בוֹ:
         </div>
       </div>
     </section>
@@ -438,7 +496,8 @@
         <div class="card"><h3>Likouté Tefilot 3</h3><p class="dvar-text">Chant, Torah et relèvement de la Chékhina.</p><button class="btn" type="button" onclick="showPage('tefila3')">📖 Lire sur le site</button></div>
       </div>
     </section>
-        <section id="tefila1" class="page">
+
+    <section id="tefila1" class="page">
       <h2>🎼 Likouté Tefilot 1</h2>
       <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('likoute')">← Retour aux Likouté Tefilot</button></div>
       <div class="card dvar-text">
@@ -462,8 +521,7 @@
       <div class="eyebrow">Étudier • Comprendre • Transmettre</div>
       <h2>📚 Divré Torah</h2>
       <div class="grid">
-        <article class="card"><div class="eyebrow">Nouveau</div><h3>📖 Houkat</h3><p class="dvar-text">Lecture en ligne et version prête à imprimer.</p><div class="button-row"><button class="btn" type="button" onclick="showPage('houkat')">Lire</button><a class="btn secondary" href="dvar torah 10.pdf" target="_blank" rel="noopener">PDF</a></div></article>
-        <article class="card"><h3>📖 Korah</h3><p class="dvar-text">Lecture en ligne et version prête à imprimer.</p><div class="button-row"><button class="btn" type="button" onclick="showPage('korah')">Lire</button><a class="btn secondary" href="dvar torah 9.pdf" target="_blank" rel="noopener">PDF</a></div></article>
+        <article class="card"><div class="eyebrow">Nouveau</div><h3>📖 Korah</h3><p class="dvar-text">Lecture en ligne et version prête à imprimer.</p><div class="button-row"><button class="btn" type="button" onclick="showPage('korah')">Lire</button><a class="btn secondary" href="dvar torah 9.pdf" target="_blank" rel="noopener">PDF</a></div></article>
         <article class="card"><h3>📖 Chelah</h3><p class="dvar-text">Lecture en ligne et version prête à imprimer.</p><div class="button-row"><button class="btn" type="button" onclick="showPage('chelah')">Lire</button><a class="btn secondary" href="dvar torah 8.pdf" target="_blank" rel="noopener">PDF</a></div></article>
         <article class="card"><h3>📖 Beha'alotekha</h3><p class="dvar-text">Lecture en ligne et version prête à imprimer.</p><div class="button-row"><button class="btn" type="button" onclick="showPage('behaalotekha')">Lire</button><a class="btn secondary" href="dvar torah 7.pdf" target="_blank" rel="noopener">PDF</a></div></article>
         <article class="card"><h3>📖 Nasso</h3><p class="dvar-text">Retrouvez le Dvar Torah au format PDF.</p><a class="btn" href="dvar torah 6.pdf" target="_blank" rel="noopener">📄 Lire le PDF</a></article>
@@ -476,7 +534,7 @@
     </section>
 
     <section id="behaalotekha" class="page">
-      <h2>📖 Divré Torah — Beha'alotekha</h2>
+          <h2>📖 Divré Torah — Beha'alotekha</h2>
       <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('dvar')">← Retour aux Divré Torah</button><a class="btn" href="dvar torah 7.pdf" target="_blank" rel="noopener">🖨️ Imprimer / PDF</a></div>
       <div class="card dvar-gallery">
         <img src="IMG_2082.jpeg" alt="Beha'alotekha page 1" class="dvar-img" loading="lazy">
@@ -504,49 +562,62 @@
         <img src="IMG_2278.jpeg" alt="Korah page 3" class="dvar-img" loading="lazy">
       </div>
     </section>
-    
-    <section id="houkat" class="page">
-      <h2>📖 Divré Torah — Houkat</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('dvar')">← Retour aux Divré Torah</button><a class="btn" href="dvar torah 10.pdf" target="_blank" rel="noopener">🖨️ Imprimer / PDF</a></div>
-      <div class="card dvar-gallery">
-        <img src="IMG_2616.jpeg" alt="Houkat page 1" class="dvar-img" loading="lazy">
-        <img src="IMG_2617.jpeg" alt="Houkat page 2" class="dvar-img" loading="lazy">
-        <img src="IMG_2618.jpeg" alt="Houkat page 3" class="dvar-img" loading="lazy">
-      </div>
-    </section>
 
-    
-    <section id="houkatHome" class="page">
-      <h2>📖 Divré Torah — Houkat</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('home')">← Retour à l’accueil</button><a class="btn" href="dvar torah 10.pdf" target="_blank" rel="noopener">🖨️ Imprimer / PDF</a></div>
+    <section id="korahHome" class="page">
+      <h2>📖 Divré Torah — Korah</h2>
+      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('home')">← Retour à l’accueil</button><a class="btn" href="dvar torah 9.pdf" target="_blank" rel="noopener">🖨️ Imprimer / PDF</a></div>
       <div class="card dvar-gallery">
-        <img src="IMG_2616.jpeg" alt="Houkat page 1" class="dvar-img" loading="lazy">
-        <img src="IMG_2617.jpeg" alt="Houkat page 2" class="dvar-img" loading="lazy">
-        <img src="IMG_2618.jpeg" alt="Houkat page 3" class="dvar-img" loading="lazy">
+        <img src="IMG_2276.jpeg" alt="Korah page 1" class="dvar-img" loading="lazy">
+        <img src="IMG_2277.jpeg" alt="Korah page 2" class="dvar-img" loading="lazy">
+        <img src="IMG_2278.jpeg" alt="Korah page 3" class="dvar-img" loading="lazy">
       </div>
     </section>
 
     <section id="polo" class="page">
       <div class="eyebrow">Collection Bitahon</div>
-      <h2>👕 Polo Bitahon</h2>
+      <h2>👕 T-shirt Bitahon</h2>
       <div class="product-layout">
         <div class="card">
-          <img src="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png" alt="Polo Bitahon — vue principale" class="product-main">
+          <div class="shirt-carousel" aria-label="Galerie du T-shirt Bitahon">
+            <button class="carousel-arrow prev" type="button" onclick="changeShirtImage(-1)" aria-label="Image précédente">‹</button>
+            <img id="shirtImage" src="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png" alt="T-shirt Bitahon — photo principale" class="shirt-carousel-img">
+            <button class="carousel-arrow next" type="button" onclick="changeShirtImage(1)" aria-label="Image suivante">›</button>
+            <div id="shirtDots" class="carousel-dots" aria-label="Navigation des images"></div>
+          </div>
+
+          <div class="product-buy-panel">
+            <h3>T-shirt Bitahon</h3>
+            <p class="price">35 €</p>
+            <p><strong>Choisir une taille</strong></p>
+            <div class="size-list" aria-label="Choix de la taille du T-shirt">
+              <button type="button" class="selected" data-shirt-size="S" aria-pressed="true">S</button>
+              <button type="button" data-shirt-size="M" aria-pressed="false">M</button>
+              <button type="button" data-shirt-size="L" aria-pressed="false">L</button>
+              <button type="button" data-shirt-size="XL" aria-pressed="false">XL</button>
+            </div>
+            <a id="shirtOrderBtn" class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20T-shirt%20Bitahon%20en%20taille%20S." target="_blank" rel="noopener">📱 Commander</a>
+          </div>
+
+          <div id="shirtVideoWrap" class="shirt-video-wrap">
+            <video id="shirtVideo" class="shirt-video" controls playsinline preload="metadata" poster="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png">
+              <source src="tshirt-video.mp4" type="video/mp4">
+              Votre navigateur ne supporte pas la vidéo.
+            </video>
+            <p class="product-note">Vidéo optionnelle : ajoute simplement un fichier nommé <strong>tshirt-video.mp4</strong> dans le même dossier que ton site. Si tu n’en mets pas, ce bloc se masquera automatiquement.</p>
+          </div>
+
           <div class="thumbs">
-            <img src="8BF6E96F-4DDB-4FCE-A710-E765426297D8.png" alt="Détail du Polo Bitahon" loading="lazy">
-            <img src="72070F87-85E0-4440-995C-C8498F8240EC.png" alt="Polo Bitahon porté" loading="lazy">
-            <img src="335E0114-A617-4E3C-BA3C-9ACB6449BFCE.png" alt="Finition du Polo Bitahon" loading="lazy">
+            <img src="8BF6E96F-4DDB-4FCE-A710-E765426297D8.png" alt="Détail du T-shirt Bitahon" loading="lazy" onclick="setShirtImage(1)">
+            <img src="72070F87-85E0-4440-995C-C8498F8240EC.png" alt="T-shirt Bitahon porté" loading="lazy" onclick="setShirtImage(2)">
+            <img src="335E0114-A617-4E3C-BA3C-9ACB6449BFCE.png" alt="Finition du T-shirt Bitahon" loading="lazy" onclick="setShirtImage(3)">
           </div>
         </div>
         <div class="card product-info">
           <div class="eyebrow">Édition signature</div>
-          <h3 style="font-size:32px">Polo Bitahon</h3>
-          <p class="dvar-text">Un polo sobre et élégant, pensé pour porter le message de confiance et d’émouna au quotidien.</p>
-          <p class="price">26 €</p>
-          <p><strong>Tailles disponibles</strong></p>
-          <div class="size-list"><span>XS</span><span>S</span><span>M</span><span>L</span><span>XL</span></div>
-          <div class="product-badges"><div>✦ Design exclusif Bitahon</div><div>📱 Commande directe et simple</div></div>
-          <a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Polo%20Bitahon" target="_blank" rel="noopener">📱 Commander sur WhatsApp</a>
+          <h3 style="font-size:32px">T-shirt Bitahon</h3>
+          <p class="dvar-text">Un t-shirt sobre, moderne et lumineux, pensé pour porter le message de confiance et d’émouna au quotidien, sans en faire trop.</p>
+          <div class="product-badges"><div>✦ Design exclusif Bitahon</div><div>📱 La taille choisie est envoyée automatiquement</div></div>
+          <p class="product-note">Pour changer les photos, remplace les noms dans le tableau <strong>shirtImages</strong> tout en bas du fichier.</p>
         </div>
       </div>
     </section>
@@ -661,8 +732,73 @@
       if(page&&document.getElementById(page))showPage(page,{fromHash:true});
     });
 
+    const shirtImages=[
+      "B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png",
+      "8BF6E96F-4DDB-4FCE-A710-E765426297D8.png",
+      "72070F87-85E0-4440-995C-C8498F8240EC.png",
+      "335E0114-A617-4E3C-BA3C-9ACB6449BFCE.png"
+    ];
+    let currentShirtImage=0;
+
+    function renderShirtDots(){
+      const dots=document.getElementById("shirtDots");
+      if(!dots)return;
+      dots.innerHTML=shirtImages.map(function(_,index){
+        return '<button type="button" class="'+(index===currentShirtImage?"active":"")+'" onclick="setShirtImage('+index+')" aria-label="Voir image '+(index+1)+'"></button>';
+      }).join("");
+    }
+
+    function setShirtImage(index){
+      const image=document.getElementById("shirtImage");
+      if(!image)return;
+      currentShirtImage=(index+shirtImages.length)%shirtImages.length;
+      image.src=shirtImages[currentShirtImage];
+      renderShirtDots();
+    }
+
+    function changeShirtImage(direction){
+      setShirtImage(currentShirtImage+direction);
+    }
+
+    function setupOptionalShirtVideo(){
+      const video=document.getElementById("shirtVideo");
+      const wrap=document.getElementById("shirtVideoWrap");
+      if(!video||!wrap)return;
+      video.addEventListener("error",function(){wrap.style.display="none";});
+      const source=video.querySelector("source");
+      if(source){
+        source.addEventListener("error",function(){wrap.style.display="none";});
+      }
+    }
+
+    let selectedShirtSize="S";
+
+    function updateShirtOrderLink(){
+      const button=document.getElementById("shirtOrderBtn");
+      if(!button)return;
+      const message="Bonjour, je souhaite commander le T-shirt Bitahon en taille "+selectedShirtSize+".";
+      button.href="https://wa.me/33651977674?text="+encodeURIComponent(message);
+    }
+
+    function setupShirtSizeSelector(){
+      document.querySelectorAll("[data-shirt-size]").forEach(function(button){
+        button.addEventListener("click",function(){
+          selectedShirtSize=button.dataset.shirtSize;
+          document.querySelectorAll("[data-shirt-size]").forEach(function(sizeButton){
+            const isSelected=sizeButton===button;
+            sizeButton.classList.toggle("selected",isSelected);
+            sizeButton.setAttribute("aria-pressed",String(isSelected));
+          });
+          updateShirtOrderLink();
+        });
+      });
+      updateShirtOrderLink();
+    }
+
+    renderShirtDots();
+    setupOptionalShirtVideo();
+    setupShirtSizeSelector();
     loadPsalms();
   </script>
 </body>
 </html>
-    
