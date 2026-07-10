@@ -691,7 +691,10 @@
   </main>
 
   <div id="imageLightbox" class="lightbox" aria-hidden="true">
-        <button type="button" id="closeLightbox" aria-label="Fermer">×</button>
+        
+      
+  <div id="imageLightbox" class="lightbox" aria-hidden="true">
+    <button type="button" id="closeLightbox" aria-label="Fermer">×</button>
     <img id="lightboxImage" src="" alt="">
   </div>
 
@@ -740,7 +743,7 @@
       const titleBox=document.getElementById("pdfTitle");
       const frame=document.getElementById("pdfFrame");
       if(titleBox)titleBox.textContent="📖 Divré Torah — "+title;
-      if(frame)frame.src=pdfFile+"#toolbar=1&navpanes=0&view=FitH";
+      if(frame)frame.src=pdfFile+"#toolbar=1&navpanes=0&zoom=page-width";
       showPage("pdfReader");
     }
 
@@ -768,6 +771,33 @@
 
     function printCurrentPdf(){
       if(currentPdf)printPdf(currentPdf);
+    }
+
+    function setupHomeButtons(){
+      const latest=document.getElementById("latestDvarBtn");
+      const all=document.getElementById("allDvarBtn");
+      const shirt=document.getElementById("homeShirtBtn");
+      const info=document.getElementById("shirtInfoBtn");
+
+      if(latest)latest.addEventListener("click",function(){openDvar("Matot-Massei","dvar torah 14. pdf");});
+      if(all)all.addEventListener("click",function(){showPage("dvar");});
+      if(shirt)shirt.addEventListener("click",function(){showPage("polo");});
+      if(info)info.addEventListener("click",function(event){
+        event.preventDefault();
+        window.open(info.href,"_blank","noopener");
+      });
+
+      document.querySelectorAll(".js-open-dvar").forEach(function(button){
+        button.addEventListener("click",function(){
+          openDvar(button.dataset.title,button.dataset.pdf);
+        });
+      });
+
+      document.querySelectorAll(".js-print-pdf").forEach(function(button){
+        button.addEventListener("click",function(){
+          printPdf(button.dataset.pdf);
+        });
+      });
     }
 
     function applyTheme(theme){
@@ -918,6 +948,7 @@
     }
 
     renderShirtDots();
+    setupHomeButtons();
     setupOptionalShirtVideo();
     setupShirtSizeSelector();
     setupImageLightbox();
