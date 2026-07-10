@@ -152,9 +152,9 @@
     .backbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
     .product-layout{display:grid;gap:22px}
     .product-main{width:100%;border-radius:22px;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.35)}
-    .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:9px}.thumbs img{width:100%;aspect-ratio:1/1;object-fit:cover;border:1px solid var(--border);border-radius:13px}
+    .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:9px}.thumbs img{width:100%;aspect-ratio:4/5;object-fit:contain;background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:13px;cursor:zoom-in}
     .shirt-carousel{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:26px;background:#0b0906;box-shadow:0 25px 65px rgba(0,0,0,.38)}
-    .shirt-carousel-img{width:100%;height:min(62vh,560px);min-height:360px;display:block;object-fit:cover}
+    .shirt-carousel-img{width:100%;height:min(62vh,560px);min-height:360px;display:block;object-fit:contain;background:#080604;cursor:zoom-in}
     .carousel-arrow{
       position:absolute;top:50%;z-index:3;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;
       border:1px solid rgba(244,212,141,.45);background:rgba(9,8,6,.72);color:var(--gold-bright);
@@ -172,6 +172,13 @@
     .product-buy-panel{position:relative;z-index:2;margin-top:18px;padding:22px;border:1px solid var(--border);border-radius:22px;background:linear-gradient(135deg,rgba(217,173,91,.12),rgba(255,255,255,.025))}
     .product-buy-panel h3{font-size:30px;margin-bottom:8px}
     .product-badges{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0}.product-badges div{padding:12px;border-radius:13px;background:rgba(217,173,91,.08);color:var(--muted);font-size:12px}
+    .pdf-reader{display:grid;gap:14px}
+    .pdf-frame{width:100%;height:min(78vh,920px);min-height:620px;border:1px solid var(--border);border-radius:20px;background:var(--surface-2);box-shadow:0 20px 55px rgba(0,0,0,.28)}
+    .reader-note{color:var(--muted);font-size:13px;line-height:1.55;margin:0}
+    .lightbox{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.88);backdrop-filter:blur(8px)}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:100%;max-height:92vh;object-fit:contain;border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.55)}
+    .lightbox button{position:absolute;top:14px;right:14px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.45);color:white;font-size:28px;cursor:pointer}
     footer{padding:38px 16px calc(38px + env(safe-area-inset-bottom));border-top:1px solid var(--border);color:var(--muted);text-align:center;font-size:12px;letter-spacing:.5px}
     :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
     @media(min-width:700px){
@@ -184,7 +191,7 @@
       #menu{top:69px;right:12px;width:calc(100vw - 24px)}.page{padding:20px 12px 54px}.premium-hero{min-height:610px;border-radius:26px}
       .hero-content{padding:29px 24px 38px}.premium-hero::after{inset:9px;border-radius:20px}.hero-actions .btn{width:100%}
       .card{border-radius:22px}.explore-grid{gap:9px}.explore-tile{min-height:120px;padding:15px}.button-row .btn,.backbar .btn{width:100%}
-      .hebrew{font-size:27px}.product-badges{grid-template-columns:1fr}
+      .hebrew{font-size:27px}.product-badges{grid-template-columns:1fr}.pdf-frame{height:74vh;min-height:520px}
     }
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
   </style>
@@ -222,7 +229,7 @@
           <div class="eyebrow">Une lumière dans le quotidien</div>
           <h1>Bitahon<span>Confiance • Prière • Espérance</span></h1>
           <p class="hero-lead">Un espace pour renforcer sa émouna, découvrir les enseignements de Rabbi Na’hman et avancer avec Hachem, simplement.</p>
-          <div class="hero-actions">
+                    <div class="hero-actions">
             <button class="btn" type="button" onclick="showPage('tikoun')">📖 Lire le Tikoun Haklali</button>
             <button class="btn secondary" type="button" onclick="showPage('dvar')">Découvrir les Divré Torah</button>
           </div>
@@ -240,15 +247,14 @@
             <div class="eyebrow">À lire cette semaine</div>
             <h2>📚 Divré Torah</h2>
             <p class="dvar-text">Des enseignements courts et profonds pour entrer dans la Paracha avec plus de clarté, de émouna et de sens.</p>
-            <img src="IMG_2276.jpeg" alt="Dvar Torah Korah" class="preview" loading="lazy">
             <div class="home-focus-meta">
               <span class="soft-pill">📖 Lecture en ligne</span>
               <span class="soft-pill">🖨️ PDF imprimable</span>
             </div>
           </div>
           <div class="button-row" style="margin-top:18px">
-            <button class="btn" type="button" onclick="showPage('korahHome')">Lire le dernier Dvar Torah</button>
-            <button class="btn secondary" type="button" onclick="showPage('dvar')">Voir tous les Divré Torah</button>
+            <button class="btn" type="button" onclick="openDvar('Pinhas','dvar torah 12.pdf')">Lire le dernier Dvar Torah</button>
+            <button class="btn secondary" type="button" data-page="dvar" onclick="showPage('dvar')">Voir tous les Divré Torah</button>
           </div>
         </article>
 
@@ -257,16 +263,15 @@
             <div class="eyebrow">Création Bitahon</div>
             <h2>👕 T-shirt Bitahon</h2>
             <p class="dvar-text">Une pièce sobre, lumineuse et facile à porter, pensée pour porter le message de confiance au quotidien.</p>
-            <img src="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png" alt="T-shirt Bitahon" class="preview" loading="lazy">
             <div class="home-focus-meta">
               <span class="soft-pill">✦ Design Bitahon</span>
               <span class="soft-pill">📱 Commande WhatsApp</span>
             </div>
           </div>
           <div class="button-row" style="margin-top:18px">
-            <button class="btn" type="button" onclick="showPage('polo')">Voir le T-shirt</button>
+            <button class="btn" type="button" data-page="polo" onclick="showPage('polo')">Voir le T-shirt</button>
             <a class="btn secondary" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20avoir%20des%20informations%20sur%20le%20T-shirt%20Bitahon" target="_blank" rel="noopener">Demander une info</a>
-                      </div>
+          </div>
         </article>
       </div>
 
@@ -278,8 +283,8 @@
           <button class="explore-tile" type="button" onclick="showPage('hitbodedout')"><span class="icon">🌿</span><span>Hitbodédout</span><small>Parler avec Hachem</small></button>
           <button class="explore-tile" type="button" onclick="showPage('tikoun')"><span class="icon">📖</span><span>Tikoun Haklali</span><small>Les dix Téhilim</small></button>
           <button class="explore-tile" type="button" onclick="showPage('likoute')"><span class="icon">🎼</span><span>Likouté Tefilot</span><small>Prières de Rabbi Nathan</small></button>
-          <button class="explore-tile" type="button" onclick="showPage('dvar')"><span class="icon">📚</span><span>Divré Torah</span><small>Lire et approfondir</small></button>
-          <button class="explore-tile" type="button" onclick="showPage('polo')"><span class="icon">👕</span><span>T-shirt Bitahon</span><small>Porter le message</small></button>
+          <button class="explore-tile" type="button" data-page="dvar" onclick="showPage('dvar')"><span class="icon">📚</span><span>Divré Torah</span><small>Lire et approfondir</small></button>
+          <button class="explore-tile" type="button" data-page="polo" onclick="showPage('polo')"><span class="icon">👕</span><span>T-shirt Bitahon</span><small>Porter le message</small></button>
           <button class="explore-tile" type="button" onclick="showPage('cadres')"><span class="icon">🖼️</span><span>Cadres Bitahon</span><small>Une lumière chez soi</small></button>
           <button class="explore-tile" type="button" onclick="showPage('contact')"><span class="icon">✉️</span><span>Contact</span><small>Question ou commande</small></button>
         </div>
@@ -451,11 +456,11 @@
       <div class="card">
         <h3>לפני אמירת תיקון הכללי</h3>
         <div class="hebrew">
-          לְכוּ נְרַנְּנָה לַיהֹוָה, נָרִיעָה לְצוּר יִשְׁעֵנוּ: נְקַדְּמָה פָּנָיו בְּתוֹדָה, בִּזְמִרוֹת נָרִיעַ לוֹ: כִּי אֵל גָּדוֹל יְהֹוָה, וּמֶלֶךְ גָּדוֹל עַל כָּל אֱלֹהִים:
+          לְכוּ נְרַנְּנָה לַיהֹוָה, נָרִיעָה לְצוּר יִשְׁעֵנוּ: נְקַדְּמָה פָּנָיו בְּתוֹדָה, בִּזְמִרוֹת נָרִיעַ לוֹ: כִּי אֵל גָּדוֹל יְהֹוָה, וּמֶלֶךְ גָּדוֹל עַל כָּל אֱלֹהִים:
           <br><br>
-          הֲרֵינִי מְזַמֵּן אֶת פִּי לְהוֹדוֹת וּלְהַלֵּל וּלְשַׁבֵּחַ אֶת בּוֹרְאִי לְשֵׁם יִחוּד קֻדְשָׁא בְּרִיךְ הוּא וּשְׁכִינְתֵּה בִּדְחִילוּ וּרְחִימוּ עַל יְדֵי הַהוּא טָמִיר וְנֶעְלָם בְּשֵׁם כָּל יִשְׂרָאֵל:
+          הֲרֵינִי מְזַמֵּן אֶת פִּי לְהוֹדוֹת וּלְהַלֵּל וּלְשַׁבֵּחַ אֶת בּוֹרְאִי לְשֵׁם יִחוּד קֻדְשָׁא בְּרִיךְ הוּא וּשְׁכִינְתֵּה בִּדְחִילוּ וּרְחִימוּ עַל יְדֵי הַהוּא טָמִיר וְנֶעְלָם בְּשֵׁם כָּל יִשְׂרָאֵל:
           <br><br>
-          הֲרֵינִי מְקַשֵׁר עַצְמִי בַּאֲמִירַת הָעֲשָׂרָה מִזְמוֹרִים אֵלּוּ לְכׇל הַצַּדִּיקִים הָאֲמִתִּיִּים שֶׁבְּדוֹרֵנוּ. וּלְכׇל הַצַּדִּיקִים הָאֲמִתִּים שׁוֹכְנֵי עָפָר. קְדוֹשִׁים אָשֵׁר בָּאָרֶץ הֵמָּה. וּבִפְרָט לְרַבֵּנוּ הַקָּדוֹשׁ צַדִּיק יְסוֹד עוֹלָם נַחַל נוֹבֵעַ מְקוֹר חׇכְמָה רַבֵּנוּ נַחְמָן בֶּן פֵיגֶא. זְכוּתָם יָגֵן עָלֵינוּ וְעַל כָּל יִשְׂרָאֵל אָמֵן.
+                    הֲרֵינִי מְקַשֵׁר עַצְמִי בַּאֲמִירַת הָעֲשָׂרָה מִזְמוֹרִים אֵלּוּ לְכׇל הַצַּדִּיקִים הָאֲמִתִּיִּים שֶׁבְּדוֹרֵנוּ. וּלְכׇל הַצַּדִּיקִים הָאֲמִתִּים שׁוֹכְנֵי עָפָר. קְדוֹשִׁים אָשֵׁר בָּאָרֶץ הֵמָּה. וּבִפְרָט לְרַבֵּנוּ הַקָּדוֹשׁ צַדִּיק יְסוֹד עוֹלָם נַחַל נוֹבֵעַ מְקוֹר חׇכְמָה רַבֵּנוּ נַחְמָן בֶּן פֵיגֶא. זְכוּתָם יָגֵן עָלֵינוּ וְעַל כָּל יִשְׂרָאֵל אָמֵן.
         </div>
       </div>
       <div id="psalms"><div class="card">Chargement des psaumes…</div></div>
@@ -473,9 +478,9 @@
       <div class="card">
         <h3>לאחר אמירת תיקון הכללי</h3>
         <div class="hebrew">
-          מִי יִתֵּן מִצִּיּוֹן יְשׁוּעַת יִשְׂרָאֵל בְּשׁוּב יְיָ שְׁבוּת עַמּוֹ, יָגֵל יַעֲקֹב יִשְׂמַח יִשְׂרָאֵל:
-          <br><br>וּתְשׁוּעַת צַדִּיקִים מֵיְיָ, מָעוּזָּם בְּעֵת צָרָה:
-          <br><br>וַיַּעְזְרֵם יְיָ וַיְפַלְּטֵם, יְפַלְּטֵם מֵרְשָׁעִים וְיוֹשִׁיעֵם כִּי חָסוּ בוֹ:
+          מִי יִתֵּן מִצִּיּוֹן יְשׁוּעַת יִשְׂרָאֵל בְּשׁוּב יְיָ שְׁבוּת עַמּוֹ, יָגֵל יַעֲקֹב יִשְׂמַח יִשְׂרָאֵל:
+          <br><br>וּתְשׁוּעַת צַדִּיקִים מֵיְיָ, מָעוּזָּם בְּעֵת צָרָה:
+          <br><br>וַיַּעְזְרֵם יְיָ וַיְפַלְּטֵם, יְפַלְּטֵם מֵרְשָׁעִים וְיוֹשִׁיעֵם כִּי חָסוּ בוֹ:
         </div>
       </div>
     </section>
@@ -521,20 +526,36 @@
       <div class="eyebrow">Étudier • Comprendre • Transmettre</div>
       <h2>📚 Divré Torah</h2>
       <div class="grid">
-        <article class="card"><div class="eyebrow">Nouveau</div><h3>📖 Korah</h3><p class="dvar-text">Lecture en ligne et version prête à imprimer.</p><div class="button-row"><button class="btn" type="button" onclick="showPage('korah')">Lire</button><a class="btn secondary" href="dvar torah 9.pdf" target="_blank" rel="noopener">PDF</a></div></article>
-        <article class="card"><h3>📖 Chelah</h3><p class="dvar-text">Lecture en ligne et version prête à imprimer.</p><div class="button-row"><button class="btn" type="button" onclick="showPage('chelah')">Lire</button><a class="btn secondary" href="dvar torah 8.pdf" target="_blank" rel="noopener">PDF</a></div></article>
-        <article class="card"><h3>📖 Beha'alotekha</h3><p class="dvar-text">Lecture en ligne et version prête à imprimer.</p><div class="button-row"><button class="btn" type="button" onclick="showPage('behaalotekha')">Lire</button><a class="btn secondary" href="dvar torah 7.pdf" target="_blank" rel="noopener">PDF</a></div></article>
-        <article class="card"><h3>📖 Nasso</h3><p class="dvar-text">Retrouvez le Dvar Torah au format PDF.</p><a class="btn" href="dvar torah 6.pdf" target="_blank" rel="noopener">📄 Lire le PDF</a></article>
-        <article class="card"><h3>📖 Chavouot</h3><p class="dvar-text">Retrouvez le Dvar Torah au format PDF.</p><a class="btn" href="dvar torah 5.pdf" target="_blank" rel="noopener">📄 Lire le PDF</a></article>
-        <article class="card"><h3>📖 Bamidbar</h3><p class="dvar-text">Retrouvez le Dvar Torah au format PDF.</p><a class="btn" href="dvar torah 4.pdf" target="_blank" rel="noopener">📄 Lire le PDF</a></article>
-        <article class="card"><h3>📖 Behar — Be'houkotaï</h3><p class="dvar-text">Retrouvez le Dvar Torah au format PDF.</p><a class="btn" href="dvar torah 3.pdf" target="_blank" rel="noopener">📄 Lire le PDF</a></article>
-        <article class="card"><h3>📖 Emor</h3><p class="dvar-text">Retrouvez le Dvar Torah au format PDF.</p><a class="btn" href="dvar torah 2.pdf" target="_blank" rel="noopener">📄 Lire le PDF</a></article>
-        <article class="card"><h3>📖 A'harei Mot — Kedochim</h3><p class="dvar-text">Retrouvez le Dvar Torah au format PDF.</p><a class="btn" href="(anonymous).pdf" target="_blank" rel="noopener">📄 Lire le PDF</a></article>
+        <article class="card"><div class="eyebrow">Nouveau</div><h3>📖 Pinhas</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Pinhas','dvar torah 12.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 12.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Houkat-Balak</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Houkat-Balak','dvar torah 10.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 10.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Korah</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Korah','dvar torah 9.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 9.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Chelah</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Chelah','dvar torah 8.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 8.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Beha'alotekha</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Behaalotekha','dvar torah 7.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 7.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Nasso</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Nasso','dvar torah 6.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 6.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Chavouot</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Chavouot','dvar torah 5.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 5.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Bamidbar</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Bamidbar','dvar torah 4.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 4.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Matot-Massei</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Matot-Massei','dvar torah 14. pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 14. pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Behar — Be'houkotaï</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Behar — Behoukotaï','dvar torah 3.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 3.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 Emor</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Emor','dvar torah 2.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 2.pdf')">Imprimer</button></div></article>
+        <article class="card"><h3>📖 A'harei Mot — Kedochim</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Aharei Mot — Kedochim','(anonymous).pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('(anonymous).pdf')">Imprimer</button></div></article>
+      </div>
+    </section>
+
+    <section id="pdfReader" class="page">
+      <div class="eyebrow">Lecture intégrée</div>
+      <h2 id="pdfTitle">📖 Dvar Torah</h2>
+      <div class="card pdf-reader">
+        <div class="backbar">
+          <button class="btn secondary" type="button" data-page="dvar" onclick="showPage('dvar')">← Retour aux Divré Torah</button>
+          <button class="btn" type="button" onclick="printCurrentPdf()">🖨️ Imprimer</button>
+        </div>
+        <iframe id="pdfFrame" class="pdf-frame" title="Lecteur PDF Dvar Torah"></iframe>
+        <p class="reader-note">Le PDF s’affiche directement ici. Si l’impression ne s’ouvre pas sur certains téléphones, utilise le menu du lecteur PDF affiché dans le cadre.</p>
       </div>
     </section>
 
     <section id="behaalotekha" class="page">
-          <h2>📖 Divré Torah — Beha'alotekha</h2>
+      <h2>📖 Divré Torah — Beha'alotekha</h2>
       <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('dvar')">← Retour aux Divré Torah</button><a class="btn" href="dvar torah 7.pdf" target="_blank" rel="noopener">🖨️ Imprimer / PDF</a></div>
       <div class="card dvar-gallery">
         <img src="IMG_2082.jpeg" alt="Beha'alotekha page 1" class="dvar-img" loading="lazy">
@@ -570,6 +591,26 @@
         <img src="IMG_2276.jpeg" alt="Korah page 1" class="dvar-img" loading="lazy">
         <img src="IMG_2277.jpeg" alt="Korah page 2" class="dvar-img" loading="lazy">
         <img src="IMG_2278.jpeg" alt="Korah page 3" class="dvar-img" loading="lazy">
+      </div>
+    </section>
+
+    <section id="houkat" class="page">
+      <h2>📖 Divré Torah — Houkat-Balak</h2>
+      <div class="card backbar"><button class="btn secondary" type="button" data-page="dvar" onclick="showPage('dvar')">← Retour aux Divré Torah</button><button class="btn" type="button" onclick="printPdf('dvar torah 10.pdf')">🖨️ Imprimer</button></div>
+      <div class="card dvar-gallery">
+        <img src="IMG_2616.jpeg" alt="Houkat-Balak page 1" class="dvar-img" loading="lazy">
+        <img src="IMG_2617.jpeg" alt="Houkat-Balak page 2" class="dvar-img" loading="lazy">
+        <img src="IMG_2618.jpeg" alt="Houkat-Balak page 3" class="dvar-img" loading="lazy">
+      </div>
+    </section>
+
+    <section id="houkatHome" class="page">
+      <h2>📖 Divré Torah — Houkat-Balak</h2>
+      <div class="card backbar"><button class="btn secondary" type="button" data-page="home" onclick="showPage('home')">← Retour à l’accueil</button><button class="btn" type="button" onclick="printPdf('dvar torah 10.pdf')">🖨️ Imprimer</button></div>
+      <div class="card dvar-gallery">
+        <img src="IMG_2616.jpeg" alt="Houkat-Balak page 1" class="dvar-img" loading="lazy">
+        <img src="IMG_2617.jpeg" alt="Houkat-Balak page 2" class="dvar-img" loading="lazy">
+        <img src="IMG_2618.jpeg" alt="Houkat-Balak page 3" class="dvar-img" loading="lazy">
       </div>
     </section>
 
@@ -649,6 +690,11 @@
     </section>
   </main>
 
+  <div id="imageLightbox" class="lightbox" aria-hidden="true">
+        <button type="button" id="closeLightbox" aria-label="Fermer">×</button>
+    <img id="lightboxImage" src="" alt="">
+  </div>
+
   <footer><span style="color:var(--gold-bright);font-family:Georgia,serif;font-size:18px">Bitahon</span><br><br>Émouna • Torah • Lumière<br><br>© Bitahon — Aucun nom personnel affiché</footer>
 
   <script>
@@ -667,6 +713,15 @@
     menuBackdrop.addEventListener("click",function(){setMenu(false);});
     document.addEventListener("keydown",function(event){if(event.key==="Escape")setMenu(false);});
     menu.querySelectorAll("[data-page]").forEach(function(button){button.addEventListener("click",function(){showPage(button.dataset.page);});});
+    document.addEventListener("click",function(event){
+      const button=event.target.closest("[data-page]");
+      if(!button)return;
+      const page=button.getAttribute("data-page");
+      if(page&&document.getElementById(page)){
+        event.preventDefault();
+        showPage(page);
+      }
+    });
 
     function showPage(id,options){
       const target=document.getElementById(id);
@@ -676,6 +731,43 @@
       setMenu(false);
       if(!options||!options.fromHash){history.replaceState(null,"","#"+id);}
       window.scrollTo(0,0);
+    }
+
+    let currentPdf="";
+
+    function openDvar(title,pdfFile){
+      currentPdf=pdfFile;
+      const titleBox=document.getElementById("pdfTitle");
+      const frame=document.getElementById("pdfFrame");
+      if(titleBox)titleBox.textContent="📖 Divré Torah — "+title;
+      if(frame)frame.src=pdfFile+"#toolbar=1&navpanes=0&view=FitH";
+      showPage("pdfReader");
+    }
+
+    function printPdf(pdfFile){
+      currentPdf=pdfFile;
+      const printer=document.createElement("iframe");
+      printer.style.position="fixed";
+      printer.style.right="0";
+      printer.style.bottom="0";
+      printer.style.width="0";
+      printer.style.height="0";
+      printer.style.border="0";
+      printer.src=pdfFile;
+      printer.onload=function(){
+        try{
+          printer.contentWindow.focus();
+          printer.contentWindow.print();
+        }catch(error){
+          openDvar("PDF",pdfFile);
+        }
+        setTimeout(function(){printer.remove();},3000);
+      };
+      document.body.appendChild(printer);
+    }
+
+    function printCurrentPdf(){
+      if(currentPdf)printPdf(currentPdf);
     }
 
     function applyTheme(theme){
@@ -795,9 +887,40 @@
       updateShirtOrderLink();
     }
 
+    function setupImageLightbox(){
+      const lightbox=document.getElementById("imageLightbox");
+      const lightboxImage=document.getElementById("lightboxImage");
+      const closeButton=document.getElementById("closeLightbox");
+      if(!lightbox||!lightboxImage||!closeButton)return;
+
+      document.querySelectorAll("#polo img,#cadres img").forEach(function(image){
+        image.addEventListener("click",function(){
+          lightboxImage.src=image.src;
+          lightboxImage.alt=image.alt||"Image Bitahon";
+          lightbox.classList.add("open");
+          lightbox.setAttribute("aria-hidden","false");
+        });
+      });
+
+      function close(){
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden","true");
+        lightboxImage.src="";
+      }
+
+      closeButton.addEventListener("click",close);
+      lightbox.addEventListener("click",function(event){
+        if(event.target===lightbox)close();
+      });
+      document.addEventListener("keydown",function(event){
+        if(event.key==="Escape")close();
+      });
+    }
+
     renderShirtDots();
     setupOptionalShirtVideo();
     setupShirtSizeSelector();
+    setupImageLightbox();
     loadPsalms();
   </script>
 </body>
