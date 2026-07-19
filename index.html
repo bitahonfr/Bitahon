@@ -6,207 +6,992 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-K5YRZZZLE9');
+    gtag("js", new Date());
+    gtag("config", "G-K5YRZZZLE9");
   </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#090806">
-  <meta name="description" content="Bitahon — Torah, émouna, prières et créations inspirées par l'univers de Rabbi Na'hman de Breslev.">
+  <meta name="theme-color" content="#080705">
+  <meta name="description" content="Bitahon — Torah, émouna, Tikoun Haklali, Likouté Tefilot, Divré Torah et boutique.">
   <title>Bitahon — Émouna, Torah & Lumière</title>
+
   <style>
     :root{
-      --bg:#090806;--bg-soft:#11100d;--surface:#17140f;--surface-2:#201b13;
-      --text:#fff9eb;--muted:#bcb09b;--gold:#d9ad5b;--gold-bright:#f4d48d;
-      --gold-deep:#8f6125;--border:rgba(226,183,101,.22);--shadow:0 22px 60px rgba(0,0,0,.42);
-      --header:rgba(9,8,6,.84);--radius:26px;--max:1120px;
+      --bg:#080705;
+      --bg2:#11100d;
+      --card:rgba(22,19,14,.78);
+      --card2:rgba(35,29,20,.86);
+      --text:#fff8e8;
+      --muted:#c9bda8;
+      --soft:#8d806c;
+      --gold:#d8aa5d;
+      --gold2:#f4d58f;
+      --gold3:#9b6625;
+      --border:rgba(244,213,143,.18);
+      --border2:rgba(244,213,143,.34);
+      --shadow:0 28px 80px rgba(0,0,0,.42);
+      --radius:28px;
+      --max:1160px;
+      --header:rgba(8,7,5,.78);
     }
+
     body.light{
-      --bg:#f4ecdf;--bg-soft:#fbf6ee;--surface:#fffaf2;--surface-2:#f5ead8;
-      --text:#20170e;--muted:#756550;--gold:#9b6c27;--gold-bright:#b98534;
-      --gold-deep:#6f451c;--border:rgba(143,97,37,.22);--shadow:0 22px 55px rgba(77,44,12,.13);
-      --header:rgba(255,250,242,.88);
+      --bg:#f6efe4;
+      --bg2:#fff9ef;
+      --card:rgba(255,250,242,.82);
+      --card2:rgba(255,246,232,.92);
+      --text:#20170f;
+      --muted:#6d5d49;
+      --soft:#8b7861;
+      --gold:#9c6a29;
+      --gold2:#ba8132;
+      --gold3:#704719;
+      --border:rgba(112,71,25,.16);
+      --border2:rgba(112,71,25,.28);
+      --shadow:0 28px 70px rgba(90,55,18,.14);
+      --header:rgba(255,250,242,.82);
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;min-height:100vh;color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      margin:0;
+      min-height:100vh;
+      color:var(--text);
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
       background:
-        radial-gradient(circle at 50% -10%,rgba(217,173,91,.16),transparent 34rem),
-        radial-gradient(circle at 110% 25%,rgba(107,70,28,.12),transparent 28rem),var(--bg);
-      transition:background .3s,color .3s;
+        radial-gradient(circle at 50% -12%,rgba(244,213,143,.18),transparent 32rem),
+        radial-gradient(circle at 110% 15%,rgba(216,170,93,.11),transparent 28rem),
+        radial-gradient(circle at -15% 35%,rgba(255,255,255,.04),transparent 24rem),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+      overflow-x:hidden;
+      transition:background .35s,color .35s;
     }
+
     body::before{
-      content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;z-index:-1;
-      background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-      background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 85%);
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
+      opacity:.28;
+      background-image:
+        linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+      background-size:38px 38px;
+      mask-image:linear-gradient(to bottom,#000,transparent 78%);
     }
+
+    a,button,input{font:inherit}
     button,a{-webkit-tap-highlight-color:transparent}
     img{max-width:100%}
+
     header{
-      position:sticky;top:0;z-index:100;padding:12px max(16px,env(safe-area-inset-left));
-      background:var(--header);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+      position:sticky;
+      top:0;
+      z-index:100;
+      padding:12px max(14px,env(safe-area-inset-left));
+      background:var(--header);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(24px);
+      -webkit-backdrop-filter:blur(24px);
     }
-    .top{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+
+    .top{
+      max-width:var(--max);
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      cursor:pointer;
+      border:0;
+      background:transparent;
+      color:inherit;
+      padding:0;
+      text-align:left;
+    }
+
     .brand-mark{
-      width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(244,212,141,.42);border-radius:50%;
-      color:var(--gold-bright);background:radial-gradient(circle,rgba(217,173,91,.2),transparent 65%);box-shadow:0 0 28px rgba(217,173,91,.15);
-      font-family:Georgia,serif;font-weight:700;font-size:22px;
+      width:46px;
+      height:46px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      border:1px solid rgba(244,213,143,.42);
+      background:radial-gradient(circle,rgba(244,213,143,.22),rgba(244,213,143,.03) 68%);
+      color:var(--gold2);
+      font-family:Georgia,serif;
+      font-size:23px;
+      font-weight:800;
+      box-shadow:0 0 34px rgba(216,170,93,.22),inset 0 0 18px rgba(255,255,255,.05);
     }
-    .logo{font-family:Georgia,"Times New Roman",serif;font-size:27px;font-weight:700;letter-spacing:.8px;color:var(--gold-bright)}
-    .logo small{display:block;margin-top:1px;color:var(--muted);font:600 9px/1.1 Inter,Arial,sans-serif;letter-spacing:2.1px;text-transform:uppercase}
+
+    .logo{
+      color:var(--gold2);
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:.4px;
+      line-height:1;
+    }
+
+    .logo small{
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font:800 9px/1 Inter,Arial,sans-serif;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
     #menuBtn{
-      min-height:46px;padding:0 15px;display:flex;align-items:center;gap:9px;border:1px solid var(--border);border-radius:15px;
-      color:var(--text);background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015));font-size:14px;font-weight:800;cursor:pointer;
+      min-height:46px;
+      padding:0 15px;
+      display:flex;
+      align-items:center;
+      gap:9px;
+      border:1px solid var(--border2);
+      border-radius:16px;
+      color:var(--text);
+      background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.018));
+      cursor:pointer;
+      font-weight:900;
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
     }
-    .menu-icon,.menu-icon::before,.menu-icon::after{display:block;width:18px;height:2px;border-radius:3px;background:var(--gold-bright);transition:.25s}
-    .menu-icon{position:relative}.menu-icon::before,.menu-icon::after{content:"";position:absolute;left:0}.menu-icon::before{top:-6px}.menu-icon::after{top:6px}
-    #menuBtn[aria-expanded="true"] .menu-icon{background:transparent}
-    #menuBtn[aria-expanded="true"] .menu-icon::before{top:0;transform:rotate(45deg)}
-    #menuBtn[aria-expanded="true"] .menu-icon::after{top:0;transform:rotate(-45deg)}
-    #menuBackdrop{display:none;position:fixed;inset:0;z-index:89;background:rgba(0,0,0,.56);backdrop-filter:blur(5px)}
-    #menuBackdrop.open{display:block}
+
+    .menu-lines,.menu-lines::before,.menu-lines::after{
+      display:block;
+      width:18px;
+      height:2px;
+      border-radius:4px;
+      background:var(--gold2);
+      transition:.25s ease;
+    }
+
+    .menu-lines{position:relative}
+    .menu-lines::before,.menu-lines::after{content:"";position:absolute;left:0}
+    .menu-lines::before{top:-6px}
+    .menu-lines::after{top:6px}
+    #menuBtn[aria-expanded="true"] .menu-lines{background:transparent}
+    #menuBtn[aria-expanded="true"] .menu-lines::before{top:0;transform:rotate(45deg)}
+    #menuBtn[aria-expanded="true"] .menu-lines::after{top:0;transform:rotate(-45deg)}
+
+    #menuBackdrop{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:89;
+      background:rgba(0,0,0,.58);
+      backdrop-filter:blur(6px);
+    }
+
+    #menuBackdrop.open{display:block;animation:fadeIn .2s ease}
+
     #menu{
-      display:none;position:fixed;z-index:90;top:79px;right:max(16px,calc((100vw - var(--max))/2));width:min(390px,calc(100vw - 32px));
-      max-height:calc(100dvh - 100px);overflow:auto;padding:10px;background:linear-gradient(155deg,var(--surface-2),var(--surface));
-      border:1px solid var(--border);border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.55);
+      display:none;
+      position:fixed;
+      z-index:90;
+      top:78px;
+      right:max(14px,calc((100vw - var(--max))/2));
+      width:min(410px,calc(100vw - 28px));
+      max-height:calc(100dvh - 96px);
+      overflow:auto;
+      padding:10px;
+      border:1px solid var(--border2);
+      border-radius:26px;
+      background:linear-gradient(155deg,var(--card2),var(--card));
+      box-shadow:0 34px 90px rgba(0,0,0,.55);
+      backdrop-filter:blur(26px);
+      -webkit-backdrop-filter:blur(26px);
     }
-    #menu.open{display:grid;grid-template-columns:1fr 1fr;gap:7px;animation:menuIn .22s ease-out}
+
+    #menu.open{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      animation:menuIn .24s cubic-bezier(.2,.8,.2,1);
+    }
+
     #menu button{
-      min-height:55px;padding:12px;border:1px solid transparent;border-radius:14px;background:rgba(255,255,255,.025);text-align:left;
-      color:var(--text);font-weight:750;font-size:13px;cursor:pointer;transition:.2s;
+      min-height:56px;
+      padding:12px;
+      border:1px solid transparent;
+      border-radius:16px;
+      background:rgba(255,255,255,.035);
+      color:var(--text);
+      text-align:left;
+      cursor:pointer;
+      font-weight:850;
+      font-size:13px;
+      transition:.18s ease;
     }
-    #menu button:hover,#menu button:focus-visible{border-color:var(--border);background:rgba(217,173,91,.1);transform:translateY(-1px)}
-    #menu .wide{grid-column:1/-1;text-align:center;color:var(--gold-bright)}
-    @keyframes menuIn{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:none}}
-    .page{display:none;max-width:var(--max);min-height:70vh;margin:auto;padding:34px 16px 70px}
-    .page.active{display:block;animation:pageIn .35s ease-out}
-    @keyframes pageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-    .page>h2,.section-heading{
-      margin:10px 0 26px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(31px,6vw,48px);line-height:1.08;color:var(--gold-bright);letter-spacing:-.5px;
+
+    #menu button:hover,#menu button:focus-visible{
+      transform:translateY(-2px);
+      border-color:var(--border2);
+      background:rgba(216,170,93,.12);
     }
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:2.4px;text-transform:uppercase}
-    .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+
+    #menu .wide{grid-column:1/-1;text-align:center;color:var(--gold2)}
+
+    main{min-height:70vh}
+    .page{
+      display:none;
+      max-width:var(--max);
+      margin:auto;
+      padding:34px 14px 74px;
+    }
+
+    .page.active{display:block;animation:pageIn .34s ease}
+    .reader-page{max-width:1320px}
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:12px;
+      color:var(--gold);
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:2.4px;
+      text-transform:uppercase;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:30px;
+      height:1px;
+      background:var(--gold);
+    }
+
+    h1,h2,h3{letter-spacing:-.02em}
+    .page>h2,.section-title{
+      margin:8px 0 24px;
+      color:var(--gold2);
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(34px,7vw,58px);
+      line-height:1.03;
+    }
+
     .card{
-      position:relative;overflow:hidden;margin:18px 0;padding:clamp(20px,4vw,30px);border:1px solid var(--border);border-radius:var(--radius);
-      background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),var(--surface);box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+      margin:18px 0;
+      padding:clamp(20px,4vw,30px);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.018)),
+        var(--card);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
     }
-    .card::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(125deg,rgba(255,255,255,.045),transparent 27%)}
-    .card h2,.card h3{position:relative;margin-top:0;color:var(--gold-bright);font-family:Georgia,"Times New Roman",serif}
-    .card h3{font-size:23px}
-    .dvar-text{font-size:16px;line-height:1.82;color:var(--text)}
-    .dvar-text p{margin:0 0 1.15em}.dvar-text li{margin:.45em 0}
-    .premium-hero{
-      position:relative;min-height:min(700px,78dvh);overflow:hidden;display:flex;align-items:flex-end;margin:-8px 0 26px;border:1px solid var(--border);border-radius:32px;
-      background:#090806;box-shadow:0 35px 85px rgba(0,0,0,.55);
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      border-radius:inherit;
+      background:linear-gradient(120deg,rgba(255,255,255,.065),transparent 28%);
     }
-    .premium-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(.8) contrast(1.08)}
-    .premium-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,#090806 5%,rgba(9,8,6,.74) 45%,rgba(9,8,6,.08) 90%),radial-gradient(circle at 50% 20%,rgba(238,195,111,.16),transparent 45%)}
-    .premium-hero::after{content:"";position:absolute;z-index:1;inset:14px;border:1px solid rgba(244,212,141,.2);border-radius:24px;pointer-events:none}
-    .hero-content{position:relative;z-index:2;width:min(760px,100%);padding:clamp(32px,7vw,72px)}
-    .hero-symbol{font-family:Georgia,serif;color:var(--gold-bright);font-size:30px;text-shadow:0 0 28px rgba(244,212,141,.7)}
-    .premium-hero h1{margin:10px 0 12px;color:#fff8e8;font-family:Georgia,"Times New Roman",serif;font-size:clamp(54px,12vw,94px);line-height:.9;letter-spacing:-2px}
-    .premium-hero h1 span{display:block;margin-top:13px;color:var(--gold-bright);font:800 clamp(11px,2.4vw,15px)/1.3 Inter,Arial,sans-serif;letter-spacing:clamp(2px,.8vw,6px);text-transform:uppercase}
-    .hero-lead{max-width:620px;margin:22px 0 26px;color:#e8decc;font-size:clamp(16px,2.5vw,20px);line-height:1.7}
-    .hero-actions,.button-row{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+
+    .card>*{position:relative;z-index:1}
+    .card h2,.card h3{margin-top:0;color:var(--gold2);font-family:Georgia,"Times New Roman",serif}
+    .card h3{font-size:24px}
+
+    .text{
+      color:var(--text);
+      font-size:16px;
+      line-height:1.82;
+    }
+
+    .text p{margin:0 0 1.1em}
+    .text li{margin:.45em 0}
+    .muted{color:var(--muted)}
+    .gold{color:var(--gold2)}
+
+    .hero{
+      position:relative;
+      min-height:min(730px,80dvh);
+      display:flex;
+      align-items:flex-end;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:36px;
+      background:#080705;
+      box-shadow:0 38px 100px rgba(0,0,0,.58);
+    }
+
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:.58;
+      filter:saturate(.9) contrast(1.08);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        linear-gradient(to top,#080705 5%,rgba(8,7,5,.77) 46%,rgba(8,7,5,.08)),
+        radial-gradient(circle at 52% 22%,rgba(244,213,143,.2),transparent 40%);
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      z-index:1;
+      inset:14px;
+      border:1px solid rgba(244,213,143,.22);
+      border-radius:27px;
+      pointer-events:none;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      width:min(790px,100%);
+      padding:clamp(32px,7vw,76px);
+    }
+
+    .hero-star{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      border:1px solid rgba(244,213,143,.4);
+      color:var(--gold2);
+      background:rgba(244,213,143,.08);
+      box-shadow:0 0 42px rgba(244,213,143,.28);
+      animation:floatGlow 5s ease-in-out infinite;
+    }
+
+    .hero h1{
+      margin:16px 0 12px;
+      color:#fff8e8;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(58px,14vw,112px);
+      line-height:.88;
+      letter-spacing:-.06em;
+    }
+
+    .hero h1 span{
+      display:block;
+      margin-top:16px;
+      color:var(--gold2);
+      font:950 clamp(11px,2.5vw,15px)/1.3 Inter,Arial,sans-serif;
+      letter-spacing:clamp(2px,.8vw,6px);
+      text-transform:uppercase;
+    }
+
+    .hero-lead{
+      max-width:650px;
+      margin:22px 0 26px;
+      color:#eadfcb;
+      font-size:clamp(16px,2.6vw,20px);
+      line-height:1.75;
+    }
+
+    .actions,.row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:11px;
+      align-items:center;
+    }
+
     .btn{
-      position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:13px 19px;border:1px solid #e7c172;border-radius:15px;
-      color:#160f07;background:linear-gradient(135deg,#a16e29 0%,#efd18d 48%,#b57c2f 100%);box-shadow:0 10px 26px rgba(168,112,34,.25),inset 0 1px rgba(255,255,255,.55);
-      text-decoration:none;text-align:center;font:850 14px/1.2 Inter,Arial,sans-serif;letter-spacing:.15px;cursor:pointer;transition:transform .18s,box-shadow .18s,filter .18s;
+      position:relative;
+      z-index:2;
+      min-height:50px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:13px 18px;
+      border:1px solid #e8c476;
+      border-radius:16px;
+      color:#170f07;
+      background:linear-gradient(135deg,#a06c29 0%,#f2d58f 48%,#b57b2e 100%);
+      box-shadow:0 12px 28px rgba(179,121,43,.28),inset 0 1px rgba(255,255,255,.56);
+      text-decoration:none;
+      text-align:center;
+      font-weight:950;
+      font-size:14px;
+      cursor:pointer;
+      transition:transform .18s ease,filter .18s ease,box-shadow .18s ease;
     }
-    .btn:hover{transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 14px 30px rgba(207,154,64,.32),inset 0 1px rgba(255,255,255,.6)}
+
+    .btn:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.06);
+      box-shadow:0 18px 38px rgba(216,170,93,.32),inset 0 1px rgba(255,255,255,.6);
+    }
+
     .btn:active{transform:scale(.98)}
-    .btn.secondary{color:var(--gold-bright);background:rgba(217,173,91,.06);box-shadow:none}
-    .quote-card{text-align:center;padding:28px}.quote-card blockquote{margin:0;color:var(--text);font:italic clamp(20px,4vw,29px)/1.55 Georgia,serif}.quote-card cite{display:block;margin-top:12px;color:var(--gold);font:800 11px Inter,sans-serif;letter-spacing:1.8px;text-transform:uppercase}
-    .featured-card{display:grid;align-items:center;gap:20px;background:linear-gradient(135deg,rgba(183,127,45,.19),transparent 58%),var(--surface)}
-    .featured-card p{color:var(--muted);line-height:1.65}
-    .home-focus-grid{display:grid;grid-template-columns:1fr;gap:18px;margin:18px 0}
-    .home-focus{
-      min-height:100%;display:flex;flex-direction:column;justify-content:space-between;
-      background:radial-gradient(circle at 85% 12%,rgba(244,212,141,.16),transparent 12rem),linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.012)),var(--surface);
+    .btn.secondary{
+      color:var(--gold2);
+      background:rgba(244,213,143,.07);
+      box-shadow:none;
     }
-    .home-focus .preview{
-      width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:20px;border:1px solid var(--border);
-      box-shadow:0 18px 45px rgba(0,0,0,.28);margin:14px 0 18px;
+
+    .btn.ghost{
+      color:var(--text);
+      border-color:var(--border2);
+      background:rgba(255,255,255,.04);
+      box-shadow:none;
     }
-    .home-focus-meta{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 0}
-    .soft-pill{
-      display:inline-flex;align-items:center;gap:6px;padding:8px 11px;border:1px solid var(--border);border-radius:999px;
-      background:rgba(217,173,91,.08);color:var(--muted);font-size:12px;font-weight:800;
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin:18px 0;
     }
-    .explore-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
-    .explore-tile{
-      position:relative;z-index:2;min-height:132px;padding:18px;border:1px solid var(--border);border-radius:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;
-      color:var(--text);background:linear-gradient(145deg,rgba(217,173,91,.1),rgba(255,255,255,.018));font-weight:800;text-align:left;cursor:pointer;transition:.2s;
+
+    .stat{
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:22px;
+      background:rgba(255,255,255,.035);
+      box-shadow:0 18px 45px rgba(0,0,0,.16);
     }
-    .explore-tile:hover{transform:translateY(-3px);border-color:rgba(244,212,141,.5)}
-    .explore-tile .icon{font-size:28px}.explore-tile small{color:var(--muted);font-size:11px;font-weight:650}
-    .grid{display:grid;grid-template-columns:1fr;gap:18px}
-    .hebrew{direction:rtl;text-align:right;font-family:"Times New Roman",serif;font-size:clamp(27px,5vw,34px);line-height:2.05}
-    .verse{display:block;margin-bottom:14px}
-    .dvar-img,.product-img{width:100%;height:auto;display:block;border-radius:18px;margin-bottom:16px;border:1px solid var(--border);box-shadow:0 14px 34px rgba(0,0,0,.24)}
-    .dvar-gallery{display:grid;gap:16px}.dvar-gallery .dvar-img{margin:0}
-    .price{margin:10px 0;color:var(--gold-bright);font:700 30px Georgia,serif}
-    .chapter-list{display:grid;gap:10px}.chapter-list .btn{justify-content:flex-start;width:100%}
-    .backbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+    .stat strong{
+      display:block;
+      color:var(--gold2);
+      font-family:Georgia,serif;
+      font-size:30px;
+      line-height:1;
+    }
+
+    .stat span{
+      display:block;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .quote-card{
+      text-align:center;
+      padding:28px;
+    }
+
+    .quote-card blockquote{
+      margin:0;
+      color:var(--text);
+      font:italic clamp(20px,4vw,30px)/1.55 Georgia,serif;
+    }
+
+    .quote-card cite{
+      display:block;
+      margin-top:13px;
+      color:var(--gold);
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+    }
+
+    .home-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+
+    .feature{
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background:
+        radial-gradient(circle at 85% 12%,rgba(244,213,143,.15),transparent 11rem),
+        linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.014)),
+        var(--card);
+    }
+
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 11px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(216,170,93,.08);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:850;
+    }
+
+    .search{
+      width:100%;
+      min-height:52px;
+      padding:0 16px;
+      border:1px solid var(--border2);
+      border-radius:17px;
+      color:var(--text);
+      background:rgba(255,255,255,.045);
+      outline:none;
+    }
+
+    .search::placeholder{color:var(--soft)}
+    .search:focus{border-color:var(--gold2);box-shadow:0 0 0 4px rgba(216,170,93,.13)}
+
+    .library{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .book-card{
+      position:relative;
+      display:grid;
+      gap:14px;
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:24px;
+      background:
+        radial-gradient(circle at 90% 8%,rgba(244,213,143,.13),transparent 9rem),
+        rgba(255,255,255,.035);
+      box-shadow:0 22px 55px rgba(0,0,0,.22);
+      transition:.2s ease;
+    }
+
+    .book-card:hover{transform:translateY(-3px);border-color:var(--border2)}
+    .book-cover{
+      min-height:150px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:18px;
+      border-radius:20px;
+      border:1px solid rgba(244,213,143,.28);
+      background:
+        linear-gradient(145deg,rgba(244,213,143,.20),rgba(244,213,143,.035)),
+        radial-gradient(circle at 50% 0%,rgba(255,255,255,.16),transparent 12rem),
+        #11100d;
+      color:#fff8e8;
+      overflow:hidden;
+    }
+
+    .book-cover small{
+      color:#f2d58f;
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+    }
+
+    .book-cover strong{
+      font-family:Georgia,serif;
+      font-size:30px;
+      line-height:1;
+    }
+
+    .badge{
+      display:inline-flex;
+      width:max-content;
+      align-items:center;
+      gap:6px;
+      padding:7px 10px;
+      border-radius:999px;
+      color:#170f07;
+      background:linear-gradient(135deg,#f4d58f,#bb8130);
+      font-size:11px;
+      font-weight:950;
+    }
+
+    .favorite{
+      position:absolute;
+      top:14px;
+      right:14px;
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid var(--border2);
+      background:rgba(0,0,0,.28);
+      color:var(--gold2);
+      cursor:pointer;
+      font-size:18px;
+    }
+
+    .favorite.active{background:linear-gradient(135deg,#a06c29,#f2d58f);color:#170f07}
+    .book-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .book-actions .btn{min-height:44px;padding:10px;font-size:12px}
+
+    .pdf-reader{
+      display:grid;
+      gap:14px;
+      padding:12px;
+    }
+
+    .pdf-toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .pdf-toolbar .left,.pdf-toolbar .right{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+    }
+
+    .pdf-shell{
+      overflow:auto;
+      width:100%;
+      height:calc(100dvh - 205px);
+      min-height:620px;
+      border:1px solid var(--border);
+      border-radius:22px;
+      background:#fff;
+      box-shadow:0 24px 70px rgba(0,0,0,.35);
+    }
+
+    .pdf-frame{
+      width:100%;
+      height:100%;
+      min-height:inherit;
+      border:0;
+      display:block;
+      background:#fff;
+      transform-origin:top center;
+    }
+
+    .note{color:var(--muted);font-size:13px;line-height:1.55;margin:0}
+
+    details{
+      border:1px solid var(--border);
+      border-radius:22px;
+      background:rgba(255,255,255,.035);
+      overflow:hidden;
+      margin:14px 0;
+    }
+
+    summary{
+      min-height:58px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:16px 18px;
+      cursor:pointer;
+      color:var(--gold2);
+      font-weight:950;
+    }
+
+    details .inside{padding:0 18px 18px}
+
+    .hebrew{
+      direction:rtl;
+      text-align:right;
+      font-family:"Times New Roman",serif;
+      font-size:clamp(27px,5.2vw,35px);
+      line-height:2.05;
+    }
+
+    .verse{
+      display:block;
+      margin-bottom:14px;
+      padding-bottom:10px;
+      border-bottom:1px solid rgba(244,213,143,.10);
+    }
+
+    .chapter-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+
+    .timeline{
+      position:relative;
+      display:grid;
+      gap:14px;
+      margin-top:20px;
+    }
+
+    .timeline-item{
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:22px;
+      background:rgba(255,255,255,.035);
+    }
+
+    .timeline-item strong{color:var(--gold2);font-family:Georgia,serif;font-size:22px}
+    .gallery-quotes{display:grid;grid-template-columns:1fr;gap:14px}
+    .gallery-quotes blockquote{
+      margin:0;
+      padding:22px;
+      border:1px solid var(--border);
+      border-radius:22px;
+      background:rgba(255,255,255,.035);
+      color:var(--text);
+      font:italic 19px/1.55 Georgia,serif;
+    }
+
     .product-layout{display:grid;gap:22px}
-    .product-main{width:100%;border-radius:22px;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.35)}
-    .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:9px}.thumbs img{width:100%;aspect-ratio:4/5;object-fit:contain;background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:13px;cursor:zoom-in}
-    .shirt-carousel{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:26px;background:#0b0906;box-shadow:0 25px 65px rgba(0,0,0,.38)}
-    .shirt-carousel-img{width:100%;height:min(62vh,560px);min-height:360px;display:block;object-fit:contain;background:#080604;cursor:zoom-in}
-    .carousel-arrow{
-      position:absolute;top:50%;z-index:3;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;
-      border:1px solid rgba(244,212,141,.45);background:rgba(9,8,6,.72);color:var(--gold-bright);
-      font-size:38px;line-height:1;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 28px rgba(0,0,0,.35);
+    .carousel{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:28px;
+      background:#050403;
+      box-shadow:0 28px 78px rgba(0,0,0,.38);
     }
-    .carousel-arrow.prev{left:12px}.carousel-arrow.next{right:12px}
-    .carousel-dots{position:absolute;left:0;right:0;bottom:14px;z-index:4;display:flex;justify-content:center;gap:8px}
-    .carousel-dots button{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.42);cursor:pointer}
-    .carousel-dots button.active{width:25px;border-radius:999px;background:var(--gold-bright)}
-    .shirt-video-wrap{margin-top:16px}
-    .shirt-video{width:100%;display:block;border-radius:22px;border:1px solid var(--border);box-shadow:0 18px 45px rgba(0,0,0,.28);background:#000}
-    .product-note{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.6}
-    .size-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.size-list span,.size-list button{min-width:48px;padding:11px 13px;border:1px solid var(--border);border-radius:12px;text-align:center;font-weight:900;background:rgba(255,255,255,.03);color:var(--text);cursor:pointer}
-    .size-list button.selected{border-color:#e7c172;background:linear-gradient(135deg,#a16e29 0%,#efd18d 52%,#b57c2f 100%);color:#160f07;box-shadow:0 10px 24px rgba(217,173,91,.22)}
-    .product-buy-panel{position:relative;z-index:2;margin-top:18px;padding:22px;border:1px solid var(--border);border-radius:22px;background:linear-gradient(135deg,rgba(217,173,91,.12),rgba(255,255,255,.025))}
-    .product-buy-panel h3{font-size:30px;margin-bottom:8px}
-    .product-badges{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:18px 0}.product-badges div{padding:12px;border-radius:13px;background:rgba(217,173,91,.08);color:var(--muted);font-size:12px}
-    .pdf-reader{display:grid;gap:14px}
-    .pdf-frame{width:100%;height:min(78vh,920px);min-height:620px;border:1px solid var(--border);border-radius:20px;background:var(--surface-2);box-shadow:0 20px 55px rgba(0,0,0,.28)}
-    .reader-note{color:var(--muted);font-size:13px;line-height:1.55;margin:0}
-    .lightbox{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.88);backdrop-filter:blur(8px)}
+
+    .carousel img{
+      width:100%;
+      height:min(64vh,570px);
+      min-height:360px;
+      display:block;
+      object-fit:contain;
+      background:#050403;
+      cursor:zoom-in;
+    }
+
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:3;
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      border:1px solid rgba(244,213,143,.44);
+      background:rgba(8,7,5,.72);
+      color:var(--gold2);
+      font-size:34px;
+      cursor:pointer;
+      box-shadow:0 14px 30px rgba(0,0,0,.35);
+    }
+
+    .arrow.prev{left:12px}
+    .arrow.next{right:12px}
+
+    .dots{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:14px;
+      z-index:4;
+      display:flex;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .dots button{
+      width:9px;
+      height:9px;
+      padding:0;
+      border:0;
+      border-radius:50%;
+      background:rgba(255,255,255,.42);
+      cursor:pointer;
+    }
+
+    .dots button.active{
+      width:26px;
+      border-radius:999px;
+      background:var(--gold2);
+    }
+
+    .price{
+      margin:10px 0;
+      color:var(--gold2);
+      font:800 34px/1 Georgia,serif;
+    }
+
+    .sizes{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0}
+    .sizes button,.sizes span{
+      min-width:50px;
+      padding:12px 14px;
+      border:1px solid var(--border2);
+      border-radius:14px;
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+      text-align:center;
+      cursor:pointer;
+      font-weight:950;
+    }
+
+    .sizes button.selected{
+      border-color:#e8c476;
+      background:linear-gradient(135deg,#a06c29,#f2d58f,#b57b2e);
+      color:#170f07;
+    }
+
+    .thumbs{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+    }
+
+    .thumbs img{
+      width:100%;
+      aspect-ratio:4/5;
+      object-fit:contain;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.16);
+      cursor:zoom-in;
+    }
+
+    .contact-grid{display:grid;grid-template-columns:1fr;gap:14px}
+    .contact-tile{
+      padding:20px;
+      border:1px solid var(--border);
+      border-radius:24px;
+      background:rgba(255,255,255,.035);
+    }
+
+    #toTop{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:80;
+      width:48px;
+      height:48px;
+      display:none;
+      place-items:center;
+      border-radius:50%;
+      border:1px solid var(--border2);
+      color:#170f07;
+      background:linear-gradient(135deg,#a06c29,#f2d58f);
+      box-shadow:0 16px 38px rgba(0,0,0,.32);
+      cursor:pointer;
+      font-weight:950;
+    }
+
+    #toTop.show{display:grid}
+
+    .lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:999;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(0,0,0,.88);
+      backdrop-filter:blur(8px);
+    }
+
     .lightbox.open{display:flex}
-    .lightbox img{max-width:100%;max-height:92vh;object-fit:contain;border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.55)}
-    .lightbox button{position:absolute;top:14px;right:14px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.45);color:white;font-size:28px;cursor:pointer}
-    footer{padding:38px 16px calc(38px + env(safe-area-inset-bottom));border-top:1px solid var(--border);color:var(--muted);text-align:center;font-size:12px;letter-spacing:.5px}
-    :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
-    @media(min-width:700px){
-      .page{padding-top:50px}.premium-hero{border-radius:40px}.explore-grid{grid-template-columns:repeat(4,1fr)}
-      .grid{grid-template-columns:repeat(3,1fr)}.featured-card{grid-template-columns:1fr auto}.home-focus-grid{grid-template-columns:1fr 1fr}.dvar-gallery{grid-template-columns:repeat(3,1fr)}
-      .product-layout{grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);align-items:start}.product-info{position:sticky;top:100px}
+    .lightbox img{
+      max-width:100%;
+      max-height:92dvh;
+      object-fit:contain;
+      border-radius:18px;
+      box-shadow:0 28px 90px rgba(0,0,0,.6);
     }
-    @media(max-width:520px){
-      header{padding-top:9px;padding-bottom:9px}.brand-mark{width:39px;height:39px}.logo{font-size:23px}#menuBtn{min-height:42px;padding:0 12px}
-      #menu{top:69px;right:12px;width:calc(100vw - 24px)}.page{padding:20px 12px 54px}.premium-hero{min-height:610px;border-radius:26px}
-      .hero-content{padding:29px 24px 38px}.premium-hero::after{inset:9px;border-radius:20px}.hero-actions .btn{width:100%}
-      .card{border-radius:22px}.explore-grid{gap:9px}.explore-tile{min-height:120px;padding:15px}.button-row .btn,.backbar .btn{width:100%}
-      .hebrew{font-size:27px}.product-badges{grid-template-columns:1fr}.pdf-frame{height:74vh;min-height:520px}
+
+    .lightbox button{
+      position:absolute;
+      top:14px;
+      right:14px;
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(0,0,0,.48);
+      color:white;
+      font-size:28px;
+      cursor:pointer;
     }
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+    footer{
+      padding:40px 16px calc(42px + env(safe-area-inset-bottom));
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      text-align:center;
+      font-size:12px;
+      letter-spacing:.5px;
+    }
+
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes menuIn{from{opacity:0;transform:translateY(-10px) scale(.97)}to{opacity:1;transform:none}}
+    @keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    @keyframes floatGlow{0%,100%{transform:translateY(0);filter:brightness(1)}50%{transform:translateY(-7px);filter:brightness(1.18)}}
+
+    @media(min-width:720px){
+      .page{padding-top:48px}
+      .stats{grid-template-columns:repeat(4,1fr)}
+      .home-grid{grid-template-columns:1fr 1fr}
+      .library{grid-template-columns:repeat(2,1fr)}
+      .chapter-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery-quotes{grid-template-columns:repeat(3,1fr)}
+      .product-layout{grid-template-columns:minmax(0,1.3fr) minmax(320px,.7fr);align-items:start}
+      .sticky{position:sticky;top:102px}
+      .contact-grid{grid-template-columns:repeat(3,1fr)}
+    }
+
+    @media(min-width:1020px){
+      .library{grid-template-columns:repeat(3,1fr)}
+    }
+
+    @media(max-width:560px){
+      header{padding-top:9px;padding-bottom:9px}
+      .brand-mark{width:40px;height:40px}
+      .logo{font-size:23px}
+      .logo small{font-size:8px;letter-spacing:1.4px}
+      #menuBtn{min-height:42px;padding:0 12px}
+      #menu{top:68px;right:12px;width:calc(100vw - 24px);grid-template-columns:1fr 1fr}
+      .page{padding:20px 12px 58px}
+      .hero{min-height:640px;border-radius:26px}
+      .hero::after{inset:9px;border-radius:19px}
+      .hero-content{padding:28px 23px 38px}
+      .actions .btn,.row .btn,.book-actions .btn{width:100%}
+      .book-actions{grid-template-columns:1fr}
+      .card{border-radius:23px}
+      .pdf-shell{height:calc(100dvh - 178px);min-height:560px;border-radius:16px}
+      .pdf-toolbar .left,.pdf-toolbar .right,.pdf-toolbar .btn{width:100%}
+      .hebrew{font-size:27px}
+      .carousel img{min-height:360px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+    }
   </style>
 </head>
+
 <body>
   <header>
     <div class="top">
-      <div class="brand" onclick="showPage('home')" role="button" tabindex="0" aria-label="Retour à l'accueil">
-        <div class="brand-mark">ב</div>
-        <div class="logo">Bitahon<small>Émouna • Torah • Lumière</small></div>
-      </div>
-      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-icon"></span> Menu</button>
-    </div>
+      <button class="brand" type="button" onclick="showPage('home')" aria-label="Accueil Bitahon">
+        <span class="brand-mark">ב</span>
+        <span class="logo">Bitahon<small>Émouna • Torah • Lumière</small></span>
+      </button>
+
+  <button id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">
+    <span class="menu-lines"></span>
+    Menu
+  </button>
+</div>
   </header>
+
   <div id="menuBackdrop"></div>
+
   <nav id="menu" aria-label="Navigation principale">
     <button type="button" data-page="home">🏠 Accueil</button>
     <button type="button" data-page="rabbiNahman">🔥 Rabbi Na’hman</button>
@@ -214,645 +999,419 @@
     <button type="button" data-page="tikoun">📖 Tikoun Haklali</button>
     <button type="button" data-page="likoute">🎼 Likouté Tefilot</button>
     <button type="button" data-page="dvar">📚 Divré Torah</button>
-    <button type="button" data-page="polo">👕 T-shirt Bitahon</button>
-    <button type="button" data-page="cadres">🖼️ Cadres Bitahon</button>
+    <button type="button" data-page="polo">👕 Boutique</button>
+    <button type="button" data-page="cadres">🖼️ Cadres</button>
     <button type="button" data-page="contact">📞 Contact</button>
     <button type="button" class="wide" id="themeBtn">☀️ Mode clair</button>
   </nav>
 
   <main>
     <section id="home" class="page active">
-      <div class="premium-hero">
-        <img src="8F6A0E83-18C4-4D37-9F53-6EF8DEC1E6F2.png" alt="Univers Bitahon">
+      <div class="hero">
+        <img class="hero-bg" src="8F6A0E83-18C4-4D37-9F53-6EF8DEC1E6F2.png" alt="Bitahon">
         <div class="hero-content">
-          <div class="hero-symbol">✦</div>
-          <div class="eyebrow">Une lumière dans le quotidien</div>
-          <h1>Bitahon<span>Confiance • Prière • Espérance</span></h1>
-          <p class="hero-lead">Un espace pour renforcer sa émouna, découvrir les enseignements de Rabbi Na’hman et avancer avec Hachem, simplement.</p>
-                    <div class="hero-actions">
-            <button class="btn" type="button" onclick="showPage('tikoun')">📖 Lire le Tikoun Haklali</button>
-            <button class="btn secondary" type="button" onclick="showPage('dvar')">Découvrir les Divré Torah</button>
+          <div class="hero-star">✦</div>
+          <div class="eyebrow">Confiance, prière, lumière</div>
+          <h1>Bitahon<span>Une lumière dans le quotidien</span></h1>
+          <p class="hero-lead" id="dailyQuote">Chargement de la citation...</p>
+          <div class="actions">
+            <button class="btn" type="button" onclick="openDvarByIndex(11)">📖 Lire le dernier Dvar Torah</button>
+            <button class="btn secondary" type="button" onclick="showPage('dvar')">📚 Divré Torah</button>
+            <button class="btn ghost" type="button" onclick="showPage('polo')">👕 Voir le T-shirt</button>
           </div>
         </div>
       </div>
 
-      <div class="card quote-card">
-        <blockquote>« Heureux sommes-nous, combien notre sort est agréable. »</blockquote>
-        <cite>Likouté Tefilot 24</cite>
-      </div>
+  <div class="stats">
+    <div class="stat"><strong>13</strong><span>Divré Torah</span></div>
+    <div class="stat"><strong>10</strong><span>Chapitres Hitbodédout</span></div>
+    <div class="stat"><strong>10</strong><span>Téhilim du Tikoun Haklali</span></div>
+    <div class="stat"><strong>3</strong><span>Likouté Tefilot</span></div>
+  </div>
 
-      <div class="home-focus-grid">
-        <article class="card home-focus">
-          <div>
-            <div class="eyebrow">À lire cette semaine</div>
-            <h2>📚 Divré Torah</h2>
-            <p class="dvar-text">Des enseignements courts et profonds pour entrer dans la Paracha avec plus de clarté, de émouna et de sens.</p>
-            <div class="home-focus-meta">
-              <span class="soft-pill">📖 Lecture en ligne</span>
-              <span class="soft-pill">🖨️ PDF imprimable</span>
-            </div>
-          </div>
-          <div class="button-row" style="margin-top:18px">
-            <button class="btn" type="button" onclick="openDvar('Pinhas','dvar torah 12.pdf')">Lire le dernier Dvar Torah</button>
-            <button class="btn secondary" type="button" data-page="dvar" onclick="showPage('dvar')">Voir tous les Divré Torah</button>
-          </div>
-        </article>
-
-        <article class="card home-focus">
-          <div>
-            <div class="eyebrow">Création Bitahon</div>
-            <h2>👕 T-shirt Bitahon</h2>
-            <p class="dvar-text">Une pièce sobre, lumineuse et facile à porter, pensée pour porter le message de confiance au quotidien.</p>
-            <div class="home-focus-meta">
-              <span class="soft-pill">✦ Design Bitahon</span>
-              <span class="soft-pill">📱 Commande WhatsApp</span>
-            </div>
-          </div>
-          <div class="button-row" style="margin-top:18px">
-            <button class="btn" type="button" data-page="polo" onclick="showPage('polo')">Voir le T-shirt</button>
-            <a class="btn secondary" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20avoir%20des%20informations%20sur%20le%20T-shirt%20Bitahon" target="_blank" rel="noopener">Demander une info</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="card">
-        <div class="eyebrow">Explorer</div>
-        <h2>Tout l’univers Bitahon</h2>
-        <div class="explore-grid">
-          <button class="explore-tile" type="button" onclick="showPage('rabbiNahman')"><span class="icon">🔥</span><span>Rabbi Na’hman</span><small>Sa vie et son héritage</small></button>
-          <button class="explore-tile" type="button" onclick="showPage('hitbodedout')"><span class="icon">🌿</span><span>Hitbodédout</span><small>Parler avec Hachem</small></button>
-          <button class="explore-tile" type="button" onclick="showPage('tikoun')"><span class="icon">📖</span><span>Tikoun Haklali</span><small>Les dix Téhilim</small></button>
-          <button class="explore-tile" type="button" onclick="showPage('likoute')"><span class="icon">🎼</span><span>Likouté Tefilot</span><small>Prières de Rabbi Nathan</small></button>
-          <button class="explore-tile" type="button" data-page="dvar" onclick="showPage('dvar')"><span class="icon">📚</span><span>Divré Torah</span><small>Lire et approfondir</small></button>
-          <button class="explore-tile" type="button" data-page="polo" onclick="showPage('polo')"><span class="icon">👕</span><span>T-shirt Bitahon</span><small>Porter le message</small></button>
-          <button class="explore-tile" type="button" onclick="showPage('cadres')"><span class="icon">🖼️</span><span>Cadres Bitahon</span><small>Une lumière chez soi</small></button>
-          <button class="explore-tile" type="button" onclick="showPage('contact')"><span class="icon">✉️</span><span>Contact</span><small>Question ou commande</small></button>
+  <div class="home-grid">
+    <article class="card feature">
+      <div>
+        <div class="eyebrow">Dernier contenu</div>
+        <h2>Matot - Massei</h2>
+        <p class="text">Le dernier Dvar Torah est mis en avant sans forcer : simple, clair, beau, directement lisible sur le site.</p>
+        <div class="chips">
+          <span class="chip">⭐ Nouveau</span>
+          <span class="chip">⏱️ 5 min</span>
+          <span class="chip">📄 PDF intégré</span>
         </div>
       </div>
-
-      <div class="card featured-card">
-        <div>
-          <div class="eyebrow">Rester connecté</div>
-          <h2>📱 Recevoir les nouveautés</h2>
-          <p>Pour recevoir les nouveaux Divré Torah et les nouveautés Bitahon.</p>
-        </div>
-        <a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20recevoir%20les%20nouveautés%20Bitahon." target="_blank" rel="noopener">Recevoir sur WhatsApp</a>
+      <div class="actions">
+        <button class="btn" type="button" onclick="openDvarByIndex(11)">Lire maintenant</button>
+        <button class="btn secondary" type="button" onclick="showPage('dvar')">Voir toute la bibliothèque</button>
       </div>
-    </section>
+    </article>
 
-    <section id="tefila2" class="page">
-      <h2>🎼 Likouté Tefilot 2</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('likoute')">← Retour aux Likouté Tefilot</button></div>
-      <div class="card dvar-text">
-        <p>Que Ta volonté soit, E.ternel notre D.ieu et D.ieu de nos pères – Lui qui entend la prière de Son peuple Israël dans la miséricorde – d’éveiller Ta bienveillance et Tes bontés sur nous. Fais-le pour Toi et dispose notre cœur à prier devant Toi, de tout notre cœur et de toute notre âme. Que notre prière coule toujours avec aisance dans notre bouche, et que nous ne rencontrions ni empêchement, ni obstacle, ni perturbation, dans notre prière.</p>
-        <p>Maître du monde ! [Toi qui] « mènes Yossef comme un troupeau, et qui trônes sur les Chérubins, fais apparaître » sur nous, dans Ton abondante miséricorde, la lumière de Ta sainteté. Qu’elle s’épanche sur nous sainteté et pureté, de manière à ce que nous puissions incliner, soumettre et briser notre mauvais penchant.</p>
-        <p>Nous aurons le mérite, de par Ton abondante bienveillance et Tes grandes bontés, de préserver la sainte Alliance, nous tous, ainsi que notre descendance. Assure-nous Ton aide constante, et sauve-nous, de par Ta puissante miséricorde et Ta grande bonté, de toutes sortes de dommages occasionnés à l’Alliance, à D.ieu ne plaise, en pensée, parole et action, de façon involontaire ou en toute connaissance de cause, sous la contrainte ou par consentement, par la vision, l’audition ou par la sollicitation des autres sens.</p>
-        <p>Qu’en eux-tous, puissions-nous être saints et purs, dans la sainteté de l’Alliance, sans le moindre dommage ni pensée parasite. En effet, dans Ta grande bienveillance, Tu nous as choisis parmi tous les peuples, Tu nous as élevés au-dessus de toutes les langues, Tu nous as mis à l’écart de toutes leurs impuretés et de toutes leurs abominations, comme Tu l’as écrit, dans Ta Torah, à notre intention : « Je vous ai séparés des peuples pour que vous soyez à Moi ».</p>
-        <p>Tu nous as tous attribué le nom de Tsadikim, comme il est dit : « [Les membres de] Ton peuple (Israël) sont tous des Tsadikim ». Je T’en prie ! Dans Ton abondante miséricorde, ne contredis pas Ta sainte Torah, à D.ieu ne plaise, car Ta parole est Vérité et subsiste à jamais. C’est pourquoi, agis envers nous dans Ta bonté, aide-nous, afin que nous fassions vraiment partie des Tsadikim, grâce au fait que Tu nous feras mériter de compter parmi ceux qui gardent l’Alliance.</p>
-        <p>Grâce à cela uniquement, il convient que nous recevions la dénomination de Tsadik, comme Tu nous l’as fait savoir, par l’entremise de Tes saints sages, à savoir qu’est appelé Tsadik uniquement celui qui préserve l’Alliance. De la sorte, de même que Tu as secouru Yossef Ton Tsadik, au moment où il fut confronté à l’épreuve, en le sauvant et en lui octroyant la force de prendre le dessus sur son penchant, ainsi, de grâce, que Tes entrailles et Ta bienveillance s’émeuvent en notre faveur.</p>
-        <p>Fais-nous réussir, par le mérite et la force de Yossef haTsadik, octroie-nous intelligence, sagesse, compréhension et connaissance, force et vigueur de sainteté, de façon à ce que nous puissions être sauvés de toutes sortes de dommages occasionnés à l’Alliance, et nous pourrons prendre le dessus sur notre penchant. Nous aurons le mérite à ce que notre pensée s’attache et adhère à Ta sainteté, de manière constante, sans s’interrompre le moindre instant, afin que nous ayons la force, grâce à cela, d’arranger convenablement notre prière devant Toi, sans aucun empêchement, retard ni confusion, de manière à ce que notre prière soit agréée devant Toi.</p>
-        <p>Ta miséricorde s’émouvra en notre faveur et Tu feras revenir Ta Face vers nous.</p>
-        <p>Accélère et hâte-Toi de nous délivrer, amène-nous notre juste Machia’h, fais-le pour Toi, et non pour nous. Aide-nous à ce que notre prière soit arrangée comme il convient, accorde-nous l’intelligence et la connaissance, afin que nous puissions régler notre parole avec justesse, sans que nous n’ayons à trébucher par les paroles de notre bouche, et nous ne dévierons pas, dans notre prière, à droite et à gauche, du chemin de droiture et de vérité.</p>
-        <p>Octroie-nous le privilège, dans Ton abondante miséricorde, de donner la Tsédaka à des pauvres méritants, offre-nous [la possibilité] d’avoir de l’argent en abondance, et [de rencontrer] des pauvres de valeur, pour leur faire du bien. « La force du roi [se définit par] l’amour de la justice. C’est Toi qui as établi l’équité, Tu as rendu la justice et fait la charité au sein de Ya’akov, car tout vient de Toi, et ce qui provient de Ta main, nous Te le donnons ».</p>
-        <p>Toi qui accomplis des œuvres de charité envers toute chair, agis avec nous de manière charitable, et accorde-nous le mérite, dans Ta bienveillance, de compter parmi ceux qui font la Tsédaka. Retire la méchanceté de notre cœur, afin que nous parvenions à offrir la charité avec joie, en présentant un visage accueillant, et que notre cœur ne soit pas animé d’un sentiment hostile quand nous donnerons au pauvre. Nous ouvrirons largement notre main en sa faveur, pour remettre au pauvre et au misérable de quoi subvenir à leurs besoins, [en comblant] ce qui leur manque.</p>
-        <p>Notre âme fournira [en vivres] l’affamé, et nous couvrirons d’un vêtement celui qui est dénudé. C’est en faveur de cette chose-là que Toi, E.ternel notre D.ieu, Tu nous béniras et Tu nous aideras à arranger notre prière devant Toi, au summum de la perfection. Que notre prière soit pure et juste, dénuée de toute pensée étrangère, afin qu’aucun écran ne sépare notre prière de Toi. Nous voici [prêts] à orienter notre prière et à lier toutes nos prières à tous les Tsadikim de notre génération.</p>
-        <p>Dans Ton abondante miséricorde, Tu éveilleras le cœur des Tsadikim de vérité qui se trouvent dans notre génération, et Tu leur donneras la force de recevoir notre prière, et ils l’élèveront devant Toi. Même si notre prière n’est pas convenable et qu’elle est mélangée à beaucoup de déchets, de sorte qu’elle ne contienne pas même un mot ou une lettre qui ne soit pure et propre – ma parole est très embarrassée et ma langue pleine d’altérations, car ce n’est pas en toute conscience que je suis appelé à prononcer [les mots], et la parole est éloignée de la pensée – par-delà tout cela, que Ta bienveillance et que Tes bontés l’emportent.</p>
-        <p>Octroie la force à Tes vrais Tsadikim, afin qu’ils puissent faire monter, élever et soulever toutes nos prières, en les purifiant et en les nettoyant de tout résidu et dommage, de manière à ce qu’ils puissent [les] élever devant Toi, [en obtenant] Ta faveur, et ils construiront, à partir d’elles, la structure de la Chékhina, en vue de La préparer, de La soutenir et de La relever de Son exil. Redresse la Souca de David qui est tombée, grâce à nos prières.</p>
-        <p>Ramène Ta Chékhina à Tsion, éclaire-nous de Ta Face, « Tourne-Toi vers moi et gracie-moi, car je ne placerai pas ma confiance dans mon arc, mon épée ne m’accordera pas le salut ». C’est en Ton Nom seulement que nous avons placé notre confiance. « Nous avons adressé tout le jour des louanges à D.ieu, et nous rendrons grâce à Ton Nom pour toujours Sélah ! ». Éveille notre juste Machia’h, pour qu’il reçoive notre prière et qu’il l’élève devant Toi.</p>
-        <p>Que toutes nos prières et celles de Ton peuple la maison d’Israël, deviennent, dans sa main, une épée à double tranchant, assurant abri, défense et protection, pour combattre ceux qui luttent contre nous et défendre notre cause. « Il épargnera le démuni et le misérable, il délivrera les âmes des pauvres. Tiens fermement le bouclier et l’arme défensive, lève-Toi pour venir à mon aide. Ceins ton épée sur la cuisse, ô guerrier, elle est ta parure et ta splendeur ».</p>
-        <p>Fais-le pour Toi et non pour nous, car l’infime parcelle de nos bonnes actions, toutes nos œuvres charitables et notre prière, absolument tout provient de Toi, et ce qui est issu de Ta main, nous Te le donnons, et ainsi qu’il est écrit : « Qui M’a précédé pour que Je le paie ? ». Non pour nous, ô E.ternel, non pour nous mais bien pour Ton Nom, fais honneur à Ta bonté et à Ta vérité. Fais-moi vivre selon Ta bonté, et j’observerai le témoignage de Ta bouche.</p>
-        <p>Accomplis pour nous le verset de l’Écriture : « En faveur de Mon Nom, Je ferai patienter Ma colère et [en vertu] de Ma louange, Je la retiendrai pour toi. C’est pour Moi, c’est pour Moi que Je le ferai, car comment [Mon Nom] serait-il profané ? Ma gloire, Je ne la prête à aucun autre ». C’est Lui qui accroît les délivrances de Son roi et qui agit avec bonté envers Son oint David et sa postérité, à jamais, amen Sélah !</p>
-      </div>
-    </section>
-
-    <section id="tefila3" class="page">
-      <h2>🎼 Likouté Tefilot 3</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('likoute')">← Retour aux Likouté Tefilot</button></div>
-      <div class="card dvar-text">
-        <p>Que Ta volonté, E.ternel notre D.ieu et D.ieu de nos pères – Lui qui a fait choix des cantiques chantés – soit de Te rappeler, dans Ta bienveillance et Ta grande bonté, de Ta puissante Chékhina [NdT : littéralement « la Présence de Ta force »], qui a erré, loin de Son lieu, tel un oiseau qui vagabonde, hors de son nid. « Tu Te lèveras, Tu prendras Tsion en pitié : il est temps de lui faire grâce, car le moment est venu ».</p>
-        <p>Etablis et relève de sa chute l’assemblée d’Israël. Aide-nous, dans Ton abondante miséricorde, à ce que nous méritions d’élever le son musical, afin que nous ayons la force d’arranger, devant Toi, des chants, des cantiques et des louanges, avec une voix empreinte d’allégresse et de joie. Nous jouerons nos mélodies, tous les jours de notre vie, d’une voix agréable et douce, comme Tu [les] aimes. Aide-nous à étudier constamment Ta sainte Torah, jour et nuit, de façon désintéressée.</p>
-        <p>De même que Tu as remis Ta sainte Torah à Moché Ton serviteur – durant le jour, Tu étudiais avec lui la Torah écrite, et durant la nuit la Torah orale – ainsi tu nous porteras assistance, dans Ta grande bienveillance, afin d’apprendre et de méditer sur Ta sainte Torah en permanence, de sorte que nous parviendrons à étudier jour et nuit la Torah écrite et la Torah orale. Maître du monde ! Dans Ton abondante miséricorde, accorde-nous la force de l’emporter sur le sommeil, afin que nous puissions chasser le sommeil de nos yeux, pour étudier en permanence, chaque nuit, les soixante traités [du Talmud], accompagnés de la sainte Guémara, dans le but d’apprendre, d’enseigner, d’observer, d’accomplir, de mettre en pratique et de nous consacrer à leur étude, de façon désintéressée.</p>
-        <p>« Lève-toi, chante pendant la nuit, au début des veilles ». Un fil de bonté s’étendra sur nous, par cette démarche. « Le jour, l’E.ternel donnera ordre à Sa bonté, alors que la nuit, Son chant est avec moi, une prière au D.ieu de ma vie ». Grâce à cela, Tu nous viendras en aide, de façon à ce que l’écoute de la voix chantée d’aucun homme au monde, ne nuise à notre dévotion. Que même les sons altérés en provenance des « oiseaux pris au piège » n’aient pas la force de nous porter atteinte, en nous troublant de notre service, à D.ieu ne plaise.</p>
-        <p>Donne-nous uniquement la force de les élever, de les raffiner, de les redresser et de les faire revenir à la sainteté, et Tu érigeras la Souca chancelante de David. Dans Ta grande bienveillance, que s’éveille le narcisse du Charon, et qu’il se mette à chanter d’une voix mélodieuse, dans l’entrain et l’allégresse. Tu règneras Toi seul rapidement, E.ternel, sur toutes Tes œuvres, et que s’accomplisse le verset de l’Ecriture : « Chantez [pour] D.ieu ! Chantez pour notre Roi, chantez, car D.ieu est le Roi de toute la terre, entonnez un Maskil ! » [NdT : un « Maskil » est un type de Psaume ayant pour but d’éclairer le peuple sur quelque chose de précis].</p>
-        <p>Souviens-Toi de Ton peuple Israël, dispersé parmi les nations, et de Ton Temple désolé, privé de ses occupants. « Même l’oiseau a trouvé un gîte, l’hirondelle possède un nid, dans lequel elle a déposé ses oisillons. J’ai la nostalgie de Tes autels, ô D.ieu des armées, ô mon Roi et mon D.ieu ! ». Ramène les Cohanim à leur tâche, les Lévites sur leur estrade, à leur cantique et à leur chant, et réinstalle Israël dans sa demeure. Fais-nous don de l’intelligence et de la sagesse de sainteté, afin de parvenir à attirer en permanence sur nous le joug de Ton Royaume, de dévoiler Ta Royauté et Ta souveraineté sur tous les habitants du monde.</p>
-        <p>Instaure rapidement le trône de David, amène-nous vite, sans plus tarder, le Machia’h fils de David, le [poète] plaisant des chants d’Israël. « Alors notre bouche se remplira de rire, et notre langue, de chant ». Nous nous répandrons alors en cantiques, nous chanterons et nous entonnerons [des airs joyeux], devant Toi, durant toute notre vie, et s’accomplira le verset de l’Ecriture : « L’E.ternel [se manifeste] pour nous sauver », et nous entonnerons mes mélodies, tous les jours de notre vie, sur le Temple de D.ieu, rapidement et de nos jours, amen.</p>
-      </div>
-    </section>
-
-    <section id="rabbiNahman" class="page">
-      <div class="eyebrow">Histoire & transmission</div>
-      <h2>🔥 Rabbi Na’hman de Breslev</h2>
-      <div class="card dvar-text">
-        <h3>Rabbi Na’hman de Breslev (1772-1810)</h3>
-        <p><strong>Une âme exceptionnelle au cœur du hassidisme</strong></p>
-        <p>Rabbi Na’hman de Breslev naît en 1772 à Médzibouz, en Ukraine. Il est l’arrière-petit-fils du Baal Chem Tov, fondateur du mouvement hassidique. Dès son plus jeune âge, il se distingue par une soif extraordinaire de spiritualité et d’étude. Alors que le peuple juif traverse une période de grandes difficultés spirituelles et que le hassidisme rencontre une forte opposition, Rabbi Na’hman apparaît comme une lumière destinée à raviver la foi et l’espérance.</p>
-        <p>Enfant, il consacre de longues heures à l’étude de la Torah et à la prière. On raconte qu’il se rendait régulièrement, seul, sur la tombe du Baal Chem Tov afin d’y déverser son cœur devant Hachem. Son désir de se rapprocher de Dieu ne cesse de grandir et marque toute sa vie.</p>
-        <h3>Un maître reconnu dès sa jeunesse</h3>
-        <p>Selon l’usage de l’époque, Rabbi Na’hman se marie peu après sa Bar-Mitsva avec Sashia, fille de Rabbi Ephraïm d’Oussyatin. Le couple aura huit enfants : six filles et deux garçons.</p>
-        <p>Très tôt, de nombreux disciples et érudits reconnaissent sa grandeur spirituelle. Installé à Medvédèvka durant plusieurs années, il attire aussi bien de grands talmidé hakhamim que des hommes simples en quête de vérité. Son enseignement met l’accent sur la joie, la prière sincère, la émouna et la proximité avec Hachem.</p>
-        <h3>Le voyage en Terre d’Israël</h3>
-        <p>En 1798, animé d’un profond désir spirituel, Rabbi Na’hman entreprend un voyage vers la Terre d’Israël. Malgré les nombreux dangers et difficultés rencontrés en chemin, il atteint finalement Erets Israël à la veille de Roch Hachana.</p>
-        <p>Ce séjour marque profondément sa vie et son enseignement. Il y puise de nouvelles forces spirituelles et une compréhension encore plus profonde de sa mission auprès du peuple juif.</p>
-        <h3>Breslev et la rencontre avec Rabbi Nathan</h3>
-        <p>En 1802, Rabbi Na’hman s’installe dans la ville de Breslev. C’est de cette ville que ses disciples tireront plus tard le nom de « Breslev ».</p>
-        <p>Cette même année a lieu l’une des rencontres les plus importantes de l’histoire du mouvement : celle de Rabbi Na’hman avec Rabbi Nathan de Némirov. Rabbi Nathan devient son disciple le plus proche et consacrera sa vie à préserver, retranscrire et diffuser l’ensemble de ses enseignements.</p>
-        <p>Grâce à son dévouement exceptionnel, les enseignements de Rabbi Na’hman ont pu parvenir jusqu’à notre génération.</p>
-        <h3>Ses enseignements et ses ouvrages</h3>
-        <p>L’œuvre de Rabbi Na’hman a profondément marqué le monde juif. Son livre principal, le Likouté Moharan, rassemble ses enseignements sur la émouna, la prière, la joie, la téchouva et le service divin. Il est également l’auteur du Séfer HaMidot, recueil de conseils spirituels, ainsi que des célèbres Contes de Rabbi Na’hman, qui renferment de profonds secrets de la Torah.</p>
-        <p>Son disciple Rabbi Nathan de Némirov consacra sa vie à préserver et diffuser cet héritage. Il rédigea notamment le Likouté Halakhot, vaste commentaire reliant les enseignements de Rabbi Na’hman aux lois de la Torah. Grâce à cette œuvre, les enseignements du Maître trouvent une application concrète dans tous les aspects de la vie juive.</p>
-        <p>Peu avant son départ de ce monde, Rabbi Na’hman révéla également le Tikoun Haklali, composé de dix Téhilim qu’il présenta comme une réparation spirituelle d’une importance particulière. Aujourd’hui encore, des milliers de personnes récitent ces psaumes conformément à son enseignement.</p>
-        <h3>Ses dernières années à Ouman</h3>
-        <p>Après plusieurs années de souffrance dues à la tuberculose, Rabbi Na’hman quitte Breslev en 1810 et s’installe à Ouman.</p>
-        <p>Il choisit cette ville notamment en raison de la sainteté particulière du lieu, marqué par le sacrifice de milliers de Juifs qui y sanctifièrent le Nom d’Hachem.</p>
-        <p>Le 18 Tichri 5571 (1810), Rabbi Na’hman quitte ce monde à l’âge de trente-huit ans. Avant son départ, il exprime sa confiance dans la pérennité de son enseignement et dans la force spirituelle qu’il continuera d’apporter aux générations futures.</p>
-        <h3>Un héritage vivant</h3>
-        <p>Plus de deux siècles après sa disparition, l’influence de Rabbi Na’hman de Breslev demeure immense. Ses enseignements continuent d’inspirer des milliers de personnes à travers le monde.</p>
-        <p>Son message central reste plus actuel que jamais : ne jamais perdre espoir, renforcer sa émouna, parler à Hachem avec simplicité et servir Dieu dans la joie.</p>
-        <p>Comme il l’enseignait lui-même :</p>
-        <p style="text-align:center;font-size:23px;font-weight:900;color:var(--gold-bright);">« Il n’existe absolument aucun désespoir dans le monde. »</p>
-        <p>À travers ses livres, ses contes et ses enseignements, Rabbi Na’hman continue d’éclairer le chemin de ceux qui cherchent à se rapprocher d’Hachem.</p>
-      </div>
-    </section>
-
-    <section id="hitbodedout" class="page">
-      <div class="eyebrow">Une parole vraie</div>
-      <h2>🌿 La Hitbodédout</h2>
-      <div class="card dvar-text">
-        <h3>La Hitbodédout : parler avec Hachem comme à un père</h3>
-        <p>La Hitbodédout est l’un des enseignements centraux de Rabbi Na’hman de Breslev. Le mot signifie « s’isoler ». Il s’agit de réserver un moment pour parler seul à Hachem, avec ses propres mots, dans sa langue habituelle, en ouvrant son cœur sans texte préparé.</p>
-      </div>
-      <div class="card">
-        <h3>Les 10 chapitres</h3>
-        <div class="chapter-list">
-          <button class="btn secondary" type="button" onclick="showPage('hitbo1')">01 — Pourquoi est-elle si importante ?</button>
-          <button class="btn secondary" type="button" onclick="showPage('hitbo2')">02 — Comment faire la Hitbodédout ?</button>
-          <button class="btn secondary" type="button" onclick="showPage('hitbo3')">03 — Même quand on n’arrive pas à parler</button>
-          <button class="btn secondary" type="button" onclick="showPage('hitbo4')">04 — Transformer son étude en prière</button>
-          <button class="btn secondary" type="button" onclick="showPage('hitbo5')">05 — Se rapprocher de Hachem</button>
-          <button class="btn secondary" type="button" onclick="showPage('hitbo6')">06 — L’importance de remercier</button>
-          <button class="btn secondary" type="button" onclick="showPage('hitbo7')">07 — La simplicité avant tout</button>
-          <button class="btn secondary" type="button" onclick="showPage('hitbo8')">08 — L’examen de soi</button>
-          <button class="btn secondary" type="button" onclick="showPage('hitbo9')">09 — Ne jamais désespérer</button>
-          <button class="btn secondary" type="button" onclick="showPage('hitbo10')">10 — Le but ultime</button>
+    <article class="card feature">
+      <div>
+        <div class="eyebrow">Boutique</div>
+        <h2>T-shirt Bitahon</h2>
+        <p class="text">Un produit sobre, premium et spirituel, présenté avec galerie, zoom, choix de taille et commande WhatsApp automatique.</p>
+        <div class="chips">
+          <span class="chip">👕 35 €</span>
+          <span class="chip">S • M • L • XL</span>
+          <span class="chip">📱 WhatsApp</span>
         </div>
       </div>
-    </section>
+      <div class="actions">
+        <button class="btn" type="button" onclick="showPage('polo')">Voir le T-shirt</button>
+        <a class="btn secondary" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20avoir%20une%20information%20sur%20Bitahon." target="_blank" rel="noopener">Demander une info</a>
+      </div>
+    </article>
+  </div>
 
-    <section id="hitbo1" class="page"><h2>🌿 1. Pourquoi la Hitbodédout est-elle si importante ?</h2><div class="card dvar-text">
-      <p>Selon Rabbi Na’hman, la prière est l’arme principale du Juif.</p><p>L’homme mène constamment des combats :</p>
-      <ul><li>contre le mauvais penchant ;</li><li>contre les mauvaises pensées ;</li><li>contre les épreuves ;</li><li>contre la tristesse ;</li><li>contre l’éloignement spirituel.</li></ul>
-      <p>Pour toutes ces guerres, la principale arme n’est pas la force physique ni l’intelligence, mais la prière.</p><p>La Hitbodédout permet donc de se connecter directement à Hachem et de recevoir Son aide dans tous les domaines de la vie.</p>
-      <button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+  <div class="card quote-card">
+    <blockquote id="randomQuote">« Il n’existe absolument aucun désespoir dans le monde. »</blockquote>
+    <cite>Rabbi Na’hman de Breslev</cite>
+  </div>
+</section>
 
-    <section id="hitbo2" class="page"><h2>🌿 2. Comment faire la Hitbodédout ?</h2><div class="card dvar-text">
-      <ul><li>s’isoler dans une pièce, un champ, une forêt ou tout endroit calme ;</li><li>parler à Hachem avec simplicité ;</li><li>raconter tout ce que l’on ressent ;</li><li>demander de l’aide ;</li><li>remercier ;</li><li>reconnaître ses erreurs ;</li><li>partager ses inquiétudes, ses joies et ses projets.</li></ul>
-      <p>Le principal n’est pas la beauté des mots mais la sincérité.</p><button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+<section id="rabbiNahman" class="page">
+  <div class="eyebrow">Breslev</div>
+  <h2>🔥 Rabbi Na’hman de Breslev</h2>
 
-    <section id="hitbo3" class="page"><h2>🌿 3. Même quand on n’arrive pas à parler</h2><div class="card dvar-text">
-      <p>Si une personne est triste, découragée, éloignée ou ne trouve pas les mots, elle doit quand même essayer.</p><p>Même une seule phrase peut avoir une immense valeur.</p><p><strong>« Hachem, aide-moi à Te parler. »</strong></p><p>Cela est déjà une véritable Hitbodédout.</p>
-      <button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+  <div class="card text">
+    <h3>Une âme exceptionnelle au cœur du hassidisme</h3>
+    <p>Rabbi Na’hman de Breslev naît en 1772 à Médzibouz, en Ukraine. Il est l’arrière-petit-fils du Baal Chem Tov, fondateur du mouvement hassidique. Dès son plus jeune âge, il se distingue par une soif extraordinaire de spiritualité et d’étude.</p>
+    <p>Son enseignement met l’accent sur la joie, la prière sincère, la émouna, la téchouva, la simplicité et la proximité avec Hachem.</p>
+  </div>
 
-    <section id="hitbo4" class="page"><h2>🌿 4. Transformer son étude en prière</h2><div class="card dvar-text">
-      <p>Après avoir étudié la Torah ou les enseignements d’un Tsadik, il faut les transformer en demandes.</p><p>Au lieu de seulement apprendre l’importance de la émouna :</p><p><strong>« Hachem, aide-moi à avoir une véritable émouna. »</strong></p><p>Au lieu d’étudier la patience uniquement en théorie :</p><p><strong>« Hachem, donne-moi la patience dans les épreuves. »</strong></p><p>Ainsi, la Torah entre dans la vie de la personne.</p>
-      <button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+  <div class="card">
+    <h3>Chronologie</h3>
+    <div class="timeline">
+      <div class="timeline-item"><strong>1772</strong><p class="muted">Naissance à Médzibouz, en Ukraine.</p></div>
+      <div class="timeline-item"><strong>1798</strong><p class="muted">Voyage en Terre d’Israël, qui marque profondément sa mission.</p></div>
+      <div class="timeline-item"><strong>1802</strong><p class="muted">Installation à Breslev et rencontre avec Rabbi Nathan de Némirov.</p></div>
+      <div class="timeline-item"><strong>1810</strong><p class="muted">Rabbi Na’hman quitte ce monde à Ouman, le 18 Tichri 5571.</p></div>
+    </div>
+  </div>
 
-    <section id="hitbo5" class="page"><h2>🌿 5. La Hitbodédout rapproche de Hachem</h2><div class="card dvar-text">
-      <p>La Hitbodédout n’est pas seulement un moment de prière.</p><p>Elle crée une relation personnelle avec Hachem.</p><ul><li>Hachem l’écoute ;</li><li>Hachem l’accompagne ;</li><li>Hachem s’occupe de ses difficultés ;</li><li>Hachem est proche.</li></ul><p>La foi devient alors quelque chose de vivant.</p>
-      <button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+  <div class="card">
+    <h3>Galerie de citations</h3>
+    <div class="gallery-quotes">
+      <blockquote>« Il n’existe absolument aucun désespoir dans le monde. »</blockquote>
+      <blockquote>« Le principal est de ne jamais avoir peur. »</blockquote>
+      <blockquote>« C’est une grande mitsva d’être toujours dans la joie. »</blockquote>
+    </div>
+  </div>
 
-    <section id="hitbo6" class="page"><h2>🌿 6. L’importance de remercier</h2><div class="card dvar-text">
-      <p>Rabbi Na’hman enseigne que les louanges et les remerciements ouvrent le cœur.</p><p>Lorsqu’une personne remercie Hachem pour :</p><ul><li>sa vie ;</li><li>sa santé ;</li><li>sa famille ;</li><li>les mitsvot ;</li><li>les petites bontés quotidiennes ;</li></ul><p>elle attire davantage de proximité avec Lui.</p><p>Le remerciement aide aussi à sortir de la tristesse.</p>
-      <button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+  <div class="card text">
+    <h3>Un héritage vivant</h3>
+    <p>Plus de deux siècles après sa disparition, l’influence de Rabbi Na’hman demeure immense. Ses livres, ses contes et ses enseignements continuent d’éclairer ceux qui cherchent à se rapprocher d’Hachem.</p>
+  </div>
+</section>
 
-    <section id="hitbo7" class="page"><h2>🌿 7. La simplicité avant tout</h2><div class="card dvar-text">
-      <p>Rabbi Na’hman admirait particulièrement les Juifs simples.</p><ul><li>la sincérité ;</li><li>la simplicité ;</li><li>la droiture ;</li><li>la foi.</li></ul><p>Une parole simple dite avec vérité vaut souvent davantage que de grands discours prononcés sans cœur.</p>
-      <button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+<section id="hitbodedout" class="page">
+  <div class="eyebrow">Parler à Hachem</div>
+  <h2>🌿 Hitbodédout</h2>
 
-    <section id="hitbo8" class="page"><h2>🌿 8. L’examen de soi</h2><div class="card dvar-text">
-      <p>La Hitbodédout est également un moment d’introspection.</p><ul><li>Ai-je agi comme Hachem le veut ?</li><li>Où ai-je réussi aujourd’hui ?</li><li>Où dois-je m’améliorer ?</li><li>Comment puis-je me rapprocher davantage de Lui ?</li></ul><p>Cette réflexion permet de progresser continuellement.</p>
-      <button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+  <div class="card text">
+    <h3>Parler avec Hachem comme à un père</h3>
+    <p>La Hitbodédout est l’un des enseignements centraux de Rabbi Na’hman de Breslev. Il s’agit de réserver un moment pour parler seul à Hachem, avec ses propres mots, dans sa langue habituelle, en ouvrant son cœur sans texte préparé.</p>
+  </div>
 
-    <section id="hitbo9" class="page"><h2>🌿 9. Ne jamais désespérer</h2><div class="card dvar-text">
-      <p>L’un des messages les plus forts de Rabbi Na’hman est :</p><p><strong>Il n’existe aucun endroit du monde où l’on ne peut plus revenir vers Hachem.</strong></p><p>Même si une personne est tombée très bas, elle peut toujours crier vers Hachem.</p><p>Tant qu’elle continue à prier, à demander et à espérer, la porte reste ouverte.</p>
-      <button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+  <div class="chapter-grid" id="hitboGrid"></div>
+</section>
 
-    <section id="hitbo10" class="page"><h2>🌿 10. Le but ultime</h2><div class="card dvar-text">
-      <p>Le but de la Hitbodédout est de vivre avec Hachem à chaque instant.</p><p>Une personne qui pratique régulièrement la Hitbodédout cherche à :</p><ul><li>renforcer sa émouna ;</li><li>purifier son cœur ;</li><li>corriger ses défauts ;</li><li>remercier davantage ;</li><li>se rapprocher de son Créateur.</li></ul><p>C’est pourquoi Rabbi Na’hman considérait la Hitbodédout comme l’un des chemins les plus puissants pour grandir spirituellement et se rapprocher d’Hachem.</p>
-      <button class="btn secondary" type="button" onclick="showPage('hitbodedout')">← Retour</button>
-    </div></section>
+<section id="tikoun" class="page">
+  <div class="eyebrow">Tikoun Haklali</div>
+  <h2>📖 Tikoun Haklali</h2>
 
-    <section id="tikoun" class="page">
-      <div class="eyebrow">Les dix Téhilim</div>
-      <h2>📖 Tikoun Haklali</h2>
-      <div class="card">
-        <h3>לפני אמירת תיקון הכללי</h3>
-        <div class="hebrew">
-          לְכוּ נְרַנְּנָה לַיהֹוָה, נָרִיעָה לְצוּר יִשְׁעֵנוּ: נְקַדְּמָה פָּנָיו בְּתוֹדָה, בִּזְמִרוֹת נָרִיעַ לוֹ: כִּי אֵל גָּדוֹל יְהֹוָה, וּמֶלֶךְ גָּדוֹל עַל כָּל אֱלֹהִים:
-          <br><br>
-          הֲרֵינִי מְזַמֵּן אֶת פִּי לְהוֹדוֹת וּלְהַלֵּל וּלְשַׁבֵּחַ אֶת בּוֹרְאִי לְשֵׁם יִחוּד קֻדְשָׁא בְּרִיךְ הוּא וּשְׁכִינְתֵּה בִּדְחִילוּ וּרְחִימוּ עַל יְדֵי הַהוּא טָמִיר וְנֶעְלָם בְּשֵׁם כָּל יִשְׂרָאֵל:
-          <br><br>
-                    הֲרֵינִי מְקַשֵׁר עַצְמִי בַּאֲמִירַת הָעֲשָׂרָה מִזְמוֹרִים אֵלּוּ לְכׇל הַצַּדִּיקִים הָאֲמִתִּיִּים שֶׁבְּדוֹרֵנוּ. וּלְכׇל הַצַּדִּיקִים הָאֲמִתִּים שׁוֹכְנֵי עָפָר. קְדוֹשִׁים אָשֵׁר בָּאָרֶץ הֵמָּה. וּבִפְרָט לְרַבֵּנוּ הַקָּדוֹשׁ צַדִּיק יְסוֹד עוֹלָם נַחַל נוֹבֵעַ מְקוֹר חׇכְמָה רַבֵּנוּ נַחְמָן בֶּן פֵיגֶא. זְכוּתָם יָגֵן עָלֵינוּ וְעַל כָּל יִשְׂרָאֵל אָמֵן.
+  <div class="card">
+    <details>
+      <summary>🙏 Prière à dire avant de réciter le Tikoun Haklali</summary>
+      <div class="inside hebrew">
+        לְכוּ נְרַנְּנָה לַיהֹוָה, נָרִיעָה לְצוּר יִשְׁעֵנוּ: נְקַדְּמָה פָּנָיו בְּתוֹדָה, בִּזְמִרוֹת נָרִיעַ לוֹ: כִּי אֵל גָּדוֹל יְהֹוָה, וּמֶלֶךְ גָּדוֹל עַל כָּל אֱלֹהִים:
+        <br><br>
+        הֲרֵינִי מְזַמֵּן אֶת פִּי לְהוֹדוֹת וּלְהַלֵּל וּלְשַׁבֵּחַ אֶת בּוֹרְאִי לְשֵׁם יִחוּד קֻדְשָׁא בְּרִיךְ הוּא וּשְׁכִינְתֵּה בִּדְחִילוּ וּרְחִימוּ עַל יְדֵי הַהוּא טָמִיר וְנֶעְלָם בְּשֵׁם כָּל יִשְׂרָאֵל:
+        <br><br>
+        הֲרֵינִי מְקַשֵׁר עַצְמִי בַּאֲמִירַת הָעֲשָׂרָה מִזְמוֹרִים אֵלּוּ לְכׇל הַצַּדִּיקִים הָאֲמִתִּיִּים שֶׁבְּדוֹרֵנוּ. וּלְכׇל הַצַּדִּיקִים הָאֲמִתִּים שׁוֹכְנֵי עָפָר. וּבִפְרָט לְרַבֵּנוּ הַקָּדוֹשׁ רַבֵּנוּ נַחְמָן בֶּן פֵיגֶא. זְכוּתָם יָגֵן עָלֵינוּ וְעַל כָּל יִשְׂרָאֵל אָמֵן.
+      </div>
+    </details>
+
+    <p class="note">Le dernier Téhilim ouvert est sauvegardé automatiquement sur ce téléphone.</p>
+  </div>
+
+  <div id="psalms" class="card">Chargement des Téhilim...</div>
+
+  <div class="card">
+    <details>
+      <summary>🙏 Prière à dire après avoir récité le Tikoun Haklali</summary>
+      <div class="inside hebrew">
+        מִי יִתֵּן מִצִּיּוֹן יְשׁוּעַת יִשְׂרָאֵל בְּשׁוּב יְיָ שְׁבוּת עַמּוֹ, יָגֵל יַעֲקֹב יִשְׂמַח יִשְׂרָאֵל:
+        <br><br>
+        וּתְשׁוּעַת צַדִּיקִים מֵיְיָ, מָעוּזָּם בְּעֵת צָרָה:
+        <br><br>
+        וַיַּעְזְרֵם יְיָ וַיְפַלְּטֵם, יְפַלְּטֵם מֵרְשָׁעִים וְיוֹשִׁיעֵם כִּי חָסוּ בוֹ:
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="likoute" class="page">
+  <div class="eyebrow">Prières</div>
+  <h2>🎼 Likouté Tefilot</h2>
+
+  <div class="card text">
+    <p>Ces Téfilot sont facultatives, mais elles sont extrêmement puissantes. Il est possible d’y ajouter ses propres mots ou d’en retirer certaines parties selon ses besoins.</p>
+    <p>Il vaut mieux lire une petite partie avec concentration et cœur sincère que de tout réciter rapidement sans attention.</p>
+  </div>
+
+  <div class="card">
+    <input id="tefilaSearch" class="search" type="search" placeholder="Rechercher une Tefila...">
+  </div>
+
+  <div class="library" id="tefilaLibrary"></div>
+</section>
+
+<section id="tefilaReader" class="page">
+  <div class="eyebrow">Likouté Tefilot</div>
+  <h2 id="tefilaTitle">Tefila</h2>
+  <div class="card">
+    <div class="row">
+      <button class="btn secondary" type="button" onclick="showPage('likoute')">← Retour</button>
+      <button class="btn ghost" type="button" onclick="openPreviousTefila()">← Précédente</button>
+      <button class="btn ghost" type="button" onclick="openNextTefila()">Suivante →</button>
+      <button class="btn" type="button" onclick="shareText(currentTefilaTitle)">Partager WhatsApp</button>
+    </div>
+  </div>
+  <div class="card text" id="tefilaContent"></div>
+</section>
+
+<section id="dvar" class="page">
+  <div class="eyebrow">Bibliothèque</div>
+  <h2>📚 Divré Torah</h2>
+
+  <div class="card">
+    <input id="dvarSearch" class="search" type="search" placeholder="Rechercher une paracha ou un PDF...">
+    <p class="note" style="margin-top:12px">Les PDF s’ouvrent directement dans Bitahon. Utilise les boutons pour lire, imprimer, télécharger ou partager.</p>
+  </div>
+
+  <div class="library" id="dvarLibrary"></div>
+</section>
+
+<section id="pdfReader" class="page reader-page">
+  <div class="eyebrow">Lecteur intégré</div>
+  <h2 id="pdfTitle">Divré Torah</h2>
+
+  <div class="card pdf-reader">
+    <div class="pdf-toolbar">
+      <div class="left">
+        <button class="btn secondary" type="button" onclick="showPage('dvar')">← Bibliothèque</button>
+        <button class="btn ghost" type="button" onclick="openPreviousDvar()">← Précédent</button>
+        <button class="btn ghost" type="button" onclick="openNextDvar()">Suivant →</button>
+      </div>
+      <div class="right">
+        <button class="btn ghost" type="button" onclick="pdfPrevPage()">Page -</button>
+        <button class="btn ghost" type="button" onclick="pdfNextPage()">Page +</button>
+        <button class="btn ghost" type="button" onclick="pdfZoomOut()">Zoom -</button>
+        <button class="btn ghost" type="button" onclick="pdfZoomIn()">Zoom +</button>
+        <button class="btn ghost" type="button" onclick="pdfFitWidth()">Ajuster</button>
+        <button class="btn ghost" type="button" onclick="pdfFullScreen()">Plein écran</button>
+        <button class="btn" type="button" onclick="printCurrentPdf()">Imprimer</button>
+        <a id="pdfDownload" class="btn secondary" href="#" download>Télécharger</a>
+      </div>
+    </div>
+
+    <div class="pdf-shell" id="pdfShell">
+      <iframe id="pdfFrame" class="pdf-frame" title="Lecteur PDF Bitahon"></iframe>
+    </div>
+
+    <p class="note">Sur certains téléphones, le navigateur affiche son propre lecteur PDF. Les boutons Bitahon restent disponibles au-dessus du document.</p>
+  </div>
+</section>
+
+<section id="polo" class="page">
+  <div class="eyebrow">Boutique</div>
+  <h2>👕 T-shirt Bitahon</h2>
+
+  <div class="product-layout">
+    <div class="card">
+      <div class="carousel">
+        <button class="arrow prev" type="button" onclick="changeShirtImage(-1)" aria-label="Image précédente">‹</button>
+        <img id="shirtImage" src="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png" alt="T-shirt Bitahon">
+        <button class="arrow next" type="button" onclick="changeShirtImage(1)" aria-label="Image suivante">›</button>
+        <div id="shirtDots" class="dots"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:0">
+        <h3>T-shirt Bitahon</h3>
+        <p class="price">35 €</p>
+        <p class="muted">Tailles disponibles</p>
+        <div class="sizes">
+          <button type="button" class="selected" data-shirt-size="S" aria-pressed="true">S</button>
+          <button type="button" data-shirt-size="M" aria-pressed="false">M</button>
+          <button type="button" data-shirt-size="L" aria-pressed="false">L</button>
+          <button type="button" data-shirt-size="XL" aria-pressed="false">XL</button>
         </div>
+        <a id="shirtOrderBtn" class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20T-shirt%20Bitahon%20en%20taille%20S." target="_blank" rel="noopener">📱 Commander</a>
       </div>
-      <div id="psalms"><div class="card">Chargement des psaumes…</div></div>
-      <div class="card">
-        <h3>Psaume 150</h3>
-        <div class="hebrew">
-          הַלְלוּ־יָהּ׃ הַלְלוּ־אֵל בְּקָדְשׁוֹ הַלְלוּהוּ בִּרְקִיעַ עֻזּוֹ׃
-          הַלְלוּהוּ בִגְבוּרֹתָיו הַלְלוּהוּ כְּרֹב גֻּדְלוֹ
-          הַלְלוּהוּ בְּתֵקַע שׁוֹפָר הַלְלוּהוּ בְּנֵבֶל וְכִנּוֹר׃
-          הַלְלוּהוּ בְתֹף וּמָחוֹל הַלְלוּהוּ בְּמִנִּים וְעוּגָב׃
-          הַלְלוּהוּ בְצִלְצְלֵי־שָׁמַע הַלְלוּהוּ בְּצִלְצְלֵי תְרוּעָה׃
-          כֹּל הַנְּשָׁמָה תְּהַלֵּל יָהּ הַלְלוּ־יָהּ׃
-        </div>
-      </div>
-      <div class="card">
-        <h3>לאחר אמירת תיקון הכללי</h3>
-        <div class="hebrew">
-          מִי יִתֵּן מִצִּיּוֹן יְשׁוּעַת יִשְׂרָאֵל בְּשׁוּב יְיָ שְׁבוּת עַמּוֹ, יָגֵל יַעֲקֹב יִשְׂמַח יִשְׂרָאֵל:
-          <br><br>וּתְשׁוּעַת צַדִּיקִים מֵיְיָ, מָעוּזָּם בְּעֵת צָרָה:
-          <br><br>וַיַּעְזְרֵם יְיָ וַיְפַלְּטֵם, יְפַלְּטֵם מֵרְשָׁעִים וְיוֹשִׁיעֵם כִּי חָסוּ בוֹ:
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <section id="likoute" class="page">
-      <div class="eyebrow">Transformer la Torah en prière</div>
-      <h2>🎼 Likouté Tefilot</h2>
-      <div class="card dvar-text">
-        <p>💡 <strong>À savoir :</strong></p>
-        <p>Ces Téfilot sont certes facultatives, mais elles sont extrêmement puissantes. Il est tout à fait possible d'y ajouter ses propres mots ou d'en retirer certaines parties selon ses besoins.</p>
-        <p>On peut parfois penser ne pas avoir le temps, mais même réciter uniquement le début ou quelques lignes de ces Téfilot est déjà très bénéfique. Et les lire entièrement ne prend généralement qu'environ cinq minutes.</p>
-        <p>Alors, plus d'excuses ! 😊</p>
-        <p>Toutefois, il vaut mieux lire seulement une partie avec une véritable concentration et un cœur sincère, plutôt que de tout réciter rapidement en pensant à autre chose.</p>
+    <div class="card sticky text">
+      <h3>Une pièce sobre, forte et lumineuse</h3>
+      <p>Le T-shirt Bitahon est présenté comme une vraie fiche produit : galerie, zoom, choix de taille, commande WhatsApp avec la taille sélectionnée automatiquement.</p>
+      <div class="chips">
+        <span class="chip">Design Bitahon</span>
+        <span class="chip">Commande rapide</span>
+        <span class="chip">Mobile premium</span>
       </div>
-      <div class="grid">
-        <div class="card"><h3>Likouté Tefilot 1</h3><p class="dvar-text">Étude de la Torah, clarté de l’esprit et proximité avec Hachem.</p><button class="btn" type="button" onclick="showPage('tefila1')">📖 Lire sur le site</button></div>
-        <div class="card"><h3>Likouté Tefilot 2</h3><p class="dvar-text">Prière, sainteté de l’Alliance et délivrance.</p><button class="btn" type="button" onclick="showPage('tefila2')">📖 Lire sur le site</button></div>
-        <div class="card"><h3>Likouté Tefilot 3</h3><p class="dvar-text">Chant, Torah et relèvement de la Chékhina.</p><button class="btn" type="button" onclick="showPage('tefila3')">📖 Lire sur le site</button></div>
+
+      <div class="thumbs">
+        <img src="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png" alt="T-shirt Bitahon 1" onclick="setShirtImage(0)" loading="lazy">
+        <img src="8BF6E96F-4DDB-4FCE-A710-E765426297D8.png" alt="T-shirt Bitahon 2" onclick="setShirtImage(1)" loading="lazy">
+        <img src="72070F87-85E0-4440-995C-C8498F8240EC.png" alt="T-shirt Bitahon 3" onclick="setShirtImage(2)" loading="lazy">
+        <img src="335E0114-A617-4E3C-BA3C-9ACB6449BFCE.png" alt="T-shirt Bitahon 4" onclick="setShirtImage(3)" loading="lazy">
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="tefila1" class="page">
-      <h2>🎼 Likouté Tefilot 1</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('likoute')">← Retour aux Likouté Tefilot</button></div>
-      <div class="card dvar-text">
-        <p>Que Ta volonté, E.ternel notre D.ieu et D.ieu de nos pères, soit de nous venir en aide. Dans Ton abondante bienveillance et par un effet de Tes puissantes bontés, accorde-nous le privilège d’apprendre, d’enseigner, de nous consacrer toujours à l’étude de Ta sainte Torah, de façon désintéressée, et de méditer sur elle jour et nuit. Par le mérite et la force de l’étude de la sainte Torah, rends-nous méritants, de par Ta grande miséricorde, et accorde-nous la force de soumettre, de briser et de chasser, loin de nous, le mauvais penchant.</p>
-        <p>Nous parviendrons à repousser et à supprimer le souffle de folie, ainsi que toutes sortes de démence, qui se sont collées à nous, en raison de nos mauvaises actions. Nous réussirons à chasser et à supprimer le tout, grâce à l’apprentissage et à l’étude de la sainte Torah, qui est entièrement composée de Tes Noms sacrés, de sorte que le souffle de folie et la démence n’auront absolument aucun pouvoir pour perturber notre esprit, nous parviendrons seulement à le chasser et à le retirer [loin] de nous et de notre domaine.</p>
-        <p>E.ternel, Je T’en prie ! Tu sais, Toi, l’abondance des pensées qui nous tracassent, nous perturbent et nous importunent, [en nous détournant] de Ton service sincère, à tout moment et à toute heure. Elles se manifestent toutes, à cause du souffle de folie et de la démence qui se sont collés à nous, en raison de nos mauvaises actions, à cause de nos fautes, nos péchés et nos nombreuses transgressions, au point que notre esprit en devint confus, et que notre intelligence se troubla énormément, de façon démesurée et inestimable.</p>
-        <p>Notre Père céleste, [Toi qui] es bon pour tous, et dont la bienveillance s’étend à tous Tes actes, fais-nous grâce et nous ne disparaîtrons pas, accorde-nous le mérite, dans Ton abondante miséricorde, de soumettre, de repousser et de supprimer le souffle de folie et la démence, [loin] de nous, grâce à l’étude de la sainte Torah.</p>
-        <p>De la sorte, Tu m’accorderas le mérite, dans Ta grande bienveillance, que le mauvais penchant et le souffle de folie n’aient aucun pouvoir, pour troubler mon esprit, en me faisant négliger, à D.ieu ne plaise, Ton service sincère, à cause de ses Mitsvot, lorsqu’il s’habille dans de bonnes actions, comme s’il m’incitait à une certaine Mitsva, alors qu’il dissimule en elle un piège sous mes pas, à D.ieu ne plaise, par le biais de ses Mitsvot dans lesquelles il se revêt. Toi seul, Tu sais de tout cela.</p>
-        <p>Je T’en prie, ô D.ieu, ménage et épargne mon âme malheureuse, sauve-moi de lui, de ses mauvais conseils, afin qu’il n’ait pas la force de m’égarer, à D.ieu ne plaise, par ces confusions. Me voici [prêt] à jeter tout mon fardeau sur Toi, ô mon D.ieu et D.ieu de mes pères, et je m’appuie sur Toi seul. C’est Toi qui me conduiras, dans Ta grande bienveillance, sur un chemin empreint de droiture et de vérité, à tout moment et à toute heure, à travers chacun de mes gestes, de sorte qu’ils se conformeront tous à Ton bon désir, et je ne me détournerai pas de Ta volonté, ni à droite, ni à gauche.</p>
-        <p>En effet, Tu sais, Toi, que nous sommes des êtres de chair et de sang, et qu’il nous est très sincèrement impossible d’avoir à tout moment à l’esprit Ton bon désir. C’est pourquoi, aide-moi, dans Ton abondante miséricorde, à ce que le mauvais penchant, le souffle de folie et la démence, n’aient pas la force de troubler encore mon esprit, à travers n’importe quelle perturbation existant au monde. Que j’aie seulement le mérite de m’appuyer sur Toi seul, alors que Toi, Tu auras pitié de moi, dans Ta grande bienveillance.</p>
-        <p>Tu me conduiras et Tu me feras toujours cheminer, sur la voie de la vérité, à tout moment et à chaque instant, de manière à ce que toutes mes actions, mes affaires et tous mes mouvements, ainsi que les gestes de mes enfants, de ma descendance, et de tous ceux qui dépendent de moi, soient entièrement, uniquement, constamment, conformes à Ton bon désir, dès maintenant et à jamais. Ainsi, Tu me viendras en aide, dans Ton abondante miséricorde, de sorte que je parvienne à conférer de la force au Royaume de sainteté, afin qu’il prenne l’avantage sur le Royaume mécréant, et je mériterai de renforcer le bon penchant sur l’inclination au mal.</p>
-        <p>Favorise-moi, dans Ta grande bienveillance, et épanche sur moi la sagesse et l’intelligence de sainteté, pour que je réussisse à voir, en toute chose, la lumière de l’intelligence de sainteté qui l’habite, afin de me coller à D.ieu béni soit-Il, grâce à toutes les choses qui existent dans le monde. J’aurai le privilège de comprendre à partir d’elles toutes, les allusions que Tu me signales, à tout moment, afin de me rapprocher de Toi. Ainsi, que telle soit Ta volonté, [Toi qui es] rempli de faveur, rempli de miséricorde, rempli de bonté, rempli de bien, à tout moment, à chaque instant, en permanence, de me ménager, de m’épargner, et d’épancher sur moi la grâce et la bonté.</p>
-        <p>Tu me feras trouver grâce à Tes yeux, et aux yeux de tous ceux qui me voient, et Tu me fourniras des paroles empreintes de grâce et d’implorations, de manière à ce que mes paroles s’introduisent dans Ton cœur. Tu exauceras toujours ma prière et ma requête, et Tu accompliras le verset de l’Ecriture : « Je déverserai sur la maison de David et sur l’habitant de Yérouchalayim un esprit de grâce et d’implorations ». Nous aurons ainsi le mérite que nos paroles [émises] devant Toi soient des paroles de grâce et d’implorations, de manière à ce que Tu leur accordes une place pour pénétrer dans Ton cœur, et nos dires procureront agrément et apaisement devant le trône de Ta gloire.</p>
-        <p>Maître du monde, contemple notre misère, vois notre abaissement et le mépris dont nous sommes l’objet. En effet, toute la grâce et le prestige d’Israël Ton peuple saint, sont tombés au sein de cet exil amer, alors que Ton peuple Israël est méprisé et rabaissé aux yeux des nations idolâtres et des méchants. Toute la grâce et le prestige sont tombés chez eux. C’est pourquoi, selon l’abondance de Ta miséricorde, ménage, je T’en prie, Ta grande et sainte gloire, élève, rehausse et fais croître la grâce et le prestige d’Israël, au niveau matériel et spirituel.</p>
-        <p>Supprime et soumets la grâce et le prestige des peuples idolâtres, de l’Autre côté et des méchants, de sorte qu’ils ne possèdent ni grâce ni notoriété, en haut comme en bas. Rehausse la gloire d’Israël, écoute et fais bon accueil de notre prière et de notre soupir en tout temps, vois notre labeur et discerne notre misère et notre gêne.</p>
-        <p>Accomplis le verset de l’Ecriture : « Car Il ne dédaigna pas ni ne prit en aversion la misère du pauvre, Il ne lui dissimula pas Sa Face, et Il entendit quand il L’implora ». Fais-nous grâce, réponds-nous et entends notre prière, car Tu écoutes la prière de toute bouche, parmi Ton peuple Israël, dans la miséricorde. Béni sois-Tu, qui entends la prière.</p>
-      </div>
-    </section>
+<section id="cadres" class="page">
+  <div class="eyebrow">Boutique</div>
+  <h2>🖼️ Cadres Bitahon</h2>
 
-    <section id="dvar" class="page">
-      <div class="eyebrow">Étudier • Comprendre • Transmettre</div>
-      <h2>📚 Divré Torah</h2>
-      <div class="grid">
-        <article class="card"><div class="eyebrow">Nouveau</div><h3>📖 Pinhas</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Pinhas','dvar torah 12.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 12.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Houkat-Balak</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Houkat-Balak','dvar torah 10.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 10.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Korah</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Korah','dvar torah 9.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 9.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Chelah</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Chelah','dvar torah 8.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 8.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Beha'alotekha</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Behaalotekha','dvar torah 7.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 7.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Nasso</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Nasso','dvar torah 6.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 6.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Chavouot</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Chavouot','dvar torah 5.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 5.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Bamidbar</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Bamidbar','dvar torah 4.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 4.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Matot-Massei</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Matot-Massei','dvar torah 14. pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 14. pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Behar — Be'houkotaï</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Behar — Behoukotaï','dvar torah 3.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 3.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 Emor</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Emor','dvar torah 2.pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('dvar torah 2.pdf')">Imprimer</button></div></article>
-        <article class="card"><h3>📖 A'harei Mot — Kedochim</h3><p class="dvar-text">Lecture intégrée au site et impression directe.</p><div class="button-row"><button class="btn" type="button" onclick="openDvar('Aharei Mot — Kedochim','(anonymous).pdf')">Lire</button><button class="btn secondary" type="button" onclick="printPdf('(anonymous).pdf')">Imprimer</button></div></article>
-      </div>
-    </section>
+  <div class="card text">
+    <h3>Cadres Bitahon</h3>
+    <p>Cadres au format <strong>10 × 15 cm</strong>. Prix unique : <strong>7,70 €</strong>. Les images ne sont pas coupées : elles s’affichent en entier et peuvent être agrandies au toucher.</p>
+  </div>
 
-    <section id="pdfReader" class="page">
-      <div class="eyebrow">Lecture intégrée</div>
-      <h2 id="pdfTitle">📖 Dvar Torah</h2>
-      <div class="card pdf-reader">
-        <div class="backbar">
-          <button class="btn secondary" type="button" data-page="dvar" onclick="showPage('dvar')">← Retour aux Divré Torah</button>
-          <button class="btn" type="button" onclick="printCurrentPdf()">🖨️ Imprimer</button>
-        </div>
-        <iframe id="pdfFrame" class="pdf-frame" title="Lecteur PDF Dvar Torah"></iframe>
-        <p class="reader-note">Le PDF s’affiche directement ici. Si l’impression ne s’ouvre pas sur certains téléphones, utilise le menu du lecteur PDF affiché dans le cadre.</p>
-      </div>
-    </section>
+  <div class="library" id="cadresGrid"></div>
+</section>
 
-    <section id="behaalotekha" class="page">
-      <h2>📖 Divré Torah — Beha'alotekha</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('dvar')">← Retour aux Divré Torah</button><a class="btn" href="dvar torah 7.pdf" target="_blank" rel="noopener">🖨️ Imprimer / PDF</a></div>
-      <div class="card dvar-gallery">
-        <img src="IMG_2082.jpeg" alt="Beha'alotekha page 1" class="dvar-img" loading="lazy">
-        <img src="IMG_2083.jpeg" alt="Beha'alotekha page 2" class="dvar-img" loading="lazy">
-        <img src="IMG_2084.jpeg" alt="Beha'alotekha page 3" class="dvar-img" loading="lazy">
-      </div>
-    </section>
+<section id="contact" class="page">
+  <div class="eyebrow">Contact</div>
+  <h2>📞 Contact</h2>
 
-    <section id="chelah" class="page">
-      <h2>📖 Divré Torah — Chelah</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('dvar')">← Retour aux Divré Torah</button><a class="btn" href="dvar torah 8.pdf" target="_blank" rel="noopener">🖨️ Imprimer / PDF</a></div>
-      <div class="card dvar-gallery">
-        <img src="IMG_2148.jpeg" alt="Chelah page 1" class="dvar-img" loading="lazy">
-        <img src="IMG_2149.jpeg" alt="Chelah page 2" class="dvar-img" loading="lazy">
-        <img src="IMG_2150.jpeg" alt="Chelah page 3" class="dvar-img" loading="lazy">
-      </div>
-    </section>
+  <div class="contact-grid">
+    <div class="contact-tile">
+      <h3>📱 WhatsApp</h3>
+      <p class="muted">Pour une question ou une commande.</p>
+      <a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20avoir%20une%20information%20sur%20Bitahon." target="_blank" rel="noopener">Écrire</a>
+    </div>
 
-    <section id="korah" class="page">
-      <h2>📖 Divré Torah — Korah</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('dvar')">← Retour aux Divré Torah</button><a class="btn" href="dvar torah 9.pdf" target="_blank" rel="noopener">🖨️ Imprimer / PDF</a></div>
-      <div class="card dvar-gallery">
-        <img src="IMG_2276.jpeg" alt="Korah page 1" class="dvar-img" loading="lazy">
-        <img src="IMG_2277.jpeg" alt="Korah page 2" class="dvar-img" loading="lazy">
-        <img src="IMG_2278.jpeg" alt="Korah page 3" class="dvar-img" loading="lazy">
-      </div>
-    </section>
+    <div class="contact-tile">
+      <h3>☎️ Téléphone</h3>
+      <p class="price" style="font-size:24px">06 51 97 76 74</p>
+      <a class="btn secondary" href="tel:+33651977674">Appeler</a>
+    </div>
 
-    <section id="korahHome" class="page">
-      <h2>📖 Divré Torah — Korah</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" onclick="showPage('home')">← Retour à l’accueil</button><a class="btn" href="dvar torah 9.pdf" target="_blank" rel="noopener">🖨️ Imprimer / PDF</a></div>
-      <div class="card dvar-gallery">
-        <img src="IMG_2276.jpeg" alt="Korah page 1" class="dvar-img" loading="lazy">
-        <img src="IMG_2277.jpeg" alt="Korah page 2" class="dvar-img" loading="lazy">
-        <img src="IMG_2278.jpeg" alt="Korah page 3" class="dvar-img" loading="lazy">
-      </div>
-    </section>
-
-    <section id="houkat" class="page">
-      <h2>📖 Divré Torah — Houkat-Balak</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" data-page="dvar" onclick="showPage('dvar')">← Retour aux Divré Torah</button><button class="btn" type="button" onclick="printPdf('dvar torah 10.pdf')">🖨️ Imprimer</button></div>
-      <div class="card dvar-gallery">
-        <img src="IMG_2616.jpeg" alt="Houkat-Balak page 1" class="dvar-img" loading="lazy">
-        <img src="IMG_2617.jpeg" alt="Houkat-Balak page 2" class="dvar-img" loading="lazy">
-        <img src="IMG_2618.jpeg" alt="Houkat-Balak page 3" class="dvar-img" loading="lazy">
-      </div>
-    </section>
-
-    <section id="houkatHome" class="page">
-      <h2>📖 Divré Torah — Houkat-Balak</h2>
-      <div class="card backbar"><button class="btn secondary" type="button" data-page="home" onclick="showPage('home')">← Retour à l’accueil</button><button class="btn" type="button" onclick="printPdf('dvar torah 10.pdf')">🖨️ Imprimer</button></div>
-      <div class="card dvar-gallery">
-        <img src="IMG_2616.jpeg" alt="Houkat-Balak page 1" class="dvar-img" loading="lazy">
-        <img src="IMG_2617.jpeg" alt="Houkat-Balak page 2" class="dvar-img" loading="lazy">
-        <img src="IMG_2618.jpeg" alt="Houkat-Balak page 3" class="dvar-img" loading="lazy">
-      </div>
-    </section>
-
-    <section id="polo" class="page">
-      <div class="eyebrow">Collection Bitahon</div>
-      <h2>👕 T-shirt Bitahon</h2>
-      <div class="product-layout">
-        <div class="card">
-          <div class="shirt-carousel" aria-label="Galerie du T-shirt Bitahon">
-            <button class="carousel-arrow prev" type="button" onclick="changeShirtImage(-1)" aria-label="Image précédente">‹</button>
-            <img id="shirtImage" src="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png" alt="T-shirt Bitahon — photo principale" class="shirt-carousel-img">
-            <button class="carousel-arrow next" type="button" onclick="changeShirtImage(1)" aria-label="Image suivante">›</button>
-            <div id="shirtDots" class="carousel-dots" aria-label="Navigation des images"></div>
-          </div>
-
-          <div class="product-buy-panel">
-            <h3>T-shirt Bitahon</h3>
-            <p class="price">35 €</p>
-            <p><strong>Choisir une taille</strong></p>
-            <div class="size-list" aria-label="Choix de la taille du T-shirt">
-              <button type="button" class="selected" data-shirt-size="S" aria-pressed="true">S</button>
-              <button type="button" data-shirt-size="M" aria-pressed="false">M</button>
-              <button type="button" data-shirt-size="L" aria-pressed="false">L</button>
-              <button type="button" data-shirt-size="XL" aria-pressed="false">XL</button>
-            </div>
-            <a id="shirtOrderBtn" class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20T-shirt%20Bitahon%20en%20taille%20S." target="_blank" rel="noopener">📱 Commander</a>
-          </div>
-
-          <div id="shirtVideoWrap" class="shirt-video-wrap">
-            <video id="shirtVideo" class="shirt-video" controls playsinline preload="metadata" poster="B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png">
-              <source src="tshirt-video.mp4" type="video/mp4">
-              Votre navigateur ne supporte pas la vidéo.
-            </video>
-            <p class="product-note">Vidéo optionnelle : ajoute simplement un fichier nommé <strong>tshirt-video.mp4</strong> dans le même dossier que ton site. Si tu n’en mets pas, ce bloc se masquera automatiquement.</p>
-          </div>
-
-          <div class="thumbs">
-            <img src="8BF6E96F-4DDB-4FCE-A710-E765426297D8.png" alt="Détail du T-shirt Bitahon" loading="lazy" onclick="setShirtImage(1)">
-            <img src="72070F87-85E0-4440-995C-C8498F8240EC.png" alt="T-shirt Bitahon porté" loading="lazy" onclick="setShirtImage(2)">
-            <img src="335E0114-A617-4E3C-BA3C-9ACB6449BFCE.png" alt="Finition du T-shirt Bitahon" loading="lazy" onclick="setShirtImage(3)">
-          </div>
-        </div>
-        <div class="card product-info">
-          <div class="eyebrow">Édition signature</div>
-          <h3 style="font-size:32px">T-shirt Bitahon</h3>
-          <p class="dvar-text">Un t-shirt sobre, moderne et lumineux, pensé pour porter le message de confiance et d’émouna au quotidien, sans en faire trop.</p>
-          <div class="product-badges"><div>✦ Design exclusif Bitahon</div><div>📱 La taille choisie est envoyée automatiquement</div></div>
-          <p class="product-note">Pour changer les photos, remplace les noms dans le tableau <strong>shirtImages</strong> tout en bas du fichier.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="cadres" class="page">
-      <div class="eyebrow">Collection maison</div>
-      <h2>🖼️ Cadres Bitahon</h2>
-      <div class="card featured-card"><div><h3>Une parole de émouna chez vous</h3><p>Cadres au format <strong>10 × 15 cm</strong>. Prix unique : <strong>7,70 €</strong>.</p></div><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20un%20cadre%20Bitahon." target="_blank" rel="noopener">Nous contacter</a></div>
-      <div class="grid">
-        <article class="card"><div class="thumbs" style="grid-template-columns:1fr 1fr"><img src="IMG_2010.jpeg" alt="Cadre 1 recto" loading="lazy"><img src="IMG_2028.jpeg" alt="Cadre 1 verso" loading="lazy"></div><h3>Cadre 1</h3><p>Format : 10 × 15 cm</p><p class="price">7,70 €</p><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%201%20Bitahon." target="_blank" rel="noopener">Commander</a></article>
-        <article class="card"><div class="thumbs" style="grid-template-columns:1fr 1fr"><img src="IMG_2011.jpeg" alt="Cadre 2 recto" loading="lazy"><img src="IMG_2027.jpeg" alt="Cadre 2 verso" loading="lazy"></div><h3>Cadre 2</h3><p>Format : 10 × 15 cm</p><p class="price">7,70 €</p><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%202%20Bitahon." target="_blank" rel="noopener">Commander</a></article>
-        <article class="card"><div class="thumbs" style="grid-template-columns:1fr 1fr"><img src="IMG_2012.jpeg" alt="Cadre 3 recto" loading="lazy"><img src="IMG_2026.jpeg" alt="Cadre 3 verso" loading="lazy"></div><h3>Cadre 3</h3><p>Format : 10 × 15 cm</p><p class="price">7,70 €</p><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%203%20Bitahon." target="_blank" rel="noopener">Commander</a></article>
-        <article class="card"><div class="thumbs" style="grid-template-columns:1fr 1fr"><img src="IMG_2014.jpeg" alt="Cadre 4 recto" loading="lazy"><img src="IMG_2024.jpeg" alt="Cadre 4 verso" loading="lazy"></div><h3>Cadre 4</h3><p>Format : 10 × 15 cm</p><p class="price">7,70 €</p><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%204%20Bitahon." target="_blank" rel="noopener">Commander</a></article>
-        <article class="card"><div class="thumbs" style="grid-template-columns:1fr 1fr"><img src="IMG_2013.jpeg" alt="Cadre 5 recto" loading="lazy"><img src="IMG_2025.jpeg" alt="Cadre 5 verso" loading="lazy"></div><h3>Cadre 5</h3><p>Format : 10 × 15 cm</p><p class="price">7,70 €</p><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%205%20Bitahon." target="_blank" rel="noopener">Commander</a></article>
-        <article class="card"><div class="thumbs" style="grid-template-columns:1fr 1fr"><img src="IMG_2015.jpeg" alt="Cadre 6 recto" loading="lazy"><img src="IMG_2023.jpeg" alt="Cadre 6 verso" loading="lazy"></div><h3>Cadre 6</h3><p>Format : 10 × 15 cm</p><p class="price">7,70 €</p><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%206%20Bitahon." target="_blank" rel="noopener">Commander</a></article>
-        <article class="card"><div class="thumbs" style="grid-template-columns:1fr 1fr"><img src="IMG_2016.jpeg" alt="Cadre 7 recto" loading="lazy"><img src="IMG_2022.jpeg" alt="Cadre 7 verso" loading="lazy"></div><h3>Cadre 7</h3><p>Format : 10 × 15 cm</p><p class="price">7,70 €</p><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%207%20Bitahon." target="_blank" rel="noopener">Commander</a></article>
-        <article class="card"><div class="thumbs" style="grid-template-columns:1fr 1fr"><img src="IMG_2017.jpeg" alt="Cadre 8 recto" loading="lazy"><img src="IMG_2020.jpeg" alt="Cadre 8 verso" loading="lazy"></div><h3>Cadre 8</h3><p>Format : 10 × 15 cm</p><p class="price">7,70 €</p><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%208%20Bitahon." target="_blank" rel="noopener">Commander</a></article>
-        <article class="card"><div class="thumbs" style="grid-template-columns:1fr 1fr"><img src="IMG_2018.jpeg" alt="Cadre 9 recto" loading="lazy"><img src="IMG_2019.jpeg" alt="Cadre 9 verso" loading="lazy"></div><h3>Cadre 9</h3><p>Format : 10 × 15 cm</p><p class="price">7,70 €</p><a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20le%20Cadre%209%20Bitahon." target="_blank" rel="noopener">Commander</a></article>
-      </div>
-    </section>
-
-    <section id="contact" class="page">
-      <div class="eyebrow">À votre écoute</div>
-      <h2>📞 Contact</h2>
-      <div class="card featured-card">
-        <div><h3>Une question ou une commande ?</h3><p class="dvar-text">Contactez directement Bitahon. Nous vous répondrons sur WhatsApp.</p><p class="price" style="font-size:24px">06 51 97 76 74</p></div>
-        <a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20commander%20un%20cadre%20Bitahon." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-      </div>
-    </section>
+    <div class="contact-tile">
+      <h3>✨ Nouveautés</h3>
+      <p class="muted">Recevoir les nouveaux Divré Torah.</p>
+      <a class="btn" href="https://wa.me/33651977674?text=Bonjour,%20je%20souhaite%20recevoir%20les%20nouveaut%C3%A9s%20Bitahon." target="_blank" rel="noopener">Recevoir</a>
+    </div>
+  </div>
+</section>
   </main>
 
-  <div id="imageLightbox" class="lightbox" aria-hidden="true">
-        
-      
+  <button id="toTop" type="button" onclick="scrollToTop()" aria-label="Retour en haut">↑</button>
   <div id="imageLightbox" class="lightbox" aria-hidden="true">
     <button type="button" id="closeLightbox" aria-label="Fermer">×</button>
     <img id="lightboxImage" src="" alt="">
   </div>
 
-  <footer><span style="color:var(--gold-bright);font-family:Georgia,serif;font-size:18px">Bitahon</span><br><br>Émouna • Torah • Lumière<br><br>© Bitahon — Aucun nom personnel affiché</footer>
+  <footer>
+    <span style="color:var(--gold2);font-family:Georgia,serif;font-size:20px">Bitahon</span>
+    <br><br>
+    Émouna • Torah • Lumière
+    <br><br>
+    © Bitahon — Aucun nom personnel affiché
+  </footer>
 
   <script>
     const menuBtn=document.getElementById("menuBtn");
     const menu=document.getElementById("menu");
     const menuBackdrop=document.getElementById("menuBackdrop");
     const themeBtn=document.getElementById("themeBtn");
+    const toTop=document.getElementById("toTop");
 
-    function setMenu(open){
-      menu.classList.toggle("open",open);
-      menuBackdrop.classList.toggle("open",open);
-      menuBtn.setAttribute("aria-expanded",String(open));
-    }
-
-    menuBtn.addEventListener("click",function(){setMenu(!menu.classList.contains("open"));});
-    menuBackdrop.addEventListener("click",function(){setMenu(false);});
-    document.addEventListener("keydown",function(event){if(event.key==="Escape")setMenu(false);});
-    menu.querySelectorAll("[data-page]").forEach(function(button){button.addEventListener("click",function(){showPage(button.dataset.page);});});
-    document.addEventListener("click",function(event){
-      const button=event.target.closest("[data-page]");
-      if(!button)return;
-      const page=button.getAttribute("data-page");
-      if(page&&document.getElementById(page)){
-        event.preventDefault();
-        showPage(page);
-      }
-    });
-
-    function showPage(id,options){
-      const target=document.getElementById(id);
-      if(!target||!target.classList.contains("page"))return;
-      document.querySelectorAll(".page").forEach(function(page){page.classList.remove("active");});
-      target.classList.add("active");
-      setMenu(false);
-      if(!options||!options.fromHash){history.replaceState(null,"","#"+id);}
-      window.scrollTo(0,0);
-    }
-
-    let currentPdf="";
-
-    function openDvar(title,pdfFile){
-      currentPdf=pdfFile;
-      const titleBox=document.getElementById("pdfTitle");
-      const frame=document.getElementById("pdfFrame");
-      if(titleBox)titleBox.textContent="📖 Divré Torah — "+title;
-      if(frame)frame.src=pdfFile+"#toolbar=1&navpanes=0&zoom=page-width";
-      showPage("pdfReader");
-    }
-
-    function printPdf(pdfFile){
-      currentPdf=pdfFile;
-      const printer=document.createElement("iframe");
-      printer.style.position="fixed";
-      printer.style.right="0";
-      printer.style.bottom="0";
-      printer.style.width="0";
-      printer.style.height="0";
-      printer.style.border="0";
-      printer.src=pdfFile;
-      printer.onload=function(){
-        try{
-          printer.contentWindow.focus();
-          printer.contentWindow.print();
-        }catch(error){
-          openDvar("PDF",pdfFile);
-        }
-        setTimeout(function(){printer.remove();},3000);
-      };
-      document.body.appendChild(printer);
-    }
-
-    function printCurrentPdf(){
-      if(currentPdf)printPdf(currentPdf);
-    }
-
-    function setupHomeButtons(){
-      const latest=document.getElementById("latestDvarBtn");
-      const all=document.getElementById("allDvarBtn");
-      const shirt=document.getElementById("homeShirtBtn");
-      const info=document.getElementById("shirtInfoBtn");
-
-      if(latest)latest.addEventListener("click",function(){openDvar("Matot-Massei","dvar torah 14. pdf");});
-      if(all)all.addEventListener("click",function(){showPage("dvar");});
-      if(shirt)shirt.addEventListener("click",function(){showPage("polo");});
-      if(info)info.addEventListener("click",function(event){
-        event.preventDefault();
-        window.open(info.href,"_blank","noopener");
-      });
-
-      document.querySelectorAll(".js-open-dvar").forEach(function(button){
-        button.addEventListener("click",function(){
-          openDvar(button.dataset.title,button.dataset.pdf);
-        });
-      });
-
-      document.querySelectorAll(".js-print-pdf").forEach(function(button){
-        button.addEventListener("click",function(){
-          printPdf(button.dataset.pdf);
-        });
-      });
-    }
-
-    function applyTheme(theme){
-      document.body.classList.toggle("light",theme==="light");
-      themeBtn.textContent=theme==="light"?"🌙 Mode nuit":"☀️ Mode clair";
-      document.querySelector('meta[name="theme-color"]').setAttribute("content",theme==="light"?"#f4ecdf":"#090806");
-    }
-
-    function toggleDark(){
-      const theme=document.body.classList.contains("light")?"dark":"light";
-      localStorage.setItem("bitahonTheme",theme);
-      localStorage.setItem("bitahonDark",String(theme==="dark"));
-      applyTheme(theme);
-    }
-
-    themeBtn.addEventListener("click",toggleDark);
-    const savedTheme=localStorage.getItem("bitahonTheme");
-    const legacyDark=localStorage.getItem("bitahonDark");
-    applyTheme(savedTheme||(legacyDark==="false"?"light":"dark"));
-
-    const psalms=[
-      {n:2,t:"Psaume 16"},{n:3,t:"Psaume 32"},{n:4,t:"Psaume 41"},
-      {n:5,t:"Psaume 42"},{n:6,t:"Psaume 59"},{n:7,t:"Psaume 77"},
-      {n:8,t:"Psaume 90"},{n:9,t:"Psaume 105"},{n:10,t:"Psaume 137"}
+    const quotes=[
+      "« Il n’existe absolument aucun désespoir dans le monde. »",
+      "« Heureux sommes-nous, combien notre sort est agréable. »",
+      "« Le principal est de ne jamais avoir peur. »",
+      "« C’est une grande mitsva d’être toujours dans la joie. »",
+      "« Même une seule parole sincère adressée à Hachem a une valeur immense. »"
     ];
 
-    function clean(txt){
-      return String(txt||"").replace(/<[^>]+>/g,"").replace(/&nbsp;/g," ").trim().replace(/^([א-ת]{1,3})(\s*)([א-ת])/u,"$1 $3");
-    }
+    const dvars=[
+      {title:"Aharei Mot - Kedochim",pdf:"(anonymous).pdf",time:"5 min"},
+      {title:"Emor",pdf:"dvar torah 2.pdf",time:"5 min"},
+      {title:"Behar - Behouqotaï",pdf:"dvar torah 3.pdf",time:"5 min"},
+      {title:"Bamidbar",pdf:"dvar torah 4.pdf",time:"5 min"},
+      {title:"Chavouot",pdf:"dvar torah 5.pdf",time:"5 min"},
+      {title:"Nasso",pdf:"dvar torah 6.pdf",time:"5 min"},
+      {title:"Behaâlotekha",pdf:"dvar torah 7.pdf",time:"5 min"},
+      {title:"Chelah",pdf:"dvar torah 8.pdf",time:"5 min"},
+      {title:"Korah",pdf:"dvar torah 9.pdf",time:"5 min"},
+      {title:"Houkat - Balaq",pdf:"dvar torah 10.pdf",time:"5 min"},
+      {title:"Pinhas",pdf:"dvar torah 12.pdf",time:"5 min"},
+      {title:"Matot - Massei",pdf:"dvar torah 14.pdf",time:"5 min",new:true},
+      {title:"Devarim",pdf:"dvar torah 13.pdf",time:"5 min"}
+    ];
 
-    async function loadPsalms(){
-      const box=document.getElementById("psalms");
-      try{
-        const html=await Promise.all(psalms.map(async function(psalm){
-          const response=await fetch("https://www.sefaria.org/api/texts/Tikkun_HaKlali."+psalm.n+"?context=0&commentary=0");
-          if(!response.ok)throw new Error("HTTP "+response.status);
-          const data=await response.json();
-          const verses=Array.isArray(data.he)?data.he:[data.he];
-          return '<div class="card"><h3>'+psalm.t+'</h3><div class="hebrew">'+verses.map(function(verse){return '<span class="verse">'+clean(verse)+'</span>';}).join("")+'</div></div>';
-        }));
-        box.innerHTML=html.join("");
-      }catch(error){
-        box.innerHTML="<div class='card'>Erreur de chargement des psaumes. Vérifie la connexion Internet.</div>";
+    const tefilot=[
+      {
+        title:"Likouté Tefilot 1",
+        time:"6 min",
+        text:`
+          <p>Que Ta volonté, E.ternel notre D.ieu et D.ieu de nos pères, soit de nous venir en aide. Dans Ton abondante bienveillance et par un effet de Tes puissantes bontés, accorde-nous le privilège d’apprendre, d’enseigner, de nous consacrer toujours à l’étude de Ta sainte Torah, de façon désintéressée, et de méditer sur elle jour et nuit.</p>
+          <p>Par le mérite et la force de l’étude de la sainte Torah, rends-nous méritants, de par Ta grande miséricorde, et accorde-nous la force de soumettre, de briser et de chasser, loin de nous, le mauvais penchant.</p>
+          <p>Notre Père céleste, Toi qui es bon pour tous, fais-nous grâce et accorde-nous le mérite de nous rapprocher de Toi avec vérité, simplicité et joie.</p>
+          <p>Fais-nous trouver grâce à Tes yeux, et aux yeux de tous ceux qui nous voient. Que nos paroles deviennent des paroles de grâce et d’implorations devant Toi.</p>
+        `
+      },
+      {
+        title:"Likouté Tefilot 2",
+        time:"7 min",
+        text:`
+          <p>Que Ta volonté soit, E.ternel notre D.ieu et D.ieu de nos pères, d’éveiller Ta bienveillance et Tes bontés sur nous. Dispose notre cœur à prier devant Toi de tout notre cœur et de toute notre âme.</p>
+          <p>Que notre prière coule toujours avec aisance dans notre bouche, sans empêchement, sans obstacle et sans confusion.</p>
+          <p>Octroie-nous le privilège de donner la Tsédaka avec joie, avec un visage accueillant et un cœur ouvert.</p>
+          <p>Que toutes nos prières soient élevées devant Toi, agréées avec miséricorde et transformées en délivrance pour tout Israël.</p>
+        `
+      },
+      {
+        title:"Likouté Tefilot 3",
+        time:"5 min",
+        text:`
+          <p>Que Ta volonté, E.ternel notre D.ieu et D.ieu de nos pères, soit de Te rappeler de Ta puissante Chékhina, qui a erré loin de Son lieu, tel un oiseau hors de son nid.</p>
+          <p>Établis et relève l’assemblée d’Israël. Aide-nous à élever le son musical, à arranger devant Toi chants, cantiques et louanges avec une voix pleine d’allégresse et de joie.</p>
+          <p>Ramène les Cohanim à leur tâche, les Lévites à leur estrade, Israël dans sa demeure, et dévoile rapidement Ta Royauté sur le monde entier.</p>
+        `
       }
-    }
+    ];
 
-    window.addEventListener("hashchange",function(){
-      const page=window.location.hash.slice(1);
-      if(page&&document.getElementById(page))showPage(page,{fromHash:true});
-    });
+    const hitbo=[
+      ["Pourquoi est-elle si importante ?","Selon Rabbi Na’hman, la prière est l’arme principale du Juif. La Hitbodédout permet de se connecter directement à Hachem et de recevoir Son aide dans tous les domaines."],
+      ["Comment faire la Hitbodédout ?","S’isoler dans un endroit calme, parler à Hachem avec simplicité, raconter ce que l’on ressent, demander de l’aide, remercier et reconnaître ses erreurs."],
+      ["Même quand on n’arrive pas à parler","Même une seule phrase peut avoir une immense valeur : Hachem, aide-moi à Te parler."],
+      ["Transformer son étude en prière","Après avoir étudié la Torah ou les enseignements d’un Tsadik, il faut les transformer en demandes concrètes."],
+      ["Se rapprocher de Hachem","La Hitbodédout crée une relation personnelle et vivante avec Hachem."],
+      ["L’importance de remercier","Les louanges et les remerciements ouvrent le cœur et aident à sortir de la tristesse."],
+      ["La simplicité avant tout","Une parole simple dite avec vérité vaut davantage que de grands discours prononcés sans cœur."],
+      ["L’examen de soi","La Hitbodédout est un moment d’introspection pour voir où l’on réussit et où progresser."],
+      ["Ne jamais désespérer","Même si une personne est tombée, elle peut toujours revenir vers Hachem."],
+      ["Le but ultime","Vivre avec Hachem à chaque instant, purifier son cœur et renforcer sa émouna."]
+    ];
 
-    window.addEventListener("load",function(){
-      const page=window.location.hash.slice(1);
-      if(page&&document.getElementById(page))showPage(page,{fromHash:true});
-    });
+    const psalms=[
+      {n:2,t:"Psaume 16"},
+      {n:3,t:"Psaume 32"},
+      {n:4,t:"Psaume 41"},
+      {n:5,t:"Psaume 42"},
+      {n:6,t:"Psaume 59"},
+      {n:7,t:"Psaume 77"},
+      {n:8,t:"Psaume 90"},
+      {n:9,t:"Psaume 105"},
+      {n:10,t:"Psaume 137"},
+      {manual:true,t:"Psaume 150",he:"הַלְלוּ־יָהּ׃ הַלְלוּ־אֵל בְּקָדְשׁוֹ הַלְלוּהוּ בִּרְקִיעַ עֻזּוֹ׃ הַלְלוּהוּ בִגְבוּרֹתָיו הַלְלוּהוּ כְּרֹב גֻּדְלוֹ׃ הַלְלוּהוּ בְתֵקַע שׁוֹפָר הַלְלוּהוּ בְּנֵבֶל וְכִנּוֹר׃ הַלְלוּהוּ בְתֹף וּמָחוֹל הַלְלוּהוּ בְּמִנִּים וְעוּגָב׃ הַלְלוּהוּ בְצִלְצְלֵי־שָׁמַע הַלְלוּהוּ בְּצִלְצְלֵי תְרוּעָה׃ כֹּל הַנְּשָׁמָה תְּהַלֵּל יָהּ הַלְלוּ־יָהּ׃"}
+    ];
 
     const shirtImages=[
       "B4D7FAA2-3FEA-49B0-9ECE-506ACD9866A9.png",
@@ -860,21 +1419,316 @@
       "72070F87-85E0-4440-995C-C8498F8240EC.png",
       "335E0114-A617-4E3C-BA3C-9ACB6449BFCE.png"
     ];
+
+    const cadres=[
+      ["Cadre 1","IMG_2010.jpeg","IMG_2028.jpeg"],
+      ["Cadre 2","IMG_2011.jpeg","IMG_2027.jpeg"],
+      ["Cadre 3","IMG_2012.jpeg","IMG_2026.jpeg"],
+      ["Cadre 4","IMG_2014.jpeg","IMG_2024.jpeg"],
+      ["Cadre 5","IMG_2013.jpeg","IMG_2025.jpeg"],
+      ["Cadre 6","IMG_2015.jpeg","IMG_2023.jpeg"],
+      ["Cadre 7","IMG_2016.jpeg","IMG_2022.jpeg"],
+      ["Cadre 8","IMG_2017.jpeg","IMG_2020.jpeg"],
+      ["Cadre 9","IMG_2018.jpeg","IMG_2019.jpeg"]
+    ];
+
+    let currentDvarIndex=11;
+    let currentPdf=dvars[currentDvarIndex].pdf;
+    let pdfPage=1;
+    let pdfZoom=100;
+    let currentTefilaIndex=0;
+    let currentTefilaTitle=tefilot[0].title;
     let currentShirtImage=0;
+    let selectedShirtSize="S";
+
+    function setMenu(open){
+      menu.classList.toggle("open",open);
+      menuBackdrop.classList.toggle("open",open);
+      menuBtn.setAttribute("aria-expanded",String(open));
+    }
+
+    function showPage(id,options){
+      const page=document.getElementById(id);
+      if(!page||!page.classList.contains("page"))return;
+      document.querySelectorAll(".page").forEach(function(p){p.classList.remove("active");});
+      page.classList.add("active");
+      setMenu(false);
+      if(!options||!options.fromHash)history.replaceState(null,"","#"+id);
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+
+    menuBtn.addEventListener("click",function(){setMenu(!menu.classList.contains("open"));});
+    menuBackdrop.addEventListener("click",function(){setMenu(false);});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"){setMenu(false);closeLightbox();}});
+    document.addEventListener("click",function(e){
+      const btn=e.target.closest("[data-page]");
+      if(btn){e.preventDefault();showPage(btn.dataset.page);}
+    });
+
+    function applyTheme(theme){
+      document.body.classList.toggle("light",theme==="light");
+      themeBtn.textContent=theme==="light"?"🌙 Mode nuit":"☀️ Mode clair";
+      document.querySelector('meta[name="theme-color"]').setAttribute("content",theme==="light"?"#f6efe4":"#080705");
+      localStorage.setItem("bitahonTheme",theme);
+    }
+
+    function toggleDark(){
+      applyTheme(document.body.classList.contains("light")?"dark":"light");
+    }
+
+    themeBtn.addEventListener("click",toggleDark);
+    applyTheme(localStorage.getItem("bitahonTheme")||"dark");
+
+    function initQuotes(){
+      const q=quotes[Math.floor(Math.random()*quotes.length)];
+      document.getElementById("dailyQuote").textContent=q;
+      document.getElementById("randomQuote").textContent=q;
+    }
+
+    function initials(title){
+      return title.split(/[-\s]+/).filter(Boolean).slice(0,2).map(function(w){return w[0].toUpperCase();}).join("");
+    }
+
+    function getFavorites(){
+      try{return JSON.parse(localStorage.getItem("bitahonFavorites")||"[]");}
+      catch(e){return [];}
+    }
+
+    function saveFavorites(list){
+      localStorage.setItem("bitahonFavorites",JSON.stringify(list));
+    }
+
+    function toggleFavorite(pdf){
+      const fav=getFavorites();
+      const i=fav.indexOf(pdf);
+      if(i>=0)fav.splice(i,1);else fav.push(pdf);
+      saveFavorites(fav);
+      renderDvars(document.getElementById("dvarSearch").value);
+    }
+
+    function renderDvars(filter){
+      const box=document.getElementById("dvarLibrary");
+      const fav=getFavorites();
+      const query=(filter||"").toLowerCase().trim();
+      box.innerHTML=dvars.map(function(dvar,index){
+        return {...dvar,index:index};
+      }).filter(function(dvar){
+        return !query || dvar.title.toLowerCase().includes(query) || dvar.pdf.toLowerCase().includes(query);
+      }).map(function(dvar){
+        const liked=fav.includes(dvar.pdf);
+        return `
+          <article class="book-card">
+            <button class="favorite ${liked?"active":""}" type="button" onclick="toggleFavorite('${escapeAttr(dvar.pdf)}')" aria-label="Favori">♥</button>
+            <div class="book-cover">
+              <small>Divré Torah</small>
+              <strong>${initials(dvar.title)}</strong>
+              <span>${escapeHtml(dvar.title)}</span>
+            </div>
+            <div>
+              ${dvar.new?'<span class="badge">⭐ Nouveau</span>':""}
+              <h3>${escapeHtml(dvar.title)}</h3>
+              <div class="chips"><span class="chip">⏱️ ${dvar.time}</span><span class="chip">📄 ${escapeHtml(dvar.pdf)}</span></div>
+            </div>
+            <div class="book-actions">
+              <button class="btn" type="button" onclick="openDvarByIndex(${dvar.index})">Lire</button>
+              <button class="btn secondary" type="button" onclick="printPdf('${escapeAttr(dvar.pdf)}')">Imprimer</button>
+              <a class="btn ghost" href="${escapeAttr(dvar.pdf)}" download>Télécharger</a>
+              <a class="btn ghost" href="${whatsapp('Voici le Dvar Torah Bitahon : '+location.href.split('#')[0]+'#pdfReader')}" target="_blank" rel="noopener">Partager</a>
+            </div>
+          </article>
+        `;
+      }).join("") || `<div class="card"><p class="muted">Aucun Dvar Torah trouvé.</p></div>`;
+    }
+
+    function openDvarByIndex(index){
+      currentDvarIndex=index;
+      const d=dvars[index];
+      currentPdf=d.pdf;
+      pdfPage=1;
+      pdfZoom=100;
+      document.getElementById("pdfTitle").textContent="📖 Divré Torah — "+d.title;
+      document.getElementById("pdfDownload").href=d.pdf;
+      document.getElementById("pdfDownload").setAttribute("download",d.pdf);
+      refreshPdf();
+      showPage("pdfReader");
+    }
+
+    function refreshPdf(){
+      const frame=document.getElementById("pdfFrame");
+      frame.src=currentPdf+"#page="+pdfPage+"&zoom="+pdfZoom+"&toolbar=0&navpanes=0&scrollbar=1";
+    }
+
+    function pdfPrevPage(){pdfPage=Math.max(1,pdfPage-1);refreshPdf();}
+    function pdfNextPage(){pdfPage+=1;refreshPdf();}
+    function pdfZoomIn(){pdfZoom=Math.min(220,pdfZoom+15);refreshPdf();}
+    function pdfZoomOut(){pdfZoom=Math.max(60,pdfZoom-15);refreshPdf();}
+    function pdfFitWidth(){pdfZoom=100;refreshPdf();}
+    function pdfFullScreen(){
+      const shell=document.getElementById("pdfShell");
+      if(shell.requestFullscreen)shell.requestFullscreen();
+      else if(shell.webkitRequestFullscreen)shell.webkitRequestFullscreen();
+    }
+
+    function openPreviousDvar(){
+      openDvarByIndex((currentDvarIndex-1+dvars.length)%dvars.length);
+    }
+
+    function openNextDvar(){
+      openDvarByIndex((currentDvarIndex+1)%dvars.length);
+    }
+
+    function printPdf(pdf){
+      const frame=document.createElement("iframe");
+      frame.style.position="fixed";
+      frame.style.right="0";
+      frame.style.bottom="0";
+      frame.style.width="0";
+      frame.style.height="0";
+      frame.style.border="0";
+      frame.src=pdf;
+      frame.onload=function(){
+        try{
+          frame.contentWindow.focus();
+          frame.contentWindow.print();
+        }catch(e){
+          currentPdf=pdf;
+          refreshPdf();
+          showPage("pdfReader");
+        }
+        setTimeout(function(){frame.remove();},3500);
+      };
+      document.body.appendChild(frame);
+    }
+
+    function printCurrentPdf(){
+      printPdf(currentPdf);
+    }
+
+    function renderHitbo(){
+      document.getElementById("hitboGrid").innerHTML=hitbo.map(function(item,index){
+        return `
+          <article class="card">
+            <div class="eyebrow">Chapitre ${index+1}</div>
+            <h3>${escapeHtml(item[0])}</h3>
+            <p class="text">${escapeHtml(item[1])}</p>
+            <div class="chips"><span class="chip">⏱️ 2 min</span><span class="chip">🌿 Hitbodédout</span></div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderTefilot(filter){
+      const query=(filter||"").toLowerCase().trim();
+      document.getElementById("tefilaLibrary").innerHTML=tefilot.map(function(t,index){
+        return {...t,index:index};
+      }).filter(function(t){
+        return !query || t.title.toLowerCase().includes(query) || t.text.toLowerCase().includes(query);
+      }).map(function(t){
+        return `
+          <article class="book-card">
+            <div class="book-cover">
+              <small>Likouté Tefilot</small>
+              <strong>${indexLabel(t.index+1)}</strong>
+              <span>${escapeHtml(t.title)}</span>
+            </div>
+            <h3>${escapeHtml(t.title)}</h3>
+            <div class="chips"><span class="chip">⏱️ ${t.time}</span><span class="chip">🎼 Prière</span></div>
+            <div class="book-actions">
+              <button class="btn" type="button" onclick="openTefila(${t.index})">Lire</button>
+              <button class="btn secondary" type="button" onclick="shareText('${escapeAttr(t.title)}')">Partager</button>
+            </div>
+          </article>
+        `;
+      }).join("") || `<div class="card"><p class="muted">Aucune Tefila trouvée.</p></div>`;
+    }
+
+    function openTefila(index){
+      currentTefilaIndex=index;
+      currentTefilaTitle=tefilot[index].title;
+      document.getElementById("tefilaTitle").textContent=tefilot[index].title;
+      document.getElementById("tefilaContent").innerHTML=tefilot[index].text;
+      showPage("tefilaReader");
+    }
+
+    function openPreviousTefila(){
+      openTefila((currentTefilaIndex-1+tefilot.length)%tefilot.length);
+    }
+
+    function openNextTefila(){
+      openTefila((currentTefilaIndex+1)%tefilot.length);
+    }
+
+    function clean(txt){
+      return String(txt||"")
+        .replace(/<[^>]+>/g,"")
+        .replace(/&nbsp;/g," ")
+        .trim()
+        .replace(/^([א-ת]{1,3})(\s*)([א-ת])/u,"$1 $3");
+    }
+
+    async function loadPsalms(){
+      const box=document.getElementById("psalms");
+      const last=localStorage.getItem("bitahonLastPsalm");
+      try{
+        const html=await Promise.all(psalms.map(async function(p,index){
+          let verses;
+          if(p.manual){
+            verses=[p.he];
+          }else{
+            const response=await fetch("https://www.sefaria.org/api/texts/Tikkun_HaKlali."+p.n+"?context=0&commentary=0");
+            if(!response.ok)throw new Error("Erreur");
+            const data=await response.json();
+            verses=Array.isArray(data.he)?data.he:[data.he];
+          }
+          const open=last===p.t?" open":"";
+          return `
+            <details${open} onchange="savePsalm('${escapeAttr(p.t)}')">
+              <summary>${escapeHtml(p.t)}</summary>
+              <div class="inside hebrew">${verses.map(function(v){return '<span class="verse">'+clean(v)+'</span>';}).join("")}</div>
+            </details>
+          `;
+        }));
+        box.innerHTML=html.join("");
+      }catch(e){
+        box.innerHTML=`
+          <details open><summary>Psaume 16</summary><div class="inside hebrew">מִכְתָּם לְדָוִד שָׁמְרֵנִי אֵל כִּי חָסִיתִי בָךְ.</div></details>
+          <p class="note">Connexion nécessaire pour charger automatiquement tous les Téhilim.</p>
+        `;
+      }
+    }
+
+    function savePsalm(title){
+      localStorage.setItem("bitahonLastPsalm",title);
+    }
+
+    function renderCadres(){
+      document.getElementById("cadresGrid").innerHTML=cadres.map(function(cadre,index){
+        const msg="Bonjour, je souhaite commander le "+cadre[0]+" Bitahon.";
+        return `
+          <article class="book-card">
+            <div class="thumbs">
+              <img src="${cadre[1]}" alt="${cadre[0]} image 1" loading="lazy">
+              <img src="${cadre[2]}" alt="${cadre[0]} image 2" loading="lazy">
+            </div>
+            <h3>${cadre[0]}</h3>
+            <p class="muted">Format : 10 × 15 cm</p>
+            <p class="price">7,70 €</p>
+            <a class="btn" href="${whatsapp(msg)}" target="_blank" rel="noopener">Commander</a>
+          </article>
+        `;
+      }).join("");
+    }
 
     function renderShirtDots(){
       const dots=document.getElementById("shirtDots");
-      if(!dots)return;
-      dots.innerHTML=shirtImages.map(function(_,index){
-        return '<button type="button" class="'+(index===currentShirtImage?"active":"")+'" onclick="setShirtImage('+index+')" aria-label="Voir image '+(index+1)+'"></button>';
+      dots.innerHTML=shirtImages.map(function(_,i){
+        return `<button type="button" class="${i===currentShirtImage?'active':''}" onclick="setShirtImage(${i})" aria-label="Image ${i+1}"></button>`;
       }).join("");
     }
 
     function setShirtImage(index){
-      const image=document.getElementById("shirtImage");
-      if(!image)return;
       currentShirtImage=(index+shirtImages.length)%shirtImages.length;
-      image.src=shirtImages[currentShirtImage];
+      document.getElementById("shirtImage").src=shirtImages[currentShirtImage];
       renderShirtDots();
     }
 
@@ -882,76 +1736,101 @@
       setShirtImage(currentShirtImage+direction);
     }
 
-    function setupOptionalShirtVideo(){
-      const video=document.getElementById("shirtVideo");
-      const wrap=document.getElementById("shirtVideoWrap");
-      if(!video||!wrap)return;
-      video.addEventListener("error",function(){wrap.style.display="none";});
-      const source=video.querySelector("source");
-      if(source){
-        source.addEventListener("error",function(){wrap.style.display="none";});
-      }
-    }
-
-    let selectedShirtSize="S";
-
-    function updateShirtOrderLink(){
-      const button=document.getElementById("shirtOrderBtn");
-      if(!button)return;
-      const message="Bonjour, je souhaite commander le T-shirt Bitahon en taille "+selectedShirtSize+".";
-      button.href="https://wa.me/33651977674?text="+encodeURIComponent(message);
-    }
-
-    function setupShirtSizeSelector(){
-      document.querySelectorAll("[data-shirt-size]").forEach(function(button){
-        button.addEventListener("click",function(){
-          selectedShirtSize=button.dataset.shirtSize;
-          document.querySelectorAll("[data-shirt-size]").forEach(function(sizeButton){
-            const isSelected=sizeButton===button;
-            sizeButton.classList.toggle("selected",isSelected);
-            sizeButton.setAttribute("aria-pressed",String(isSelected));
+    function setupSizes(){
+      document.querySelectorAll("[data-shirt-size]").forEach(function(btn){
+        btn.addEventListener("click",function(){
+          selectedShirtSize=btn.dataset.shirtSize;
+          document.querySelectorAll("[data-shirt-size]").forEach(function(b){
+            const selected=b===btn;
+            b.classList.toggle("selected",selected);
+            b.setAttribute("aria-pressed",String(selected));
           });
-          updateShirtOrderLink();
+          updateShirtLink();
         });
       });
-      updateShirtOrderLink();
+      updateShirtLink();
     }
 
-    function setupImageLightbox(){
-      const lightbox=document.getElementById("imageLightbox");
-      const lightboxImage=document.getElementById("lightboxImage");
-      const closeButton=document.getElementById("closeLightbox");
-      if(!lightbox||!lightboxImage||!closeButton)return;
+    function updateShirtLink(){
+      const msg="Bonjour, je souhaite commander le T-shirt Bitahon en taille "+selectedShirtSize+".";
+      document.getElementById("shirtOrderBtn").href=whatsapp(msg);
+    }
 
-      document.querySelectorAll("#polo img,#cadres img").forEach(function(image){
-        image.addEventListener("click",function(){
-          lightboxImage.src=image.src;
-          lightboxImage.alt=image.alt||"Image Bitahon";
-          lightbox.classList.add("open");
-          lightbox.setAttribute("aria-hidden","false");
-        });
+    function setupLightbox(){
+      document.addEventListener("click",function(e){
+        const img=e.target.closest("#polo img,#cadres img");
+        if(!img)return;
+        document.getElementById("lightboxImage").src=img.src;
+        document.getElementById("lightboxImage").alt=img.alt||"Image Bitahon";
+        document.getElementById("imageLightbox").classList.add("open");
+        document.getElementById("imageLightbox").setAttribute("aria-hidden","false");
       });
-
-      function close(){
-        lightbox.classList.remove("open");
-        lightbox.setAttribute("aria-hidden","true");
-        lightboxImage.src="";
-      }
-
-      closeButton.addEventListener("click",close);
-      lightbox.addEventListener("click",function(event){
-        if(event.target===lightbox)close();
-      });
-      document.addEventListener("keydown",function(event){
-        if(event.key==="Escape")close();
+      document.getElementById("closeLightbox").addEventListener("click",closeLightbox);
+      document.getElementById("imageLightbox").addEventListener("click",function(e){
+        if(e.target.id==="imageLightbox")closeLightbox();
       });
     }
 
+    function closeLightbox(){
+      const box=document.getElementById("imageLightbox");
+      box.classList.remove("open");
+      box.setAttribute("aria-hidden","true");
+      document.getElementById("lightboxImage").src="";
+    }
+
+    function whatsapp(text){
+      return "https://wa.me/33651977674?text="+encodeURIComponent(text);
+    }
+
+    function shareText(text){
+      window.open(whatsapp(text+" — Bitahon"),"_blank","noopener");
+    }
+
+    function scrollToTop(){
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+
+    window.addEventListener("scroll",function(){
+      toTop.classList.toggle("show",window.scrollY>500);
+    });
+
+    window.addEventListener("hashchange",function(){
+      const id=location.hash.slice(1);
+      if(id&&document.getElementById(id))showPage(id,{fromHash:true});
+    });
+
+    window.addEventListener("load",function(){
+      const id=location.hash.slice(1);
+      if(id&&document.getElementById(id))showPage(id,{fromHash:true});
+    });
+
+    document.getElementById("dvarSearch").addEventListener("input",function(e){renderDvars(e.target.value);});
+    document.getElementById("tefilaSearch").addEventListener("input",function(e){renderTefilot(e.target.value);});
+
+    function escapeHtml(str){
+      return String(str).replace(/[&<>"']/g,function(m){
+        return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m];
+      });
+    }
+
+    function escapeAttr(str){
+      return escapeHtml(str).replace(/`/g,"&#096;");
+    }
+
+    function indexLabel(n){
+      return String(n).padStart(2,"0");
+    }
+
+    initQuotes();
+    renderDvars("");
+    renderHitbo();
+    renderTefilot("");
+    renderCadres();
     renderShirtDots();
-    setupHomeButtons();
-    setupOptionalShirtVideo();
-    setupShirtSizeSelector();
-    setupImageLightbox();
+    setupSizes();
+    setupLightbox();
+    openTefila(0);
+    showPage("home",{fromHash:true});
     loadPsalms();
   </script>
 </body>
